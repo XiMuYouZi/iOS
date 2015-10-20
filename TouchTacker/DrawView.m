@@ -9,11 +9,12 @@
 #import "DrawView.h"
 #import "BNRLine.h"
 
-@interface DrawView()
+@interface DrawView()<UIGestureRecognizerDelegate>
 @property (nonatomic,strong)BNRLine * currentLine;
 @property(nonatomic ,strong)NSMutableArray *finishedLines;
 @property (nonatomic ,strong)NSMutableDictionary *lineInProgress;
 @property(nonatomic,weak)BNRLine *selectLine;
+@property(nonatomic,strong)UIPanGestureRecognizer *moveReconginzer;
 
 @end
 
@@ -48,10 +49,79 @@
         [tapReconginzer requireGestureRecognizerToFail:doubleTapRecognizer];
         [self addGestureRecognizer:tapReconginzer];
         
-            }
+        
+    
+//    长按选中线条
+    UILongPressGestureRecognizer *pressReconizer=[[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPress:)];
+    [self addGestureRecognizer:pressReconizer];
+    
+//    长按之后可以拖动线条
+    self.moveReconginzer=[[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(moveLine:)];
+    self.moveReconginzer.delegate=self;
+//    由于先长按选择了线条，此时拖动手势不会收到UIResponder消息，要让拖动手势可以接受消息，必须设置cancelsTouchesView属性为NO
+    self.moveReconginzer.cancelsTouchesInView=NO;
+    [self addGestureRecognizer:self.moveReconginzer];
+    
+    }
     return self;
 }
 
+
+/*如果是拖动手势，那么长按手势的子类对象就和其共享UITouch对象，如果是其他手势就不共享，这样长按之后可以拖动线条
+gestureRecognizer（后被识别的拖动手势）
+An instance of a subclass of the abstract base class UIGestureRecognizer. This is the object sending the message to the delegate.
+otherGestureRecognizer（先被识别的长按手势)
+An instance of a subclass of the abstract base class UIGestureRecognizer.*/
+
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    if (gestureRecognizer==self.moveReconginzer) {
+        return YES;
+    }
+    return NO;
+}
+
+
+//拖动线条
+-(void)moveLine:(UIPanGestureRecognizer*)gr
+{
+    if (!self.selectLine) {
+        return;
+    }
+    
+    if (gr.state==UIGestureRecognizerStateChanged) {
+        CGPoint translation=[gr translationInView:self];
+        CGPoint begin=self.selectLine.Begin;
+        CGPoint end=self.selectLine.End;
+        begin.x+=translation.x;
+        begin.y+=translation.y;
+        end.x+=translation.x;
+        end.y+=translation.y;
+        
+        self.selectLine.Begin=begin;
+        self.selectLine.End=end;
+        
+        [self setNeedsDisplay];
+        [gr setTranslation:CGPointZero inView:self];
+    }
+}
+
+//长按选中线条
+-(void)longPress:(UIGestureRecognizer *)gr
+{
+    if (gr.state==UIGestureRecognizerStateBegan) {
+        CGPoint point=[gr locationInView:self];
+        self.selectLine=[self lineAtPoint:point];
+        
+    
+       if (self.selectLine) {
+           [self.lineInProgress removeAllObjects];
+       }
+    }else if(gr.state==UIGestureRecognizerStateEnded){
+        self.selectLine=nil;
+    }
+    [self setNeedsDisplay];
+}
 
 //双击清除线条
 -(void)doubleTap:(UIGestureRecognizer *)gr
