@@ -7,17 +7,17 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>404A03A0-9A6C-4234-9307-5AAA3001E1CB</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Homepwner</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>FBDDB004D5AF374C99C1F195F7A399B342A091CF</key>
+		<key>249177E4F1C43387F99BF5AFBC42A3417AB10DB1</key>
 		<string>https://github.com/XiMuYouZi/iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Homepwner/Homepwner.xcodeproj/project.xcworkspace</string>
+	<string>Homepwner/Homepwner.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>FBDDB004D5AF374C99C1F195F7A399B342A091CF</key>
+		<key>249177E4F1C43387F99BF5AFBC42A3417AB10DB1</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,16 +25,16 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>FBDDB004D5AF374C99C1F195F7A399B342A091CF</string>
+	<string>249177E4F1C43387F99BF5AFBC42A3417AB10DB1</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>FBDDB004D5AF374C99C1F195F7A399B342A091CF</string>
+			<string>249177E4F1C43387F99BF5AFBC42A3417AB10DB1</string>
 			<key>IDESourceControlWCCName</key>
-			<string>iOS</string>
+			<string>iOS1</string>
 		</dict>
 	</array>
 </dict>

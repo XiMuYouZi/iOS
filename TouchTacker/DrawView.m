@@ -205,6 +205,11 @@ An instance of a subclass of the abstract base class UIGestureRecognizer.*/
         [self strokeLine:self.selectLine];
     }
     
+    float f=0.0;
+    for (int i=0; i<10000; i++) {
+        f=f+sin(sin(sin(time(NULL)+i)));
+    }
+    NSLog(@"f=%f",f);
 }
 
 
@@ -264,7 +269,8 @@ An instance of a subclass of the abstract base class UIGestureRecognizer.*/
         BNRLine * line=self.lineInProgress[key];
         [self.finishedLines addObject:line];
         [self.lineInProgress removeObjectForKey:key];
-    }[self setNeedsDisplay];
+    }
+    [self setNeedsDisplay];
 }
 
 

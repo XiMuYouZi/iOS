@@ -13,6 +13,7 @@
 @interface BNRLine : NSObject
 @property(nonatomic) CGPoint Begin;
 @property(nonatomic) CGPoint End;
+@property(nonatomic,strong)NSMutableArray * containingArray;
 
 
 

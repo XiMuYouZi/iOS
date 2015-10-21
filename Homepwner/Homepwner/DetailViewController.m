@@ -10,18 +10,90 @@
 #import "BNRItem.h"
 #import "ImageStore.h"
 
-@interface DetailViewController ()<UINavigationBarDelegate,UIImagePickerControllerDelegate,UITextFieldDelegate>
+@interface DetailViewController ()<UINavigationBarDelegate,UIImagePickerControllerDelegate,UITextFieldDelegate,UIPopoverControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *serialNumberField;
 @property (weak, nonatomic) IBOutlet UITextField *valueField;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property(strong,nonatomic)UIPopoverController *imagePickerPopover;
 @end
 
 @implementation DetailViewController
 
+
 #pragma keyboardAction - view life cycle
+
+//如果设备是iPhone，那么当设备处于横向界面，就隐藏imageview和toolbar，如果是ipad就不进行此操作
+-(void)preparViewForOrientation:(UIInterfaceOrientation)orientation
+{
+    if ([UIDevice currentDevice].userInterfaceIdiom==UIUserInterfaceIdiomPad)
+    {
+        return;
+    }
+    
+/*   判断设备是否处于横向位置
+    static inline BOOL UIInterfaceOrientationIsLandscape(UIInterfaceOrientation orientation) {
+        return ((orientation) == UIInterfaceOrientationLandscapeLeft || (orientation) == UIInterfaceOrientationLandscapeRight);
+    }
+*/
+    if (UIInterfaceOrientationIsLandscape(orientation)) {
+        self.imageView.hidden=YES;
+        self.cameraButton.enabled=NO;
+    }else{
+        self.imageView.hidden=NO;
+        self.cameraButton.enabled=YES;
+    }
+}
+
+
+//当界面旋转到新的方向就执行上面的preparVieworientation方法，第一个参数表示新的界面方向
+    -(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
+     
+        [self preparViewForOrientation:toInterfaceOrientation];
+    }
+
+/*
+创建一个新的imageview覆盖原来的imageview
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    UIImageView *iv =[[UIImageView alloc]initWithImage:nil];
+    iv.contentMode=UIViewContentModeScaleAspectFit;
+    iv.translatesAutoresizingMaskIntoConstraints=NO;
+    [self.view addSubview:iv];
+    self.imageView=iv;
+
+
+    [self.imageView setContentHuggingPriority:200 forAxis:UILayoutConstraintAxisVertical];
+    [self.imageView setContentCompressionResistancePriority:700 forAxis:UILayoutConstraintAxisVertical];
+    
+使用VFL语言写约束
+    NSDictionary *nameMap=@{@"imageView":self.imageView,
+                            @"dateLable":self.dateLabel,
+                            @"toolbar":self.toolbar};
+    
+    NSArray *horizatalContraints=[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[imageView]-0-|"
+                                                                         options:0
+                                                                         metrics:nil
+                                                                           views:nameMap];
+    
+    NSArray *verticalContraints=[NSLayoutConstraint constraintsWithVisualFormat:@"V:[dateLable]-8-[imageView]-8-[toolbar]"
+                                                                        options:0 metrics:nil
+                                                                          views:nameMap];
+    
+    
+    把约束添加到父视图也即是DetailViewController中
+    [self.view addConstraint:horizatalContraints];
+    [self.view addConstraint:verticalContraints];
+ 
+    
+    
+}
+ */
+
 
 
 //当用户点击textfield以外的屏幕区域时也可以关闭键盘
@@ -56,7 +128,18 @@
     self.imageView.image=image;
     
     //关闭imagepickercontroller
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    //当用户选择了照片之后也要释放popovercontroller对象
+//    当UIPopoverController对象存在就释放掉
+    if (self.imagePickerPopover) {
+        [self.imagePickerPopover dismissPopoverAnimated:YES];
+        self.imagePickerPopover=nil;
+    }else{
+//        关闭用模态形式显示的UIImagePickerController对象
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    
     
 }
 
@@ -64,7 +147,7 @@
 
 
 
-//实现imagepickercontroller的sourcetype属性，让用户选择照片
+//实现imagepickercontroller的sourcetype属性，让用户选择照片，如果是ipad就用popovercontroller显示照片选择界面，否则使用模态显示
 - (IBAction)takePicture:(id)sender {
     UIImagePickerController *imagePicker=[[UIImagePickerController alloc]init];
     //如果设备支持相机，就使用拍照模式，否则让用户从照片库中选择
@@ -74,8 +157,38 @@
         imagePicker.sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
     }
     imagePicker.delegate=self;
-    [self presentViewController:imagePicker animated:YES completion:nil];
+    
+//    创建UIPopoverController对象之前先检查设备是否是ipad
+    if ([UIDevice currentDevice].userInterfaceIdiom==UIUserInterfaceIdiomPad )
+    {
+//        创建UIPopoverController用于显示UIImagePickerController对象
+        self.imagePickerPopover=[[UIPopoverController alloc]initWithContentViewController:imagePicker];
+        self.imagePickerPopover.delegate=self;
+//        显示UIPopoverController对象，sender指向代表相机按钮的UIBarButtonItem对象
+        [self.imagePickerPopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }else{
+//        如果不是iPad，就用模态显示imagePicker
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    }
+    
+/*解决当用户连续点击两次拍照按钮程序崩溃的问题（但是我测试的时候没有出现这个问题,而且加了这些代码之后
+ 点击拍照按钮uipopovercontroller一闪就消失了）
+    if ([self.imagePickerPopover isPopoverVisible]) {
+        [self.imagePickerPopover dismissPopoverAnimated:YES];
+        self.imagePickerPopover=nil;
+        return;
+    }*/
+    
 }
+
+
+//点击屏幕其他区域关闭UIPopoverController之后，会向其委托对象发送popovercontrollerDidDismissPopover消息，
+//可以在这个消息中实现当用户点击屏幕其他区域就释放popovercontroller对象
+-(void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController{
+    NSLog(@"User dismissed popover");
+    self.imagePickerPopover=nil;
+}
+
 
 
 
@@ -120,6 +233,10 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    UIInterfaceOrientation io=[[UIApplication sharedApplication]statusBarOrientation];
+    [self preparViewForOrientation:io];
+    
     BNRItem *item=self.item;
     
     self.nameField.text=item.itemName;
