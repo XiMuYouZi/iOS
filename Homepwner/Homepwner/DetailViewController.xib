@@ -6,7 +6,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController">
             <connections>
-                <outlet property="cameraButton" destination="jkg-Pb-92v" id="4AA-kV-tFG"/>
                 <outlet property="dateLabel" destination="efX-u4-syU" id="DUq-Tm-X0M"/>
                 <outlet property="imageView" destination="W4e-7U-qwX" id="Fa9-Zl-aFo"/>
                 <outlet property="nameField" destination="NHh-4T-k6Y" id="wCe-E5-ctO"/>
@@ -17,7 +16,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleAspectFill" id="i5M-Pr-FkT" customClass="UIControl">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="UIControl">
             <rect key="frame" x="0.0" y="94" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -108,13 +107,14 @@
                 <constraint firstItem="jkg-Pb-92v" firstAttribute="top" secondItem="W4e-7U-qwX" secondAttribute="bottom" constant="33" id="Av1-ee-f73"/>
                 <constraint firstItem="4YE-yE-B6F" firstAttribute="baseline" secondItem="qLs-a7-IDu" secondAttribute="baseline" constant="14" id="E9Q-tY-Ulm"/>
                 <constraint firstItem="jkg-Pb-92v" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Lqe-Z2-Nrr"/>
+                <constraint firstAttribute="trailing" secondItem="W4e-7U-qwX" secondAttribute="trailing" constant="8" id="MAB-Vc-SA7"/>
                 <constraint firstItem="BPy-fv-VpJ" firstAttribute="leading" secondItem="Vko-Lk-FSf" secondAttribute="trailing" constant="11" id="MHD-Cm-d1N"/>
                 <constraint firstAttribute="trailing" secondItem="W4e-7U-qwX" secondAttribute="trailing" constant="20" id="OLJ-3s-MkM"/>
                 <constraint firstItem="0C9-hD-UvK" firstAttribute="leading" secondItem="4YE-yE-B6F" secondAttribute="leading" id="S4R-bE-Rwj"/>
+                <constraint firstItem="W4e-7U-qwX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="SZG-BJ-Mut"/>
                 <constraint firstItem="NHh-4T-k6Y" firstAttribute="leading" secondItem="0C9-hD-UvK" secondAttribute="trailing" constant="67" id="Sd0-ZO-o4Q"/>
                 <constraint firstItem="efX-u4-syU" firstAttribute="top" secondItem="BPy-fv-VpJ" secondAttribute="bottom" constant="13" id="U2b-Ld-2J3"/>
                 <constraint firstAttribute="trailing" secondItem="NHh-4T-k6Y" secondAttribute="trailing" constant="65" id="UvL-Dc-hb8"/>
-                <constraint firstAttribute="trailing" secondItem="W4e-7U-qwX" secondAttribute="trailing" constant="8" id="Xlh-fw-VMA"/>
                 <constraint firstItem="4YE-yE-B6F" firstAttribute="top" secondItem="0C9-hD-UvK" secondAttribute="bottom" constant="9" id="YJi-nZ-2DV"/>
                 <constraint firstItem="0C9-hD-UvK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Ych-q2-qZy"/>
                 <constraint firstAttribute="trailing" secondItem="BPy-fv-VpJ" secondAttribute="trailing" constant="65" id="ZA5-jb-bg5"/>
@@ -124,7 +124,6 @@
                 <constraint firstItem="W4e-7U-qwX" firstAttribute="top" secondItem="BPy-fv-VpJ" secondAttribute="bottom" constant="71" id="hkc-ta-ETI"/>
                 <constraint firstItem="Vko-Lk-FSf" firstAttribute="top" secondItem="4YE-yE-B6F" secondAttribute="bottom" constant="11" id="hvn-th-SiO"/>
                 <constraint firstItem="4YE-yE-B6F" firstAttribute="baseline" secondItem="qLs-a7-IDu" secondAttribute="baseline" id="lQp-7t-LKI"/>
-                <constraint firstItem="W4e-7U-qwX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="t77-oY-fjO"/>
                 <constraint firstItem="0C9-hD-UvK" firstAttribute="baseline" secondItem="NHh-4T-k6Y" secondAttribute="baseline" id="u1D-34-5fC"/>
                 <constraint firstAttribute="bottom" secondItem="jkg-Pb-92v" secondAttribute="bottom" constant="8" id="wt9-b3-PAB"/>
                 <constraint firstItem="BPy-fv-VpJ" firstAttribute="leading" secondItem="Vko-Lk-FSf" secondAttribute="trailing" constant="11" id="x8Q-En-iWW"/>
