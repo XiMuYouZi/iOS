@@ -32,8 +32,11 @@
 
 //当用户点击tableview对象中的某个表格行，该对象会向其委托对象itemsviewcontroller
 //发送tableview：didselectatindexpath：消息，那么如果需要再detailviewcontroller显示之前做一些动作，就可以在该方法中来实现
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    DetailViewController *detailViewController=[[DetailViewController alloc]init];
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+    //使用自定义的初始化方法来初始化，而不是使用父类的初始化方法
+    DetailViewController *detailViewController=[[DetailViewController alloc]initForNewItem:NO];
     
     //在detailviewcontroller对象收到viewwillapper：消息之前将该对象的item属相设置为响应的BNRitem对象
     NSArray *items=[[ItemStore shareStore]allItems];
@@ -42,6 +45,7 @@
     
     
     //在该方法中实现当用户点击某行的时候，就创建detailviewcontroller对象并压入navigationcontroller对象栈
+//    [self presentViewController:detailViewController animated:YES completion:nil];
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
@@ -69,13 +73,37 @@
     }
 }
 
-//实现New按钮的功能，可以添加条目
+
+
+//实现New按钮的功能，可以用模态形式添加条目
 -(IBAction)addNewItem:(id)sender
 {
     BNRItem *newItem=[[ItemStore shareStore]createItem];
-    NSInteger lastRow=[[[ItemStore shareStore]allItems]indexOfObject:newItem];
-    NSIndexPath *indexPath=[NSIndexPath indexPathForRow:lastRow inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    
+//    先创建一个新的DetailViewController对象，然后创建一个新的UINavigationController 对象，
+//    然后把DetailViewController作为UINavigationController的根viewcontroller，然后用模态形式显示UINavigationController
+    DetailViewController *detailViewController=[[DetailViewController alloc]initForNewItem:YES];
+    detailViewController.item=newItem;
+    
+//    创建负责刷新UITableView的block对象
+    detailViewController.dismissBlock=^{[self.tableView reloadData];};
+    
+    UINavigationController *navController =[[UINavigationController alloc]initWithRootViewController:detailViewController];
+//    用页表单形式显示模态视图,注意这里修改的是navigationcontroller的modalpresenttation，而不是detailviewcontroller，因为以模态显示视图控制器的是navigationcontroller
+    navController.modalPresentationStyle=UIModalPresentationFormSheet;
+//    navController.modalTransitionStyle=UIModalTransitionStyleCrossDissolve;
+//    
+//    navController.modalPresentationStyle=UIModalPresentationCurrentContext;
+//    self.definesPresentationContext=YES;
+    
+//    因为用formsheet模态显示DetailViewController的时候，ItemsViewController并没有消失，所以viewwillappear和viewdidappear不能被加载，所以必须在ItemsViewController
+//    的某个方法中提前完成添加功能
+    [self presentViewController:navController animated:YES completion:nil];
+    
+    
+    
+    
+    
 }
 
 

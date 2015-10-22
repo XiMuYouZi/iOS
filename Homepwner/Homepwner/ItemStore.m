@@ -11,6 +11,28 @@
 
 @implementation ItemStore
 
+//获取应用沙盒的Documents目录的全路径
+-(NSString *)itemArchivePath
+{
+    NSArray *documentDirectories=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                                     NSUserDomainMask,YES );
+    
+    NSString *documentDirectory=[documentDirectories firstObject];
+    return [documentDirectory stringByAppendingString:@"item.archive"];
+}
+
+
+//把privateItems中所有的BNRItem对象都保存到itemArchivePath中,保存成功就返回yes
+-(BOOL)saveChanges
+{
+    NSString * path=[self itemArchivePath];
+    return [NSKeyedArchiver archiveRootObject:self.privateItems toFile:path];
+}
+
+
+
+
+
 //实现itemstore里面的item位置互换功能
 - (void)moveItemAtIndex:(NSInteger)fromIndex
                 toIndex:(NSInteger)toIndex
@@ -31,7 +53,7 @@
 
 
 
-//从Itermstore和ImageStore中删除想用的对象
+//从Itermstore和ImageStore中删除相应的对象
 -(void)removeItem:(BNRItem *)item
 {
     //如果用户删除了BNRitem对象，那么也需要删除imagestore中对应的UIImage对象
@@ -70,7 +92,14 @@
 {
     self=[super init];
     if (self) {
-        _privateItems=[[NSMutableArray alloc]init];
+//        从指定路径中读取保存的BNRItem
+        NSString *path=[self itemArchivePath];
+        _privateItems=[NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        
+//        如果没有保存过BNRItem,那就就初始化一个privateItems
+        if (!_privateItems) {
+            _privateItems=[[NSMutableArray alloc]init];
+        }
     }
     return self;
 }
@@ -85,7 +114,7 @@
 -(BNRItem *)createItem
 {
     //调用BNRitem的类方法randomItem生成随机数组赋给变量item
-    BNRItem *item=[BNRItem randonItem];
+    BNRItem *item=[[BNRItem alloc]init];
     [self.privateItems addObject:item];
     return item;
     

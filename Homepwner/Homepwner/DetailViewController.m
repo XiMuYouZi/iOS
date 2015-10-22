@@ -9,8 +9,10 @@
 #import "DetailViewController.h"
 #import "BNRItem.h"
 #import "ImageStore.h"
+#import "ItemStore.h"
 
 @interface DetailViewController ()<UINavigationBarDelegate,UIImagePickerControllerDelegate,UITextFieldDelegate,UIPopoverControllerDelegate>
+
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *serialNumberField;
 @property (weak, nonatomic) IBOutlet UITextField *valueField;
@@ -23,6 +25,56 @@
 
 @implementation DetailViewController
 
+
+//实现新的初始化方法，当用户点击tableview界面的添加按钮，DetailViewController就会以模态形式推出一个添加页面
+-(instancetype)initForNewItem:(BOOL)isNew
+{
+    self=[super initWithNibName:nil bundle:nil];
+    if (self) {
+        if (isNew) {
+            UIBarButtonItem *doneItem=[[UIBarButtonItem alloc]
+                                       initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                       target:self
+                                       action:@selector(save:)];
+            self.navigationItem.leftBarButtonItem=doneItem;
+            
+            UIBarButtonItem *cancelItem=[[UIBarButtonItem alloc]
+                                         initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+                                         target:self
+                                         action:@selector(cancel:)];
+            self.navigationItem.rightBarButtonItem=cancelItem;
+        }
+    }
+    return self;
+}
+
+
+// 禁用父类的初始化方法
+-(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    @throw [NSException exceptionWithName:@"wrong initializer" reason:@"use initForItem" userInfo:nil];
+    return nil;
+}
+
+
+//实现done按钮的功能（P333)
+-(void)save:(id)sender
+{
+//    completion后面跟的是一个block对象指针，指向的是itemsviewcontroller页面定义的一个block对象，该对象用于刷新tableview
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:self.dismissBlock];
+}
+
+
+//实现cancle按钮功能
+-(void)cancel:(id)sender
+{
+    [[ItemStore shareStore]removeItem:self.item];
+//    属性presentingVieeController：The view controller that presented this view controller. (read-only)
+//    completion后面跟的是一个block对象指针，指向的是itemsviewcontroller页面定义的一个block对象，该对象用于刷新tableview
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:self.dismissBlock];
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------*/
 
 #pragma keyboardAction - view life cycle
 

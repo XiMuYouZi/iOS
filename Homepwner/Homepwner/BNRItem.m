@@ -12,6 +12,31 @@
 
 
 
+//实现nscoding协议的保存方法
+-(void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.itemName forKey:@"itemName"];
+    [aCoder encodeObject:self.serialNumber forKey:@"serialNumber"];
+    [aCoder encodeObject:self.dateCreate forKey:@"dateCreate"];
+    [aCoder encodeObject:self.itemKey forKey:@"itemKey"];
+    [aCoder encodeInt:self.valueInDollars forKey:@"vauleInDollars"];
+    
+}
+
+
+//实现nscoding协议的读取方法
+-(instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self=[super init];
+    if (self) {
+        _itemName=[aDecoder decodeObjectForKey:@"itemName"];
+        _serialNumber=[aDecoder decodeObjectForKey:@"serialNumber"];
+        _dateCreate=[aDecoder decodeObjectForKey:@"dateCreate"];
+        _itemKey=[aDecoder decodeObjectForKey:@"itemKey"];
+        _valueInDollars=[aDecoder decodeIntForKey:@"vauleInDollars"];
+    }
+    return self;
+}
 
 
 -(NSString* )description

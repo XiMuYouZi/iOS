@@ -1,7 +1,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BNRItem : NSObject
+@interface BNRItem : NSObject<NSCoding>
 
 @property NSString *itemName;
 @property NSString *serialNumber;

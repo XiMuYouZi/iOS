@@ -10,6 +10,7 @@
 
 @interface ImageStore ()
 @property (nonatomic,strong)NSMutableDictionary *dictionary;
+-(NSString *)imagePathForKey:(NSString *)key;
 
 @end
 
@@ -40,13 +41,26 @@
     return self;
 }
 
+//建立永久存储照片的路径
+-(NSString*)imagePathForKey:(NSString *)key
+{
+    NSArray *documentDirectories=
+    NSSearchPathForDirectoriesInDomains(
+                                        NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentDirectory=[documentDirectories firstObject];
+    return [documentDirectory stringByAppendingString:key];
+}
 
-
-//存储照片
+//永久存储照片
 -(void)setImage:(UIImage *)image forKey:(NSString *)key
 {
     //[self.dictionary setObject:image forKey:key];
     self.dictionary[key]=image;
+    NSString *imagePath=[self imagePathForKey:key];
+//    从图片中提取jpeg的二进制数据，不压缩
+    NSData *data=UIImageJPEGRepresentation(image, 1);
+//    把JPEG数据写入路径中保存
+    [data writeToFile:imagePath atomically:YES];
 }
 
 
@@ -54,7 +68,21 @@
 //返回照片
 -(UIImage *)imageForKey:(NSString *)key
 {
-    return [self.dictionary objectForKey:key];
+//    先从程序的ImageStore的dictionary中获取照片,也就是缓存中
+    UIImage *result=self.dictionary[key];
+    
+//    如果无法获取，就从永久路径中获取
+    if (!result) {
+        NSString *imagePath=[self imagePathForKey:key];
+        result=[UIImage imageWithContentsOfFile:imagePath];
+//        从永久路径中获取照片后放入缓存中
+        if (result) {
+            self.dictionary[key]=result;
+        }else{
+            NSLog(@"ERROR:unable to find %@",[self imagePathForKey:key]);
+        }
+    }
+    return  result;
 }
 
 
@@ -66,6 +94,9 @@
     }
     
     [self.dictionary removeObjectForKey:key];
+//    从永久存储中移除image
+    NSString * imagePath=[self imagePathForKey:key];
+    [[NSFileManager defaultManager]removeItemAtPath:imagePath error:nil];
 }
 
 @end
