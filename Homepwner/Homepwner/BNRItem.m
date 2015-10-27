@@ -8,9 +8,48 @@
 
 #import "BNRItem.h"
 
+
 @implementation BNRItem
 
 
+//根据用户选择的图片创建缩略图，然后赋给tableviewcell的imageview
+-(void)setThumbnailFromImage:(UIImage *)image
+{
+    CGSize origImageSize=image.size;
+    
+//    缩略图大小
+    CGRect newRect=CGRectMake(0, 0, 40, 40);
+    
+//    确定放大倍数并保持宽高比不变
+    float ratio=MAX(newRect.size.width/origImageSize.width, newRect.size.height/origImageSize.height);
+    
+//    根据当前设备的屏幕scaling factor创建透明图形上下文
+    UIGraphicsBeginImageContextWithOptions(newRect.size, NO, 0.0);
+    
+//    创建圆角矩形
+    UIBezierPath *path=[UIBezierPath bezierPathWithRoundedRect:newRect cornerRadius:5.0];
+    
+//    根据圆角矩形裁剪上下文
+    [path addClip];
+    
+//    让图片在缩略图中居中显示
+    CGRect projectRect;
+    projectRect.size.width=ratio*origImageSize.width;
+    projectRect.size.height=ratio*origImageSize.height;
+    projectRect.origin.x=(newRect.size.width-projectRect.size.width)/2.0;
+    projectRect.origin.y=(newRect.size.height-projectRect.size.height)/2.0;
+    
+//    在上下文中绘制图片
+    [image drawInRect:projectRect];
+    
+//    通过图形上下文得到UIImage对象，并赋给thumbnail属性
+    UIImage *smallImage=UIGraphicsGetImageFromCurrentImageContext();
+    self.thumbnail=smallImage;
+    
+//    清理上下文
+    UIGraphicsEndImageContext();
+
+}
 
 //实现nscoding协议的保存方法
 -(void)encodeWithCoder:(NSCoder *)aCoder
@@ -20,6 +59,7 @@
     [aCoder encodeObject:self.dateCreate forKey:@"dateCreate"];
     [aCoder encodeObject:self.itemKey forKey:@"itemKey"];
     [aCoder encodeInt:self.valueInDollars forKey:@"vauleInDollars"];
+    [aCoder encodeObject:self.thumbnail forKey:@"thumbnail"];
     
 }
 
@@ -34,6 +74,7 @@
         _dateCreate=[aDecoder decodeObjectForKey:@"dateCreate"];
         _itemKey=[aDecoder decodeObjectForKey:@"itemKey"];
         _valueInDollars=[aDecoder decodeIntForKey:@"vauleInDollars"];
+        _thumbnail=[aDecoder decodeObjectForKey:@"thumbnail"];
     }
     return self;
 }

@@ -20,6 +20,9 @@
 		0D9BC3C81BD48C8500D0E9C1 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9BC3C61BD48C8500D0E9C1 /* DetailViewController.m */; };
 		0D9BC3C91BD48C8500D0E9C1 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D9BC3C71BD48C8500D0E9C1 /* DetailViewController.xib */; };
 		0D9BC3CC1BD4D87900D0E9C1 /* ImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9BC3CB1BD4D87900D0E9C1 /* ImageStore.m */; };
+		0DF101921BD9D22A000F1284 /* ItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF101911BD9D22A000F1284 /* ItemCell.m */; };
+		0DF101941BD9D256000F1284 /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DF101931BD9D256000F1284 /* ItemCell.xib */; };
+		0DF101971BDDC922000F1284 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF101961BDDC922000F1284 /* ImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,11 @@
 		0D9BC3C71BD48C8500D0E9C1 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		0D9BC3CA1BD4D87900D0E9C1 /* ImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageStore.h; sourceTree = "<group>"; };
 		0D9BC3CB1BD4D87900D0E9C1 /* ImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageStore.m; sourceTree = "<group>"; };
+		0DF101901BD9D22A000F1284 /* ItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemCell.h; path = ../ItemCell.h; sourceTree = "<group>"; };
+		0DF101911BD9D22A000F1284 /* ItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemCell.m; path = ../ItemCell.m; sourceTree = "<group>"; };
+		0DF101931BD9D256000F1284 /* ItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ItemCell.xib; path = ../ItemCell.xib; sourceTree = "<group>"; };
+		0DF101951BDDC922000F1284 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageViewController.h; path = ../ImageViewController.h; sourceTree = "<group>"; };
+		0DF101961BDDC922000F1284 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageViewController.m; path = ../ImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +106,11 @@
 		0D9BC38D1BCF8A9400D0E9C1 /* Homepwner */ = {
 			isa = PBXGroup;
 			children = (
+				0DF101951BDDC922000F1284 /* ImageViewController.h */,
+				0DF101961BDDC922000F1284 /* ImageViewController.m */,
+				0DF101901BD9D22A000F1284 /* ItemCell.h */,
+				0DF101911BD9D22A000F1284 /* ItemCell.m */,
+				0DF101931BD9D256000F1284 /* ItemCell.xib */,
 				0D9BC3BA1BCF8E5B00D0E9C1 /* ItemsViewController.h */,
 				0D9BC3BB1BCF8E5B00D0E9C1 /* ItemsViewController.m */,
 				0D9BC3921BCF8A9400D0E9C1 /* AppDelegate.h */,
@@ -229,6 +242,7 @@
 			files = (
 				0D9BC39A1BCF8A9400D0E9C1 /* Main.storyboard in Resources */,
 				0D9BC39F1BCF8A9400D0E9C1 /* LaunchScreen.xib in Resources */,
+				0DF101941BD9D256000F1284 /* ItemCell.xib in Resources */,
 				0D9BC3C91BD48C8500D0E9C1 /* DetailViewController.xib in Resources */,
 				0D9BC39C1BCF8A9400D0E9C1 /* Images.xcassets in Resources */,
 			);
@@ -248,6 +262,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DF101971BDDC922000F1284 /* ImageViewController.m in Sources */,
+				0DF101921BD9D22A000F1284 /* ItemCell.m in Sources */,
 				0D9BC3971BCF8A9400D0E9C1 /* ViewController.m in Sources */,
 				0D9BC3BC1BCF8E5B00D0E9C1 /* ItemsViewController.m in Sources */,
 				0D9BC3C21BD0A07300D0E9C1 /* ItemStore.m in Sources */,

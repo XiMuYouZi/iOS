@@ -21,10 +21,27 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property(strong,nonatomic)UIPopoverController *imagePickerPopover;
+
+@property(weak,nonatomic)IBOutlet UILabel *nameLabel;
+@property(weak,nonatomic)IBOutlet UILabel *serialNumberLabel;
+@property(weak,nonatomic)IBOutlet UILabel * valueLabel;
 @end
 
 @implementation DetailViewController
 
+
+//调整label和text的文字大小
+-(void)updateFonts
+{
+    UIFont *font=[UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    self.nameLabel.font=font;
+    self.serialNumberLabel.font=font;
+    self.valueLabel.font=font;
+    self.dateLabel.font=font;
+    self.nameField.font=font;
+    self.serialNumberField.font=font;
+    self.valueField.font=font;
+}
 
 //实现新的初始化方法，当用户点击tableview界面的添加按钮，DetailViewController就会以模态形式推出一个添加页面
 -(instancetype)initForNewItem:(BOOL)isNew
@@ -44,10 +61,21 @@
                                          action:@selector(cancel:)];
             self.navigationItem.rightBarButtonItem=cancelItem;
         }
+//        用户修改了字体大小之后，引用会受到UIContentSizeCategoryDidChangeNotification通知，可以注册为该通知的接受者，那么当用户改变字体之后，就可以执行一些动作
+//        比如调用updatefonts方法来实现在设置里面修改了字体大小，马上就修改DetailViewController界面的控件的字体大小
+        NSNotificationCenter *defaultCenter=[NSNotificationCenter defaultCenter];
+        [defaultCenter addObserver:self selector:@selector(updateFonts) name:UIContentSizeCategoryDidChangeNotification object:nil];
     }
     return self;
 }
 
+
+
+-(void)dealloc
+{
+    NSNotificationCenter *defaultCenter=[NSNotificationCenter defaultCenter];
+    [defaultCenter removeObserver:self];
+}
 
 // 禁用父类的初始化方法
 -(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -61,6 +89,8 @@
 -(void)save:(id)sender
 {
 //    completion后面跟的是一个block对象指针，指向的是itemsviewcontroller页面定义的一个block对象，该对象用于刷新tableview
+//    这句话的作用：当用户点击save按钮保存的时候，就调用dismissblock属性，该属性指向itemsviewcontroller的一个block对象，该block对象负责刷新tableview
+//    所以当用户点击save按钮的时候就刷新了tableview。
     [self.presentingViewController dismissViewControllerAnimated:YES completion:self.dismissBlock];
 }
 
@@ -173,6 +203,9 @@
     //通过info字典选择用户点击的照片
     UIImage *image=info[UIImagePickerControllerOriginalImage];
     
+//    创建选择照片的缩略图
+    [self.item setThumbnailFromImage:image];
+    
     //用itemkey作为键值，把照片存入imagestore中
     [[ImageStore shareStore]setImage:image forKey:self.item.itemKey];
     
@@ -194,8 +227,6 @@
     
     
 }
-
-
 
 
 
@@ -309,6 +340,8 @@
     NSString *itemKey=self.item.itemKey;
     UIImage *imageToDisplay=[[ImageStore shareStore]imageForKey:itemKey];
     self.imageView.image=imageToDisplay;
+    
+    [self updateFonts];
 
     
 }
