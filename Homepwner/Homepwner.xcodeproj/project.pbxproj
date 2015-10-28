@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D46E1141BDF3FE0007181C0 /* ImageTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D46E1131BDF3FE0007181C0 /* ImageTransformer.m */; };
+		0D46E1231BDF7AA9007181C0 /* Homepwner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D46E1211BDF7AA9007181C0 /* Homepwner.xcdatamodeld */; };
+		0D46E1261BDF7C37007181C0 /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D46E1251BDF7C37007181C0 /* BNRItem.m */; };
+		0D46E12C1BDF81AE007181C0 /* AssetTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D46E12B1BDF81AE007181C0 /* AssetTypeViewController.m */; };
 		0D9BC3911BCF8A9400D0E9C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9BC3901BCF8A9400D0E9C1 /* main.m */; };
 		0D9BC3941BCF8A9400D0E9C1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9BC3931BCF8A9400D0E9C1 /* AppDelegate.m */; };
 		0D9BC3971BCF8A9400D0E9C1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9BC3961BCF8A9400D0E9C1 /* ViewController.m */; };
@@ -15,7 +19,6 @@
 		0D9BC39F1BCF8A9400D0E9C1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D9BC39D1BCF8A9400D0E9C1 /* LaunchScreen.xib */; };
 		0D9BC3AB1BCF8A9400D0E9C1 /* HomepwnerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9BC3AA1BCF8A9400D0E9C1 /* HomepwnerTests.m */; };
 		0D9BC3BC1BCF8E5B00D0E9C1 /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9BC3BB1BCF8E5B00D0E9C1 /* ItemsViewController.m */; };
-		0D9BC3BF1BCF91BF00D0E9C1 /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9BC3BE1BCF91BF00D0E9C1 /* BNRItem.m */; };
 		0D9BC3C21BD0A07300D0E9C1 /* ItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9BC3C11BD0A07300D0E9C1 /* ItemStore.m */; };
 		0D9BC3C81BD48C8500D0E9C1 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9BC3C61BD48C8500D0E9C1 /* DetailViewController.m */; };
 		0D9BC3C91BD48C8500D0E9C1 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D9BC3C71BD48C8500D0E9C1 /* DetailViewController.xib */; };
@@ -36,6 +39,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D46E1121BDF3FE0007181C0 /* ImageTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageTransformer.h; path = ../ImageTransformer.h; sourceTree = "<group>"; };
+		0D46E1131BDF3FE0007181C0 /* ImageTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageTransformer.m; path = ../ImageTransformer.m; sourceTree = "<group>"; };
+		0D46E1221BDF7AA9007181C0 /* Homepwner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Homepwner.xcdatamodel; sourceTree = "<group>"; };
+		0D46E1241BDF7C37007181C0 /* BNRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BNRItem.h; path = ../BNRItem.h; sourceTree = "<group>"; };
+		0D46E1251BDF7C37007181C0 /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BNRItem.m; path = ../BNRItem.m; sourceTree = "<group>"; };
+		0D46E12A1BDF81AE007181C0 /* AssetTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AssetTypeViewController.h; path = ../AssetTypeViewController.h; sourceTree = "<group>"; };
+		0D46E12B1BDF81AE007181C0 /* AssetTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AssetTypeViewController.m; path = ../AssetTypeViewController.m; sourceTree = "<group>"; };
 		0D9BC38B1BCF8A9400D0E9C1 /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D9BC38F1BCF8A9400D0E9C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D9BC3901BCF8A9400D0E9C1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -51,8 +61,6 @@
 		0D9BC3AA1BCF8A9400D0E9C1 /* HomepwnerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomepwnerTests.m; sourceTree = "<group>"; };
 		0D9BC3BA1BCF8E5B00D0E9C1 /* ItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ItemsViewController.h; path = ../ItemsViewController.h; sourceTree = "<group>"; };
 		0D9BC3BB1BCF8E5B00D0E9C1 /* ItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ItemsViewController.m; path = ../ItemsViewController.m; sourceTree = "<group>"; };
-		0D9BC3BD1BCF91BF00D0E9C1 /* BNRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItem.h; sourceTree = "<group>"; };
-		0D9BC3BE1BCF91BF00D0E9C1 /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItem.m; sourceTree = "<group>"; };
 		0D9BC3C01BD0A07300D0E9C1 /* ItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemStore.h; sourceTree = "<group>"; };
 		0D9BC3C11BD0A07300D0E9C1 /* ItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemStore.m; sourceTree = "<group>"; };
 		0D9BC3C51BD48C8500D0E9C1 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -88,6 +96,7 @@
 		0D9BC3821BCF8A9400D0E9C1 = {
 			isa = PBXGroup;
 			children = (
+				0D46E1211BDF7AA9007181C0 /* Homepwner.xcdatamodeld */,
 				0D9BC38D1BCF8A9400D0E9C1 /* Homepwner */,
 				0D9BC3A71BCF8A9400D0E9C1 /* HomepwnerTests */,
 				0D9BC38C1BCF8A9400D0E9C1 /* Products */,
@@ -106,6 +115,12 @@
 		0D9BC38D1BCF8A9400D0E9C1 /* Homepwner */ = {
 			isa = PBXGroup;
 			children = (
+				0D46E12A1BDF81AE007181C0 /* AssetTypeViewController.h */,
+				0D46E12B1BDF81AE007181C0 /* AssetTypeViewController.m */,
+				0D46E1241BDF7C37007181C0 /* BNRItem.h */,
+				0D46E1251BDF7C37007181C0 /* BNRItem.m */,
+				0D46E1121BDF3FE0007181C0 /* ImageTransformer.h */,
+				0D46E1131BDF3FE0007181C0 /* ImageTransformer.m */,
 				0DF101951BDDC922000F1284 /* ImageViewController.h */,
 				0DF101961BDDC922000F1284 /* ImageViewController.m */,
 				0DF101901BD9D22A000F1284 /* ItemCell.h */,
@@ -120,8 +135,6 @@
 				0D9BC3C71BD48C8500D0E9C1 /* DetailViewController.xib */,
 				0D9BC3CA1BD4D87900D0E9C1 /* ImageStore.h */,
 				0D9BC3CB1BD4D87900D0E9C1 /* ImageStore.m */,
-				0D9BC3BD1BCF91BF00D0E9C1 /* BNRItem.h */,
-				0D9BC3BE1BCF91BF00D0E9C1 /* BNRItem.m */,
 				0D9BC3C01BD0A07300D0E9C1 /* ItemStore.h */,
 				0D9BC3C11BD0A07300D0E9C1 /* ItemStore.m */,
 				0D9BC3961BCF8A9400D0E9C1 /* ViewController.m */,
@@ -262,13 +275,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D46E1141BDF3FE0007181C0 /* ImageTransformer.m in Sources */,
+				0D46E1261BDF7C37007181C0 /* BNRItem.m in Sources */,
 				0DF101971BDDC922000F1284 /* ImageViewController.m in Sources */,
 				0DF101921BD9D22A000F1284 /* ItemCell.m in Sources */,
 				0D9BC3971BCF8A9400D0E9C1 /* ViewController.m in Sources */,
 				0D9BC3BC1BCF8E5B00D0E9C1 /* ItemsViewController.m in Sources */,
 				0D9BC3C21BD0A07300D0E9C1 /* ItemStore.m in Sources */,
-				0D9BC3BF1BCF91BF00D0E9C1 /* BNRItem.m in Sources */,
 				0D9BC3941BCF8A9400D0E9C1 /* AppDelegate.m in Sources */,
+				0D46E1231BDF7AA9007181C0 /* Homepwner.xcdatamodeld in Sources */,
+				0D46E12C1BDF81AE007181C0 /* AssetTypeViewController.m in Sources */,
 				0D9BC3911BCF8A9400D0E9C1 /* main.m in Sources */,
 				0D9BC3C81BD48C8500D0E9C1 /* DetailViewController.m in Sources */,
 				0D9BC3CC1BD4D87900D0E9C1 /* ImageStore.m in Sources */,
@@ -480,6 +496,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0D46E1211BDF7AA9007181C0 /* Homepwner.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0D46E1221BDF7AA9007181C0 /* Homepwner.xcdatamodel */,
+			);
+			currentVersion = 0D46E1221BDF7AA9007181C0 /* Homepwner.xcdatamodel */;
+			path = Homepwner.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0D9BC3831BCF8A9400D0E9C1 /* Project object */;
 }

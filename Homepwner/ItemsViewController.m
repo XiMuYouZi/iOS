@@ -67,7 +67,7 @@
     DetailViewController *detailViewController=[[DetailViewController alloc]initForNewItem:NO];
     
     //在detailviewcontroller对象收到viewwillapper：消息之前将该对象的item属相设置为响应的BNRitem对象
-    NSArray *items=[[ItemStore shareStore]allItems];
+    NSArray *items=[[ItemStore sharedStore]allItems];
     BNRItem *selectItem=items[indexPath.row];
     detailViewController.item=selectItem;
     
@@ -84,7 +84,7 @@
   moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
          toIndexPath:(NSIndexPath *)destinationIndexPath
 {
-    [[ItemStore shareStore] moveItemAtIndex:sourceIndexPath.row
+    [[ItemStore sharedStore] moveItemAtIndex:sourceIndexPath.row
                                         toIndex:destinationIndexPath.row];
     
 }
@@ -95,9 +95,9 @@
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle==UITableViewCellEditingStyleDelete) {
-        NSArray *items=[[ItemStore shareStore]allItems];
+        NSArray *items=[[ItemStore sharedStore]allItems];
         BNRItem *item=items[indexPath.row];
-        [[ItemStore shareStore]removeItem:item];
+        [[ItemStore sharedStore]removeItem:item];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
         
     }
@@ -108,7 +108,7 @@
 //实现+按钮的功能，可以用模态形式添加条目
 -(IBAction)addNewItem:(id)sender
 {
-    BNRItem *newItem=[[ItemStore shareStore]createItem];
+    BNRItem *newItem=[[ItemStore sharedStore]createItem];
     
 //    先创建一个新的DetailViewController对象，然后创建一个新的UINavigationController 对象，
 //    然后把DetailViewController作为UINavigationController的根viewcontroller，然后用模态形式显示UINavigationController
@@ -189,7 +189,7 @@
 {
     //itemstore sharestore是获取itemstore对象的内存地址，allitem是返回所有的item对象，
     //count是计算返回所有item对象的个数
-    return [[[ItemStore shareStore]allItems]count];
+    return [[[ItemStore sharedStore]allItems]count];
 }
 
 
@@ -206,7 +206,7 @@
 
     //获取allItems的第n个BNRItem对象，让后讲BNRitem对象的description赋给tableviewcell对象的textlabel
     //这里的n就是该tableviewcell对象的对应的表格的行索引
-    NSArray *items=[[ItemStore shareStore]allItems];
+    NSArray *items=[[ItemStore sharedStore]allItems];
     BNRItem *item=items[indexPath.row];
     cell.nameLabel.text=item.itemName;
     cell.serialNumberLabel.text=item.serialNumber;

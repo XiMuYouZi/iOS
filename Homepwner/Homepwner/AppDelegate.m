@@ -37,7 +37,7 @@
 //当用户点击home键返回到主界面的时候，需要触发保存方法saveChange：
 - (void)applicationDidEnterBackground:(UIApplication *)application {
 
-    bool success=[[ItemStore shareStore]saveChanges];
+    bool success=[[ItemStore sharedStore]saveChanges];
     if (success) {
         NSLog(@"saved all of the BNRItems");
     }else{

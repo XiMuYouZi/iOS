@@ -10,6 +10,7 @@
 #import "BNRItem.h"
 #import "ImageStore.h"
 #import "ItemStore.h"
+#import "AssetTypeViewController.h"
 
 @interface DetailViewController ()<UINavigationBarDelegate,UIImagePickerControllerDelegate,UITextFieldDelegate,UIPopoverControllerDelegate>
 
@@ -25,10 +26,20 @@
 @property(weak,nonatomic)IBOutlet UILabel *nameLabel;
 @property(weak,nonatomic)IBOutlet UILabel *serialNumberLabel;
 @property(weak,nonatomic)IBOutlet UILabel * valueLabel;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *assetTypeButton;
 @end
 
 @implementation DetailViewController
 
+//点击assetType按钮显示分类页面
+- (IBAction)showAssetTypePicker:(id)sender {
+    [self.view endEditing:YES];
+    
+    AssetTypeViewController *avc=[[AssetTypeViewController alloc]init];
+    avc.item=self.item;
+    [self.navigationController pushViewController:avc animated:YES];
+
+}
 
 //调整label和text的文字大小
 -(void)updateFonts
@@ -98,7 +109,7 @@
 //实现cancle按钮功能
 -(void)cancel:(id)sender
 {
-    [[ItemStore shareStore]removeItem:self.item];
+    [[ItemStore sharedStore]removeItem:self.item];
 //    属性presentingVieeController：The view controller that presented this view controller. (read-only)
 //    completion后面跟的是一个block对象指针，指向的是itemsviewcontroller页面定义的一个block对象，该对象用于刷新tableview
     [self.presentingViewController dismissViewControllerAnimated:YES completion:self.dismissBlock];
@@ -333,7 +344,7 @@
         dateFormatter.timeStyle=NSDateFormatterNoStyle;
     }
     
-    self.dateLabel.text=[dateFormatter stringFromDate:item.dateCreate];
+    self.dateLabel.text=[dateFormatter stringFromDate:item.dateCreated];
     
     
     //当用户点击tableview的某个表格行进入detailviewcontroller的时候显示图片
@@ -341,6 +352,15 @@
     UIImage *imageToDisplay=[[ImageStore shareStore]imageForKey:itemKey];
     self.imageView.image=imageToDisplay;
     
+//    调用BNRItem对象item的属性assetType,该属性属于的NSManagedObject，表示的是BNRItem实体BNRAssetType
+//    实体之间的一对多的关系,使用label作为key调用BNRassetType实体的label属性
+    NSString *typeLabel = [self.item.assetType valueForKey:@"label"];
+    if (!typeLabel) {
+        typeLabel = @"None";
+    }
+    
+    self.assetTypeButton.title = [NSString stringWithFormat:@"Type: %@", typeLabel];
+
     [self updateFonts];
 
     

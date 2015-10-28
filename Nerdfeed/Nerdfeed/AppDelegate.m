@@ -27,7 +27,7 @@
     UINavigationController *masterNav=[[UINavigationController alloc]initWithRootViewController:cvc];
     WebViewController *wvc=[[WebViewController alloc]init];
     cvc.webViewController=wvc;
-    self.window.rootViewController=masterNav;
+//    self.window.rootViewController=masterNav;
     
     if ([[UIDevice currentDevice] userInterfaceIdiom]==UIUserInterfaceIdiomPad) {
         UINavigationController *detailNav=

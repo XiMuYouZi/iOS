@@ -6,13 +6,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController">
             <connections>
+                <outlet property="assetTypeButton" destination="tsl-bZ-yhm" id="2yH-uA-dcm"/>
                 <outlet property="dateLabel" destination="efX-u4-syU" id="DUq-Tm-X0M"/>
                 <outlet property="imageView" destination="W4e-7U-qwX" id="Fa9-Zl-aFo"/>
                 <outlet property="nameField" destination="NHh-4T-k6Y" id="wCe-E5-ctO"/>
                 <outlet property="nameLabel" destination="0C9-hD-UvK" id="T5J-8y-zQz"/>
                 <outlet property="serialNumberField" destination="qLs-a7-IDu" id="5dM-zY-PXG"/>
                 <outlet property="serialNumberLabel" destination="4YE-yE-B6F" id="dT2-7P-TBp"/>
-                <outlet property="toolbar" destination="jkg-Pb-92v" id="xkM-qG-jFi"/>
                 <outlet property="valueField" destination="BPy-fv-VpJ" id="b33-yE-gQR"/>
                 <outlet property="valueLabel" destination="Vko-Lk-FSf" id="5el-S7-JHh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -23,13 +23,13 @@
             <rect key="frame" x="0.0" y="94" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W4e-7U-qwX">
-                    <rect key="frame" x="18" y="302" width="334" height="280.5"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W4e-7U-qwX">
+                    <rect key="frame" x="18" y="302" width="334" height="261.5"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="321.5" id="Qu0-Al-hn0"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="322" id="bF7-Eg-u3M"/>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="334" id="enL-0f-K3U"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="295.5" id="kqP-uK-aUZ"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="261.5" id="kqP-uK-aUZ"/>
                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="359" id="oXJ-Cp-Cfb"/>
                     </constraints>
                     <variation key="default">
@@ -40,16 +40,6 @@
                         </mask>
                     </variation>
                 </imageView>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="jkg-Pb-92v">
-                    <rect key="frame" x="8" y="615" width="367" height="44"/>
-                    <items>
-                        <barButtonItem systemItem="camera" id="ShH-cl-XTq">
-                            <connections>
-                                <action selector="takePicture:" destination="-1" id="E4S-cN-S1a"/>
-                            </connections>
-                        </barButtonItem>
-                    </items>
-                </toolbar>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0C9-hD-UvK">
                     <rect key="frame" x="13" y="128" width="104.5" height="20.5"/>
                     <constraints>
@@ -138,18 +128,37 @@
                         <outlet property="delegate" destination="-1" id="jhW-jy-WvQ"/>
                     </connections>
                 </textField>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="qFR-pf-0dO">
+                    <rect key="frame" x="4" y="600" width="367" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="WaA-VU-2BO"/>
+                        <constraint firstAttribute="width" constant="367" id="u9x-7y-Y6k"/>
+                    </constraints>
+                    <items>
+                        <barButtonItem systemItem="camera" id="gHQ-VD-ngt">
+                            <connections>
+                                <action selector="takePicture:" destination="-1" id="ow2-Yu-k0f"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="Item" id="tsl-bZ-yhm">
+                            <connections>
+                                <action selector="showAssetTypePicker:" destination="-1" id="xCq-Gn-bx0"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Vko-Lk-FSf" firstAttribute="baseline" secondItem="BPy-fv-VpJ" secondAttribute="baseline" constant="2" id="4Eu-FV-VIY"/>
-                <constraint firstItem="jkg-Pb-92v" firstAttribute="top" relation="lessThanOrEqual" secondItem="W4e-7U-qwX" secondAttribute="bottom" constant="18" id="8xd-Wg-1UP"/>
                 <constraint firstItem="qLs-a7-IDu" firstAttribute="leading" secondItem="4YE-yE-B6F" secondAttribute="trailing" constant="8" id="9ZD-Kc-0ee"/>
                 <constraint firstItem="efX-u4-syU" firstAttribute="top" secondItem="BPy-fv-VpJ" secondAttribute="bottom" constant="14" id="A9P-3a-uMH"/>
                 <constraint firstAttribute="trailing" secondItem="qLs-a7-IDu" secondAttribute="trailing" constant="63.5" id="Apb-1F-0q6"/>
                 <constraint firstItem="4YE-yE-B6F" firstAttribute="width" secondItem="Vko-Lk-FSf" secondAttribute="width" id="BWr-yw-xZZ"/>
+                <constraint firstItem="qFR-pf-0dO" firstAttribute="top" secondItem="W4e-7U-qwX" secondAttribute="bottom" constant="36.5" id="Bbs-1B-RsD"/>
                 <constraint firstItem="4YE-yE-B6F" firstAttribute="baseline" secondItem="qLs-a7-IDu" secondAttribute="baseline" constant="-0.5" id="E9Q-tY-Ulm"/>
                 <constraint firstItem="W4e-7U-qwX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="efX-u4-syU" secondAttribute="bottom" constant="13" id="Ep9-k6-rvT"/>
-                <constraint firstItem="jkg-Pb-92v" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Lqe-Z2-Nrr"/>
+                <constraint firstItem="qFR-pf-0dO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="4" id="Jbo-aS-SR9"/>
                 <constraint firstAttribute="trailing" secondItem="W4e-7U-qwX" secondAttribute="trailing" constant="23" id="MAB-Vc-SA7"/>
                 <constraint firstItem="BPy-fv-VpJ" firstAttribute="leading" secondItem="Vko-Lk-FSf" secondAttribute="trailing" constant="11" id="MHD-Cm-d1N"/>
                 <constraint firstAttribute="trailing" secondItem="W4e-7U-qwX" secondAttribute="trailing" constant="20" id="OLJ-3s-MkM"/>
@@ -163,15 +172,14 @@
                 <constraint firstAttribute="trailing" secondItem="BPy-fv-VpJ" secondAttribute="trailing" constant="61.5" id="ZA5-jb-bg5"/>
                 <constraint firstItem="Vko-Lk-FSf" firstAttribute="leading" secondItem="0C9-hD-UvK" secondAttribute="leading" id="cnz-bu-8If"/>
                 <constraint firstItem="0C9-hD-UvK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="128" id="eM1-V1-zoH"/>
-                <constraint firstAttribute="trailing" secondItem="jkg-Pb-92v" secondAttribute="trailing" id="fcn-Cu-ypE"/>
                 <constraint firstAttribute="trailing" secondItem="efX-u4-syU" secondAttribute="trailing" constant="18" id="g8l-xj-SGn"/>
-                <constraint firstItem="W4e-7U-qwX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BPy-fv-VpJ" secondAttribute="bottom" constant="53" id="hkc-ta-ETI"/>
                 <constraint firstItem="Vko-Lk-FSf" firstAttribute="top" secondItem="4YE-yE-B6F" secondAttribute="bottom" constant="25.5" id="hvn-th-SiO"/>
                 <constraint firstItem="4YE-yE-B6F" firstAttribute="baseline" secondItem="qLs-a7-IDu" secondAttribute="baseline" id="lQp-7t-LKI"/>
                 <constraint firstItem="0C9-hD-UvK" firstAttribute="baseline" secondItem="NHh-4T-k6Y" secondAttribute="baseline" constant="2" id="u1D-34-5fC"/>
-                <constraint firstAttribute="bottom" secondItem="jkg-Pb-92v" secondAttribute="bottom" constant="8" id="wt9-b3-PAB"/>
+                <constraint firstAttribute="bottom" secondItem="qFR-pf-0dO" secondAttribute="bottom" constant="23" id="wSc-cJ-EHw"/>
                 <constraint firstItem="BPy-fv-VpJ" firstAttribute="leading" secondItem="Vko-Lk-FSf" secondAttribute="trailing" constant="10" id="x8Q-En-iWW"/>
                 <constraint firstItem="4YE-yE-B6F" firstAttribute="baseline" secondItem="qLs-a7-IDu" secondAttribute="baseline" id="xPV-gf-eru"/>
+                <constraint firstAttribute="trailing" secondItem="qFR-pf-0dO" secondAttribute="trailing" constant="4" id="xPb-7Z-ts0"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <variation key="default">
@@ -185,7 +193,7 @@
             <connections>
                 <action selector="backgroundTapped:" destination="-1" eventType="touchUpInside" id="ZXJ-0x-yFN"/>
             </connections>
-            <point key="canvasLocation" x="-169.5" y="247.5"/>
+            <point key="canvasLocation" x="-219.5" y="244.5"/>
         </view>
     </objects>
 </document>
