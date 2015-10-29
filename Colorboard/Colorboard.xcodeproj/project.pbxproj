@@ -14,6 +14,10 @@
 		0D46E1491BE1E963007181C0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D46E1481BE1E963007181C0 /* Images.xcassets */; };
 		0D46E14C1BE1E963007181C0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D46E14A1BE1E963007181C0 /* LaunchScreen.xib */; };
 		0D46E1581BE1E963007181C0 /* ColorboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D46E1571BE1E963007181C0 /* ColorboardTests.m */; };
+		0D46E16A1BE1F9B8007181C0 /* ColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D46E1691BE1F9B8007181C0 /* ColorViewController.m */; };
+		0D46E16C1BE1FA2F007181C0 /* Colorboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D46E16B1BE1FA2F007181C0 /* Colorboard.storyboard */; };
+		0D46E16F1BE20C63007181C0 /* PaletteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D46E16E1BE20C63007181C0 /* PaletteTableViewController.m */; };
+		0D46E1731BE2168B007181C0 /* ColorDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D46E1721BE2168B007181C0 /* ColorDescription.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,13 @@
 		0D46E1511BE1E963007181C0 /* ColorboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D46E1561BE1E963007181C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D46E1571BE1E963007181C0 /* ColorboardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorboardTests.m; sourceTree = "<group>"; };
+		0D46E1691BE1F9B8007181C0 /* ColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorViewController.m; path = ../ColorViewController.m; sourceTree = "<group>"; };
+		0D46E16B1BE1FA2F007181C0 /* Colorboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Colorboard.storyboard; sourceTree = "<group>"; };
+		0D46E16D1BE20C63007181C0 /* PaletteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaletteTableViewController.h; sourceTree = "<group>"; };
+		0D46E16E1BE20C63007181C0 /* PaletteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaletteTableViewController.m; sourceTree = "<group>"; };
+		0D46E1701BE211A6007181C0 /* ColorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ColorViewController.h; path = ../ColorViewController.h; sourceTree = "<group>"; };
+		0D46E1711BE2168B007181C0 /* ColorDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorDescription.h; sourceTree = "<group>"; };
+		0D46E1721BE2168B007181C0 /* ColorDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorDescription.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,10 +93,17 @@
 			isa = PBXGroup;
 			children = (
 				0D46E13F1BE1E963007181C0 /* AppDelegate.h */,
+				0D46E1701BE211A6007181C0 /* ColorViewController.h */,
+				0D46E1691BE1F9B8007181C0 /* ColorViewController.m */,
 				0D46E1401BE1E963007181C0 /* AppDelegate.m */,
 				0D46E1421BE1E963007181C0 /* ViewController.h */,
+				0D46E16B1BE1FA2F007181C0 /* Colorboard.storyboard */,
 				0D46E1431BE1E963007181C0 /* ViewController.m */,
 				0D46E1451BE1E963007181C0 /* Main.storyboard */,
+				0D46E16D1BE20C63007181C0 /* PaletteTableViewController.h */,
+				0D46E16E1BE20C63007181C0 /* PaletteTableViewController.m */,
+				0D46E1711BE2168B007181C0 /* ColorDescription.h */,
+				0D46E1721BE2168B007181C0 /* ColorDescription.m */,
 				0D46E1481BE1E963007181C0 /* Images.xcassets */,
 				0D46E14A1BE1E963007181C0 /* LaunchScreen.xib */,
 				0D46E13B1BE1E963007181C0 /* Supporting Files */,
@@ -202,6 +220,7 @@
 				0D46E1471BE1E963007181C0 /* Main.storyboard in Resources */,
 				0D46E14C1BE1E963007181C0 /* LaunchScreen.xib in Resources */,
 				0D46E1491BE1E963007181C0 /* Images.xcassets in Resources */,
+				0D46E16C1BE1FA2F007181C0 /* Colorboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +240,9 @@
 			files = (
 				0D46E1441BE1E963007181C0 /* ViewController.m in Sources */,
 				0D46E1411BE1E963007181C0 /* AppDelegate.m in Sources */,
+				0D46E16A1BE1F9B8007181C0 /* ColorViewController.m in Sources */,
+				0D46E16F1BE20C63007181C0 /* PaletteTableViewController.m in Sources */,
+				0D46E1731BE2168B007181C0 /* ColorDescription.m in Sources */,
 				0D46E13E1BE1E963007181C0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -148,7 +148,7 @@
 {
 //    completion后面跟的是一个block对象指针，指向的是itemsviewcontroller页面定义的一个block对象，该对象用于刷新tableview
 //    这句话的作用：当用户点击save按钮保存的时候，就调用dismissblock属性，该属性指向itemsviewcontroller的一个block对象，该block对象负责刷新tableview
-//    所以当用户点击save按钮的时候就刷新了tableview。
+//    所以当用户点击save按钮的时候会关闭detailviewcontroller，同时也会刷新tableview的数据。
     [self.presentingViewController dismissViewControllerAnimated:YES completion:self.dismissBlock];
 }
 
