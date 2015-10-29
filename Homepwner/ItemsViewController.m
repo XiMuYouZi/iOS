@@ -14,7 +14,7 @@
 #import "ImageViewController.h"
 #import "ImageStore.h"
 
-@interface ItemsViewController ()<UIPopoverControllerDelegate>
+@interface ItemsViewController ()<UIPopoverControllerDelegate,UIViewControllerRestoration,UIDataSourceModelAssociation>
 @property (nonatomic,strong)UIPopoverPresentationController *imagePopover;
 
 @end
@@ -22,6 +22,58 @@
 
 @implementation ItemsViewController
 
+
+//下面两个方法在itemsviewcontroller恢复的时候为其关联正确的模型对象
+-(NSIndexPath *)indexPathForElementWithModelIdentifier:(NSString *)identifier inView:(UIView *)view
+{
+    NSIndexPath *indexPath=nil;
+    if (identifier &&view) {
+        NSArray *items=[[ItemStore sharedStore]allItems];
+        for (BNRItem *item in items) {
+            if ([identifier isEqualToString:item.itemKey]) {
+                int row=[items indexOfObjectIdenticalTo:item];
+                indexPath=[NSIndexPath indexPathForRow:row inSection:0];
+                break;
+            }
+        }
+    }
+    return indexPath;
+}
+
+-(NSString *)modelIdentifierForElementAtIndexPath:(NSIndexPath *)idx inView:(UIView *)view
+{
+    NSString *idetifier=nil;
+    if (idx&&view) {
+        BNRItem *item=[[ItemStore sharedStore]allItems][idx.row];
+        idetifier=item.itemKey;
+    }
+    return idetifier;
+}
+//保存itemviewcontroller条目的编辑状态，如果不加上下面两个方法，不论是新加条目（处于编辑状态）还是查看已存在的条目
+//（正常状态），恢复状态之后都是正常状态
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [coder encodeBool:self.isEditing forKey:@"TableViewIsEditing"];
+    
+    [super encodeRestorableStateWithCoder:coder];
+}
+
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    self.editing = [coder decodeBoolForKey:@"TableViewIsEditing"];
+    
+    [super decodeRestorableStateWithCoder:coder];
+}
+
+
+
+
+
+
+//实现uiviewcontrollerRestoration协议的方法，返回一个新的viewcontroller
++(UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents coder:(NSCoder *)coder{
+    return [[self alloc]init ];
+}
 
 
 //修改detaiviewcontroller的数据之后需要重新更新tebleview的数据才可以看见
@@ -121,7 +173,10 @@
     detailViewController.dismissBlock=^{[self.tableView reloadData];};
     
     UINavigationController *navController =[[UINavigationController alloc]initWithRootViewController:detailViewController];
-//    用页表单形式显示模态视图,注意这里修改的是navigationcontroller的modalpresenttation，而不是detailviewcontroller，因为以模态显示视图控制器的是navigationcontroller
+//    创建UINavigationController的恢复标示，恢复类由appdelegate创建
+    navController.restorationIdentifier=NSStringFromClass([self class]);
+    
+    //    用页表单形式显示模态视图,注意这里修改的是navigationcontroller的modalpresenttation，而不是detailviewcontroller，因为以模态显示视图控制器的是navigationcontroller
     navController.modalPresentationStyle=UIModalPresentationFormSheet;
     
     
@@ -148,7 +203,10 @@
     if (self) {
         UINavigationItem *navItem=self.navigationItem;
         navItem.title=@"HomePwner";
-        //navItem.titleView=[[UISlider alloc]init];
+        
+//        设置恢复表示和恢复类
+        self.restorationIdentifier=NSStringFromClass([self class]);
+        self.restorationClass=[self class];
         
         //在navigatbar的右边添加一个加号按钮，点击就增加新的一行
         UIBarButtonItem *bbi=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewItem:)];
@@ -158,8 +216,8 @@
         navItem.leftBarButtonItem=self.editButtonItem;
       
 //        启动APP的时候，ItemsViewController会根据用户设置的字体更改界面字体的大小
-        NSNotificationCenter *nc=[NSNotificationCenter defaultCenter];
-        [nc addObserver:self selector:@selector(updateTableViewForDynamicTypeSize) name:UIContentSizeCategoryDidChangeNotification object:nil];
+//        NSNotificationCenter *nc=[NSNotificationCenter defaultCenter];
+//        [nc addObserver:self selector:@selector(updateTableViewForDynamicTypeSize) name:UIContentSizeCategoryDidChangeNotification object:nil];
 
     }
     return  self;
@@ -263,6 +321,9 @@
     UINib *nib=[UINib nibWithNibName:@"ItemCell" bundle:nil];
 //    注册ItemCell.xib文件，设置重用标示
     [self.tableView registerNib:nib forCellReuseIdentifier:@"ItemCell"];
+    
+//    让itemviewcontroller可以记住下滑的位置，状态恢复的时候可以回到用户下滑到得位置（不添加这行代码也可以）
+    self.tableView.restorationIdentifier=@"ItemViewControllerTableView";
     
 }
 @end

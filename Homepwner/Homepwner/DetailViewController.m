@@ -11,8 +11,9 @@
 #import "ImageStore.h"
 #import "ItemStore.h"
 #import "AssetTypeViewController.h"
+#import "AppDelegate.h"
 
-@interface DetailViewController ()<UINavigationBarDelegate,UIImagePickerControllerDelegate,UITextFieldDelegate,UIPopoverControllerDelegate>
+@interface DetailViewController ()<UINavigationBarDelegate,UIImagePickerControllerDelegate,UITextFieldDelegate,UIPopoverControllerDelegate,UIViewControllerRestoration>
 
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *serialNumberField;
@@ -30,6 +31,47 @@
 @end
 
 @implementation DetailViewController
+
+
+
+//下面两个方法实现的是当用户点击添加按钮，进入DetailViewController的时候，写入了一些东西，然后触发恢复状态，在重新进入应用的时候，刚才做的修改依然存在
+//编码状态数据
+-(void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:self.item.itemKey forKey:@"item.itemKey"];
+    self.item.itemName=self.nameField.text;
+    self.item.serialNumber=self.serialNumberField.text;
+    self.item.valueInDollars=[self.valueField.text integerValue];
+    [[ItemStore sharedStore]saveChanges];
+    [super encodeRestorableStateWithCoder:coder];
+
+}
+//解码状态数据
+-(void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    NSString *itemKey=[coder decodeObjectForKey:@"item.itemKey"];
+    for (BNRItem *item in [[ItemStore sharedStore]allItems]) {
+        if ([itemKey isEqualToString:item.itemKey]) {
+            self.item=item;
+            break;
+        }
+    }
+    [super decodeRestorableStateWithCoder:coder];
+}
+
+
+
+
+
+//实现uiviewcontrollerRestoration协议的方法，如果恢复路径中有3个视图就设置isNew=yes，表示点击的是添加按钮呼出了detailviewcontroller，就使用initfornewitem方法创建新的navigationviewcontroller
+//如果不是三个设置isnew=NO
++(UIViewController *)viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents coder:(NSCoder *)coder
+{BOOL isNEW=NO;
+    if ([ identifierComponents count]==3) {
+        isNEW=YES;
+    }
+    return [[self alloc]initForNewItem:isNEW];
+}
 
 //点击assetType按钮显示分类页面
 - (IBAction)showAssetTypePicker:(id)sender {
@@ -59,6 +101,11 @@
 {
     self=[super initWithNibName:nil bundle:nil];
     if (self) {
+        
+//      设置恢复表示和恢复类
+        self.restorationIdentifier=NSStringFromClass([self class]);
+        self.restorationClass=[self class];
+
         if (isNew) {
             UIBarButtonItem *doneItem=[[UIBarButtonItem alloc]
                                        initWithBarButtonSystemItem:UIBarButtonSystemItemDone
@@ -315,7 +362,14 @@
     BNRItem *item=self.item;
     item.itemName=self.nameField.text;
     item.serialNumber=self.serialNumberField.text;
-    item.valueInDollars=[self.valueField.text intValue];
+    int newValue=[self.valueField.text intValue];
+    
+//    如果用户修改了价格的默认值，那么下次用户再创建新的BNRItem的时候就把用户修改的值作为价格的默认值
+    if (newValue!=item.valueInDollars) {
+        item.valueInDollars=newValue;
+        NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+        [defaults setInteger:newValue forKey:NextItemValuePrefsKey];
+    }
     
     
     

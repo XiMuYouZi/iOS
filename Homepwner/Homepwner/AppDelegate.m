@@ -10,22 +10,87 @@
 #import "ItemsViewController.h"
 #import "ItemStore.h"
 
-@interface AppDelegate ()
 
-@end
-
+NSString * const NextItemValuePrefsKey=@"NextItemValue";
+NSString *const NextItemNamePrefsKey=@"NextItemName";
 @implementation AppDelegate
 
 
+// 注册出厂设置，也就是设定默认设置
++(void)initialize
+{
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    NSDictionary *factorySettings=@{NextItemNamePrefsKey:@"Coffee Cup",
+                                    NextItemValuePrefsKey:@75};
+    [defaults registerDefaults:factorySettings];
+}
+
+
+//设置状态恢复
+-(BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder{
+    return YES;
+}
+
+-(BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder
+{
+   return YES;
+}
+
+//P463
+-(UIViewController *)application:(UIApplication *)application viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents coder:(NSCoder *)coder
+{
+    UIViewController *vc=[[UINavigationController alloc]init];
+    vc.restorationIdentifier=[identifierComponents lastObject];
+    if ([identifierComponents count]==1) {
+        self.window.rootViewController=vc;
+    }
+    return vc;
+}
+//- (UIViewController *)application:(UIApplication *)application
+//viewControllerWithRestorationIdentifierPath:(NSArray *)identifierComponents
+//                            coder:(NSCoder *)coder
+//{
+//    // Create a new navigation controller
+//    UIViewController *vc = [[UINavigationController alloc] init];
+//    
+//    // The last object in the path array is the restoration
+//    // identifier for this view controller
+//    vc.restorationIdentifier = [identifierComponents lastObject];
+//    
+//    // If there is only 1 identifier component, then
+//    // this is the root view controller
+//    if ([identifierComponents count] == 1) {
+//        self.window.rootViewController = vc;
+//    }
+//    
+//    return vc;
+//}
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+//    如果是应用第一次启动，就不会触发状态恢复，此时需要创建各个视图
+    if (!self.window.rootViewController) {
     //把itemsviewcontroller设置为navigationcontroller的根view，再把navigationcontroller设置为uiwindow的根view
     ItemsViewController *itemViewController= [[ItemsViewController alloc]init];
     UINavigationController *navController= [[UINavigationController alloc]initWithRootViewController:itemViewController];
+    
+//    把UINavigationController对象的类名设置为恢复表示
+    navController.restorationIdentifier=NSStringFromClass([navController class]);
+    
     self.window.rootViewController=navController;
     NSLog(@"%@",NSStringFromSelector(_cmd));
-    
+        [self.window makeKeyAndVisible];}
     return YES;
 }
+
+//该方法会在状态恢复触发之前被调用，把设置UIWindow的代码移到这里来
+-(BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    self.window=[[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
+    self.window.backgroundColor=[UIColor whiteColor];
+    return YES;
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     NSLog(@"%@",NSStringFromSelector(_cmd));

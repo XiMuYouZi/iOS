@@ -5,16 +5,16 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>549892A8-DB2B-4EA5-B02F-74E3DDA90EAA</string>
+	<string>804ACFE0-B028-46F6-B69A-5A7CE0FF302C</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Nerdfeed</string>
+	<string>Hypnosister</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>249177E4F1C43387F99BF5AFBC42A3417AB10DB1</key>
 		<string>https://github.com/XiMuYouZi/iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Nerdfeed/Nerdfeed.xcodeproj</string>
+	<string>hyponsister/Hypnosister.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>249177E4F1C43387F99BF5AFBC42A3417AB10DB1</key>

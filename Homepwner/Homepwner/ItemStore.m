@@ -208,10 +208,10 @@
 
 
 
-
 #import "ItemStore.h"
 #import "BNRItem.h"
 #import "ImageStore.h"
+#import "AppDelegate.h"
 @import CoreData;
 
 @interface ItemStore ()
@@ -349,6 +349,15 @@
                                                   inManagedObjectContext:self.context];
     
     item.orderingValue = order;
+    
+    
+    
+//    创建新BNRItem的时候设置默认值
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    item.valueInDollars=[defaults integerForKey:NextItemValuePrefsKey];
+    item.itemName=[defaults objectForKey:NextItemNamePrefsKey];
+    NSLog(@"defaults=%@",[defaults dictionaryRepresentation]);
+    
     
     [self.privateItems addObject:item];
     
