@@ -1,13 +1,18 @@
 //
-//  ColorViewController.h
+//  BNRColorViewController.h
 //  Colorboard
 //
-//  Created by Mia on 15/10/29.
-//  Copyright (c) 2015年 Mia. All rights reserved.
+//  Created by John Gallagher on 1/10/14.
+//  Copyright (c) 2014 Big Nerd Ranch. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "ColorDescription.h"
 
 @interface ColorViewController : UIViewController
 
+@property (nonatomic) BOOL existingColor;
+@property (nonatomic) ColorDescription *colorDescription;
+
 @end
+
