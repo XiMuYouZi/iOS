@@ -318,10 +318,12 @@
     }
 }
 
+
 - (IBAction)backgroundTapped:(id)sender
 {
     [self.view endEditing:YES];
 }
+
 
 - (IBAction)showAssetTypePicker:(id)sender
 {
@@ -333,6 +335,7 @@
     [self.navigationController pushViewController:avc
                                          animated:YES];
 }
+
 
 - (void)imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary *)info

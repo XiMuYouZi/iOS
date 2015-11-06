@@ -16,6 +16,18 @@
 
 @implementation BNRReminderViewController
 
+- (void)loadView
+{
+    // Create a view
+//    CGRect frame = [UIScreen mainScreen].bounds;
+    BNRReminderViewController *backgroundViews = [[BNRReminderViewController alloc] init ];
+    
+    // Set it as *the* view of this view controller
+    self.view = backgroundViews;
+}
+
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

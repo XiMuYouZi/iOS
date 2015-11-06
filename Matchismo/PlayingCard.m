@@ -11,6 +11,22 @@
 @implementation PlayingCard
 
 
+//重写父类card的match方法，当匹配花色或者大小的时候都会计分，而不是需要同时匹配花色和大小才计分
+-(int)match:(NSArray *)otherCards
+{
+    int score=0;
+    if ([otherCards count]==1) {
+        PlayingCard *otherCard=[otherCards firstObject];
+        if ([self.suit isEqualToString:otherCard.suit]) {
+            score=1;
+        }else if (self.rank==otherCard.rank)
+        {
+            score=4;
+        }
+    }
+    return score;
+}
+
 
 //定义扑克牌的内容是花色加上大小
 -(NSString *)contents

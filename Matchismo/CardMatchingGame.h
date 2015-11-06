@@ -1,13 +1,15 @@
-//
-//  CardMatchingGame.h
-//  Matchismo
-//
-//  Created by Mia on 15/11/4.
-//  Copyright (c) 2015年 Mia. All rights reserved.
-//
+//进行牌的匹配操作，翻两张牌，如果相同就得分
+
 
 #import <Foundation/Foundation.h>
+#import "Deck.h"
 
 @interface CardMatchingGame : NSObject
 
+-(instancetype)initWithCardCount:(NSUInteger)count
+                       usingDeck:(Deck *)deck;
+-(void)chooseCardAtIndex:(NSUInteger)index;
+-(Card *)cardAtIndex:(NSUInteger)index;
+
+@property(nonatomic,readonly)NSInteger score;
 @end
