@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "TextStatsViewController.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *headline;
@@ -16,6 +17,18 @@
 @end
 
 @implementation ViewController
+
+
+//设置跳转到TextStatsViewController视图的方法，把body的textstorage传给TextStatsViewController的textToAnalyze属性
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"Analyze Text"]) {
+        if ([segue.destinationViewController isKindOfClass:[TextStatsViewController class]]) {
+            TextStatsViewController *tsvc=(TextStatsViewController *)segue.destinationViewController;
+            tsvc.textToAnalyze=self.body.textStorage;
+        }
+    }
+}
 
 
 //当在设置里面更改了字体大小，body和headline里面的字体大小也会被更改
