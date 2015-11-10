@@ -18,13 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jk1-9Z-ucP">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur</mutableString>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvK-Ct-buT">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -107,6 +100,15 @@
                                     <action selector="changeBodyTextColor:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Flv-TI-bJy"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w10-xM-0ap">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Unoutline">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="unoutlineBodySelection:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qBr-A2-8by"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Zc-vT-fLX">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <constraints>
@@ -130,15 +132,13 @@
                                     <action selector="outlineBodySelection:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="OMd-Hw-8GF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w10-xM-0ap">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Unoutline">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="unoutlineBodySelection:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="qBr-A2-8by"/>
-                                </connections>
-                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jk1-9Z-ucP">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur</mutableString>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -154,12 +154,16 @@
                             <constraint firstItem="rvK-Ct-buT" firstAttribute="baseline" secondItem="ve2-T5-3H5" secondAttribute="baseline" id="Gl8-so-YHL"/>
                             <constraint firstItem="rvK-Ct-buT" firstAttribute="firstBaseline" secondItem="s8B-MK-pgi" secondAttribute="firstBaseline" id="HmU-1U-lEh"/>
                             <constraint firstItem="w10-xM-0ap" firstAttribute="trailing" secondItem="ve2-T5-3H5" secondAttribute="trailing" id="Ilj-HO-GrI"/>
-                            <constraint firstItem="jk1-9Z-ucP" firstAttribute="leading" secondItem="rvK-Ct-buT" secondAttribute="leading" id="JVS-BQ-KVA"/>
+                            <constraint firstItem="jk1-9Z-ucP" firstAttribute="leading" secondItem="rvK-Ct-buT" secondAttribute="leading" id="JVS-BQ-KVA">
+                                <variation key="widthClass=compact" constant="14"/>
+                            </constraint>
                             <constraint firstItem="ve2-T5-3H5" firstAttribute="width" secondItem="npx-X2-wfQ" secondAttribute="width" id="K3C-2N-FuL"/>
                             <constraint firstItem="5Zc-vT-fLX" firstAttribute="top" secondItem="rvK-Ct-buT" secondAttribute="bottom" constant="3" id="LLz-QW-jbu"/>
                             <constraint firstItem="npx-X2-wfQ" firstAttribute="bottom" secondItem="ve2-T5-3H5" secondAttribute="bottom" id="LtL-w1-FaQ"/>
                             <constraint firstItem="jk1-9Z-ucP" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="Npn-D9-jAi"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jk1-9Z-ucP" secondAttribute="trailing" constant="27" id="OUR-yi-s6Z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jk1-9Z-ucP" secondAttribute="trailing" constant="27" id="OUR-yi-s6Z">
+                                <variation key="widthClass=compact" constant="13"/>
+                            </constraint>
                             <constraint firstItem="rvK-Ct-buT" firstAttribute="baseline" secondItem="npx-X2-wfQ" secondAttribute="baseline" id="PHL-ln-WqE"/>
                             <constraint firstItem="s8B-MK-pgi" firstAttribute="firstBaseline" secondItem="ve2-T5-3H5" secondAttribute="firstBaseline" id="SmR-OE-1JE"/>
                             <constraint firstItem="s8B-MK-pgi" firstAttribute="baseline" secondItem="rvK-Ct-buT" secondAttribute="baseline" id="UHg-3p-Uda"/>
@@ -167,11 +171,17 @@
                             <constraint firstItem="ve2-T5-3H5" firstAttribute="baseline" secondItem="s8B-MK-pgi" secondAttribute="baseline" id="XgV-A2-xP1"/>
                             <constraint firstItem="s8B-MK-pgi" firstAttribute="baseline" secondItem="npx-X2-wfQ" secondAttribute="baseline" id="aJN-Ib-g0E"/>
                             <constraint firstItem="s8B-MK-pgi" firstAttribute="leading" secondItem="rvK-Ct-buT" secondAttribute="trailing" constant="28" id="agz-jQ-z8R"/>
-                            <constraint firstItem="rvK-Ct-buT" firstAttribute="top" secondItem="jk1-9Z-ucP" secondAttribute="bottom" constant="14" id="fnY-Gv-Wei"/>
+                            <constraint firstItem="rvK-Ct-buT" firstAttribute="top" secondItem="jk1-9Z-ucP" secondAttribute="bottom" constant="14" id="fnY-Gv-Wei">
+                                <variation key="widthClass=compact" constant="17"/>
+                            </constraint>
                             <constraint firstItem="npx-X2-wfQ" firstAttribute="top" secondItem="ve2-T5-3H5" secondAttribute="top" id="fym-Uw-Uha"/>
                             <constraint firstItem="npx-X2-wfQ" firstAttribute="firstBaseline" secondItem="s8B-MK-pgi" secondAttribute="firstBaseline" id="g6s-Dm-YhQ"/>
-                            <constraint firstItem="jk1-9Z-ucP" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="12" id="gJB-ee-rb5"/>
-                            <constraint firstItem="ve2-T5-3H5" firstAttribute="trailing" secondItem="jk1-9Z-ucP" secondAttribute="trailing" id="kAF-QL-ATm"/>
+                            <constraint firstItem="jk1-9Z-ucP" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="12" id="gJB-ee-rb5">
+                                <variation key="widthClass=compact" constant="26"/>
+                            </constraint>
+                            <constraint firstItem="ve2-T5-3H5" firstAttribute="trailing" secondItem="jk1-9Z-ucP" secondAttribute="trailing" id="kAF-QL-ATm">
+                                <variation key="widthClass=compact" constant="-14"/>
+                            </constraint>
                             <constraint firstItem="npx-X2-wfQ" firstAttribute="bottom" secondItem="s8B-MK-pgi" secondAttribute="bottom" id="nWd-VN-tx2"/>
                             <constraint firstItem="ve2-T5-3H5" firstAttribute="width" secondItem="s8B-MK-pgi" secondAttribute="width" id="ttg-fa-cFw"/>
                             <constraint firstItem="rvK-Ct-buT" firstAttribute="firstBaseline" secondItem="npx-X2-wfQ" secondAttribute="firstBaseline" id="uIc-bk-2GS"/>
@@ -180,13 +190,13 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="jk1-9Z-ucP"/>
                                 <exclude reference="rvK-Ct-buT"/>
                                 <exclude reference="s8B-MK-pgi"/>
                                 <exclude reference="npx-X2-wfQ"/>
                                 <exclude reference="ve2-T5-3H5"/>
-                                <exclude reference="5Zc-vT-fLX"/>
                                 <exclude reference="w10-xM-0ap"/>
+                                <exclude reference="5Zc-vT-fLX"/>
+                                <exclude reference="jk1-9Z-ucP"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="JVS-BQ-KVA"/>
@@ -228,13 +238,13 @@
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="jk1-9Z-ucP"/>
                                 <include reference="rvK-Ct-buT"/>
                                 <include reference="s8B-MK-pgi"/>
                                 <include reference="npx-X2-wfQ"/>
                                 <include reference="ve2-T5-3H5"/>
-                                <include reference="5Zc-vT-fLX"/>
                                 <include reference="w10-xM-0ap"/>
+                                <include reference="5Zc-vT-fLX"/>
+                                <include reference="jk1-9Z-ucP"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="JVS-BQ-KVA"/>

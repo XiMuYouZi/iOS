@@ -22,6 +22,9 @@
 
 @implementation ViewController
 
+- (IBAction)swipe:(UISwipeGestureRecognizer *)sender {
+}
+
 //惰性初始化
 -(CardMatchingGame *)game
 {

@@ -131,7 +131,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scores:0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AqY-GY-PDr">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="22" y="571" width="362" height="21"/>
@@ -195,6 +195,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="SNF-sR-3dD"/>
@@ -229,7 +230,12 @@
                                 <include reference="EsY-CL-RYF"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="g1W-Ij-MxS" appends="YES" id="ex4-e0-p9V"/>
+                            <outletCollection property="gestureRecognizers" destination="EwD-bf-aRi" appends="YES" id="hwp-xR-8br"/>
+                        </connections>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="scoreLabel" destination="AqY-GY-PDr" id="UzT-Mh-gRG"/>
                         <outletCollection property="cardButtons" destination="SNF-sR-3dD" id="Ky5-u9-Z0D"/>
@@ -247,8 +253,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="g1W-Ij-MxS">
+                    <connections>
+                        <action selector="swipe:" destination="vXZ-lx-hvc" id="4TR-at-Xg1"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <pinchGestureRecognizer id="EwD-bf-aRi"/>
             </objects>
-            <point key="canvasLocation" x="-37.5" y="9"/>
+            <point key="canvasLocation" x="126" y="-7"/>
         </scene>
     </scenes>
     <resources>
