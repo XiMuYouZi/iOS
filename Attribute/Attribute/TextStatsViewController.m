@@ -41,7 +41,7 @@
 
 
 //找出被改变了颜色或者轮廓的字符个数
--(NSAttributedString *) characterWithAttribute: (NSString *) attributeName:
+-(NSAttributedString *) characterWithAttribute: (NSString *) attributeName
 {
     NSMutableAttributedString * characters=[[NSMutableAttributedString alloc]init];
     
@@ -61,7 +61,6 @@
         
     }
     return  characters;
-
 
 }
 
