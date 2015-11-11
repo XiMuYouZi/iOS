@@ -68,10 +68,10 @@
                             <mask key="constraints">
                                 <exclude reference="9q9-Vj-QGa"/>
                                 <exclude reference="QUk-t4-hk8"/>
-                                <exclude reference="NUI-Ft-qga"/>
-                                <exclude reference="SgR-fn-vYp"/>
                                 <exclude reference="6Na-HJ-YkO"/>
                                 <exclude reference="oYa-cS-b5i"/>
+                                <exclude reference="NUI-Ft-qga"/>
+                                <exclude reference="SgR-fn-vYp"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -83,10 +83,10 @@
                             <mask key="constraints">
                                 <include reference="9q9-Vj-QGa"/>
                                 <include reference="QUk-t4-hk8"/>
-                                <include reference="NUI-Ft-qga"/>
-                                <include reference="SgR-fn-vYp"/>
                                 <include reference="6Na-HJ-YkO"/>
                                 <include reference="oYa-cS-b5i"/>
+                                <include reference="NUI-Ft-qga"/>
+                                <include reference="SgR-fn-vYp"/>
                             </mask>
                         </variation>
                     </view>
@@ -105,6 +105,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Sof-Os-zhP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rLj-Wk-vb5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ygY-Up-fyV">
@@ -143,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AL9-Bu-vqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2059.5" y="376"/>
+            <point key="canvasLocation" x="637.5" y="181"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TPG-Lv-rBi">

@@ -356,6 +356,7 @@
 				INFOPLIST_FILE = Imagination/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -366,6 +367,7 @@
 				INFOPLIST_FILE = Imagination/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -422,6 +424,7 @@
 				0D92A5BB1BF1D9810066C01A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0D92A5BC1BF1D9810066C01A /* Build configuration list for PBXNativeTarget "ImaginationTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +433,7 @@
 				0D92A5BE1BF1D9810066C01A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

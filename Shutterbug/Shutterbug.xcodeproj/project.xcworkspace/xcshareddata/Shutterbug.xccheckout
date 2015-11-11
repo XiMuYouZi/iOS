@@ -5,16 +5,16 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>F75D606F-4ACB-47CF-808D-83857832878A</string>
+	<string>DA70A3BA-8286-4CDB-849C-774F17F8BA69</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Imagination</string>
+	<string>Shutterbug</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>249177E4F1C43387F99BF5AFBC42A3417AB10DB1</key>
 		<string>https://github.com/XiMuYouZi/iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Imagination/Imagination.xcodeproj</string>
+	<string>Shutterbug/Shutterbug.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>249177E4F1C43387F99BF5AFBC42A3417AB10DB1</key>
