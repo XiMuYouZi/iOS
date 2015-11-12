@@ -10,31 +10,31 @@
 	<string>HomePwner</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>DFED5956-CD9D-4FB3-BBD7-0D2E24D02C9A</key>
-		<string>https://github.com/bignerdranch/iOSBook.git</string>
+		<key>249177E4F1C43387F99BF5AFBC42A3417AB10DB1</key>
+		<string>https://github.com/XiMuYouZi/iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Solutions/23-CoreData/HomePwner/HomePwner.xcodeproj/project.xcworkspace</string>
+	<string>资源/23-CoreData/HomePwner/HomePwner.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>DFED5956-CD9D-4FB3-BBD7-0D2E24D02C9A</key>
+		<key>249177E4F1C43387F99BF5AFBC42A3417AB10DB1</key>
 		<string>../../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/bignerdranch/iOSBook.git</string>
+	<string>https://github.com/XiMuYouZi/iOS.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>DFED5956-CD9D-4FB3-BBD7-0D2E24D02C9A</string>
+	<string>249177E4F1C43387F99BF5AFBC42A3417AB10DB1</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>DFED5956-CD9D-4FB3-BBD7-0D2E24D02C9A</string>
+			<string>249177E4F1C43387F99BF5AFBC42A3417AB10DB1</string>
 			<key>IDESourceControlWCCName</key>
-			<string>iOSBook</string>
+			<string>iOS1</string>
 		</dict>
 	</array>
 </dict>

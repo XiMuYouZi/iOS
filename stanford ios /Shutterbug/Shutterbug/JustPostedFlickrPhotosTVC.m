@@ -41,6 +41,8 @@
         NSDictionary *propertyListResults = [NSJSONSerialization JSONObjectWithData:jsonResults
                                                                             options:0
                                                                               error:NULL];
+        NSLog(@"%@",propertyListResults);
+
         // get the NSArray of photo NSDictionarys out of the results
         NSArray *photos = [propertyListResults valueForKeyPath:FLICKR_RESULTS_PHOTOS];
         // update the Model (and thus our UI), but do so back on the main queue
