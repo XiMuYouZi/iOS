@@ -7,7 +7,12 @@
 //
 
 #import "CollectionCell.h"
+@interface CollectionCell ()
+
+@end
 
 @implementation CollectionCell
+
+
 
 @end

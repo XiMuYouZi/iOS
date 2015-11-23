@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+//#import <Foundation/Foundation.h>
+#import <Foundation/Foundation.h>
 
 @interface ViewController : UIViewController
+@property (nonatomic)ViewController *viewcontroller;
 
 
 @end

@@ -6,6 +6,8 @@
 //  Copyright (c) 2015年 Mia. All rights reserved.
 //
 
+//fefa4eb543425fc64ab767f301d934ad
+
 #import "ViewController.h"
 
 @interface ViewController ()
@@ -14,9 +16,10 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+-(void)loadView
+{
+    
 }
 
 - (void)didReceiveMemoryWarning {

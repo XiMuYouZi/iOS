@@ -7,8 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "FetchArticleDetail.h"
+#import "FetchArticleSummary.h"
 
 @interface AppDelegate ()
+@property(nonatomic)FetchArticleDetail *articleDetail;
+@property(nonatomic)FetchArticleSummary *articleSummary;
 
 @end
 
@@ -16,7 +20,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+//    self.articleSummary.webViewController=self.articleDetail;
     return YES;
 }
 

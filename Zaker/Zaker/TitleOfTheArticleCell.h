@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TitleOfTheArticleCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UILabel *TitleOfTheArticleLabel;
 
 @end

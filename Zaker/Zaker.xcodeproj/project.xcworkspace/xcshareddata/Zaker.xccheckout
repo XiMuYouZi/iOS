@@ -5,16 +5,16 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>07568136-FCDF-46C7-8B31-09D141E6EED2</string>
+	<string>A3631FB0-F9E2-4673-B875-873324388A2F</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Zaker</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>249177E4F1C43387F99BF5AFBC42A3417AB10DB1</key>
 		<string>https://github.com/XiMuYouZi/iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Colorboard/Colorboard.xcodeproj/project.xcworkspace</string>
+	<string>Zaker/Zaker.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>249177E4F1C43387F99BF5AFBC42A3417AB10DB1</key>
