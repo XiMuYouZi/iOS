@@ -29,7 +29,7 @@
     NSURLRequest *REQ=[NSURLRequest requestWithURL:_URL];
     [self.webview loadRequest:REQ];
     self.navigationItem.title=self.Title;
-    NSLog(@"%@",self.navigationController.navigationItem.title);
+//    NSLog(@"articleDetial:%@",self.Title);
     //    [self.spinner stopAnimating];
     
 }

@@ -27,38 +27,47 @@
     NSURL *url=[NSURL URLWithString:article[@"url"]];
     webview.Title=article[@"title"];
     webview.URL=url;
-//    self.articleURL=webview.URL;
-//    self.articleTitle=webview.Title;
-//    NSLog(@"%@",self.articleTitle);
    
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"show detailArticles" sender:self];
+
+//    [self prepareWebViewController:self.articleView toDisplayArticle:self.articles atIndexPath:indexPath];
+//    NSLog(@"tableview:%@",self.articles[indexPath.row][@"title"]);
+
+}
 
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([sender isKindOfClass:[UITableViewCell class]])
+    //sender不是UITableViewCell的类，我也搞不懂是为什么，当只有fetchArticleSummary  segue到FetchArticleDetail的时候sender是UITableViewCell的类，但是在前面加了一个AllArticle类segue到自身的时候，就出了问题。
+    if ([sender isKindOfClass:[FetchArticleSummary class]])
     {
-        NSIndexPath *indexPath=[self.tableView indexPathForCell:sender];
+        //原来使用的是[self.tableView indexpathforcell:sender]发现不行，因为sender根本不是UITableViewCell
+        NSIndexPath *indexPath=[self.tableView  indexPathForSelectedRow];
+    NSLog(@"%@",indexPath);
         if (indexPath)
         {
-            if ([segue.identifier isEqualToString:@"show articles"])
+            if ([segue.identifier isEqualToString:@"show detailArticles"])
             {
                 if ([segue.destinationViewController isKindOfClass:[FetchArticleDetail class]])
                 {
                     [self prepareWebViewController:segue.destinationViewController toDisplayArticle:self.articles atIndexPath:indexPath];
                     
-//                    NSLog(@"%@",self.articleTitle);
+//                NSLog(@"segue:%@",self.articles[indexPath.row][@"title"]);
+//                NSLog(@"segue indexpath:%@",indexPath);
 
 
                     
                     
                 }
             }
-            
+//
         }
-        
+    
     }
 }
 
@@ -97,7 +106,7 @@
                                        self.articles = [jsondata allValues];
 
                                         };
-                                   NSLog(@"%@",self.articles);
+//                                   NSLog(@"articles:%@",self.articles);
 
                                    dispatch_async(dispatch_get_main_queue(), ^
                                                   {
@@ -120,6 +129,7 @@
 {
     [super viewDidLoad];
     [self fetch];
+    NSLog(@"%@",self.theMagazineURL);
     self.navigationItem.title=self.theNameOfMagazine;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Articles"];
 
@@ -136,9 +146,10 @@
     static NSString *CellIdentifier=@"Articles";
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     NSDictionary *article=self.articles[indexPath.row];
-    NSString *sourceDate=[NSString stringWithFormat:@"%@(%@)",article[@"ctime"],article[@"description"]];
+//    NSString *sourceDate=[NSString stringWithFormat:@"%@(%@)",article[@"ctime"],article[@"description"]];
     cell.textLabel.text=article[@"title"];
-    cell.detailTextLabel.text=sourceDate;
+#warning 没起作用
+    cell.detailTextLabel.text=article[@"time"];
     
     
     return cell;

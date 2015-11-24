@@ -10,7 +10,8 @@
 #import "CollectionCell.h"
 #import "FetchArticleSummary.h"
 #import "FetchPhotoDetail.h"
-#import "ViewController.h"
+#import "FetchPhotoCell.h"
+#import "FetchPhotoSummary.h"
 
 
 @interface Allarticles ()<UICollectionViewDataSource,UICollectionViewDelegate>
@@ -37,18 +38,18 @@ static NSString * const reuseIdentifierOfMagazine = @"the name of magazine";
 -(NSArray *)allMagazineURL
 {
     
-    return @[@"http://apis.baidu.com/txapi/mvtp/meinv?num=20",
-                                  @"http://apis.baidu.com/txapi/tiyu/tiyu?num=10&page=3",
-                                  @"http://apis.baidu.com/txapi/keji/keji?num=10&page=1",
-                                  @"http://apis.baidu.com/txapi/social/social?num=10&page=1",
-                                  @"http://apis.baidu.com/txapi/health/health?num=10&page=1",
-                                  @"http://apis.baidu.com/txapi/qiwen/qiwen?num=10",
-                                  @"http://apis.baidu.com/txapi/huabian/newtop?num=10&page=1",
-                                  @"http://apis.baidu.com/txapi/apple/apple?num=10&page=1"];
-    
+                         return  @[[NSString stringWithFormat: @"http://apis.baidu.com/showapi_open_bus/pic/pic_search?type=4003&page=%d",arc4random()%10],
+                                  [NSString stringWithFormat:@"http://apis.baidu.com/txapi/tiyu/tiyu?num=20&page=%d",arc4random()%10],
+                                  [NSString stringWithFormat:@"http://apis.baidu.com/txapi/keji/keji?num=20&page=%d",arc4random()%10],
+                                  [NSString stringWithFormat:@"http://apis.baidu.com/txapi/social/social?num=20&page=%d",arc4random()%10],
+                                  [NSString stringWithFormat:@"http://apis.baidu.com/txapi/health/health?num=20&page=%d",arc4random()%10],
+                                  [NSString stringWithFormat:@"http://apis.baidu.com/txapi/qiwen/qiwen?num=20&page=%d",arc4random()%10],
+                                  [NSString stringWithFormat:@"http://apis.baidu.com/txapi/huabian/newtop?num=20&page=%d",arc4random()%10],
+                                  [NSString stringWithFormat:@"http://apis.baidu.com/txapi/apple/apple?num=20&page=%d",arc4random()%10]];
     
 
 }
+
 //-(void)viewDidLoad
 //{
 //    [self.collectionView registerClass:[CollectionCell class] forCellWithReuseIdentifier:reuseIdentifierOfMagazine];
@@ -59,14 +60,18 @@ static NSString * const reuseIdentifierOfMagazine = @"the name of magazine";
 //    self.collectionView.dataSource=self;
 //}
 
--(void)prepareWTableViewController:(FetchArticleSummary *)tableView atIndexPath:(NSIndexPath *)indexPath
+-(void)prepareTableViewController:(FetchArticleSummary *)tableView atIndexPath:(NSIndexPath *)indexPath
 {
 
     tableView.theMagazineURL=[self allMagazineURL][indexPath.row];
     tableView.theNameOfMagazine=[self getTheNameOfMagazine:indexPath];
     
+}
 
-
+-(void)preparePhotoDetailViewController:(FetchPhotoSummary*)collectionView atIndexPath:(NSIndexPath *)indexPath
+{
+    collectionView.thePhotosURL=[self allMagazineURL][indexPath.row];
+    collectionView.thePhotosNAME=[self getTheNameOfMagazine:indexPath];
 }
 
 
@@ -95,18 +100,27 @@ static NSString * const reuseIdentifierOfMagazine = @"the name of magazine";
         NSIndexPath *indexPath=[self.collectionView indexPathForCell:sender];
         if (indexPath)
         {
+            if ([segue.identifier isEqualToString:@"show photos"])
+            {
+                if ([segue.destinationViewController isKindOfClass:[FetchPhotoSummary class]])
+                {
+                    
+                    [self preparePhotoDetailViewController:segue.destinationViewController atIndexPath:indexPath];
+                    
+                }
+            }
+            
+
             if ([segue.identifier isEqualToString:@"show articles"])
             {
                 if ([segue.destinationViewController isKindOfClass:[FetchArticleSummary class]])
                 {
                     
-                    [self prepareWTableViewController:segue.destinationViewController atIndexPath:indexPath];
-                    NSLog(@"%@", self.ArticleSummaryTableView.theMagazineURL);
+                    [self prepareTableViewController:segue.destinationViewController atIndexPath:indexPath];
                     
                 }
             }
-            
-        }
+                    }
         
     }
 }
@@ -145,6 +159,8 @@ static NSString * const reuseIdentifierOfMagazine = @"the name of magazine";
     if (indexPath.row==0) {
         CollectionCell *photoCell=[collectionView dequeueReusableCellWithReuseIdentifier:@"the name of photo" forIndexPath:indexPath];
        photoCell.CellLabel.text=[NSString stringWithFormat:@"%@",[self getTheNameOfMagazine:indexPath]];
+        NSLog(@"%@",photoCell.CellLabel.text);
+
        photoCell.layer.borderWidth=0.3f;
         photoCell.layer.borderColor=[UIColor grayColor].CGColor;
         return  photoCell;

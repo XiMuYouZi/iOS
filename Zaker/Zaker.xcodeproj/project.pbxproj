@@ -8,11 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0D4362081C01C1A900B3CA87 /* FetchPhotoDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4362071C01C1A900B3CA87 /* FetchPhotoDetail.m */; };
-		0D43620E1C02072D00B3CA87 /* TitleOfTheArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D43620D1C02072D00B3CA87 /* TitleOfTheArticleCell.m */; };
-		0D4362111C020BCD00B3CA87 /* FetchPhotoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4362101C020BCD00B3CA87 /* FetchPhotoController.m */; };
+		0D4362111C020BCD00B3CA87 /* FetchPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4362101C020BCD00B3CA87 /* FetchPhotoCell.m */; };
+		0D4362191C02F68600B3CA87 /* FetchPhotoSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4362181C02F68600B3CA87 /* FetchPhotoSummary.m */; };
 		0D610AA31BFC20E600744B6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D610AA21BFC20E600744B6B /* main.m */; };
 		0D610AA61BFC20E600744B6B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D610AA51BFC20E600744B6B /* AppDelegate.m */; };
-		0D610AA91BFC20E600744B6B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D610AA81BFC20E600744B6B /* ViewController.m */; };
 		0D610AAE1BFC20E600744B6B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D610AAD1BFC20E600744B6B /* Images.xcassets */; };
 		0D610AB11BFC20E600744B6B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D610AAF1BFC20E600744B6B /* LaunchScreen.xib */; };
 		0D610ABD1BFC20E600744B6B /* ZakerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D610ABC1BFC20E600744B6B /* ZakerTests.m */; };
@@ -36,17 +35,15 @@
 /* Begin PBXFileReference section */
 		0D4362061C01C1A900B3CA87 /* FetchPhotoDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchPhotoDetail.h; sourceTree = "<group>"; };
 		0D4362071C01C1A900B3CA87 /* FetchPhotoDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchPhotoDetail.m; sourceTree = "<group>"; };
-		0D43620C1C02072D00B3CA87 /* TitleOfTheArticleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleOfTheArticleCell.h; sourceTree = "<group>"; };
-		0D43620D1C02072D00B3CA87 /* TitleOfTheArticleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleOfTheArticleCell.m; sourceTree = "<group>"; };
-		0D43620F1C020BCD00B3CA87 /* FetchPhotoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchPhotoController.h; sourceTree = "<group>"; };
-		0D4362101C020BCD00B3CA87 /* FetchPhotoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchPhotoController.m; sourceTree = "<group>"; };
+		0D43620F1C020BCD00B3CA87 /* FetchPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchPhotoCell.h; sourceTree = "<group>"; };
+		0D4362101C020BCD00B3CA87 /* FetchPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchPhotoCell.m; sourceTree = "<group>"; };
+		0D4362171C02F68600B3CA87 /* FetchPhotoSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchPhotoSummary.h; sourceTree = "<group>"; };
+		0D4362181C02F68600B3CA87 /* FetchPhotoSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchPhotoSummary.m; sourceTree = "<group>"; };
 		0D610A9D1BFC20E600744B6B /* Zaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D610AA11BFC20E600744B6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D610AA21BFC20E600744B6B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0D610AA41BFC20E600744B6B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0D610AA51BFC20E600744B6B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0D610AA71BFC20E600744B6B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0D610AA81BFC20E600744B6B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0D610AAD1BFC20E600744B6B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0D610AB01BFC20E600744B6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		0D610AB61BFC20E600744B6B /* ZakerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZakerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +78,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D4362161C02F65B00B3CA87 /* Fetch Photo */ = {
+			isa = PBXGroup;
+			children = (
+				0D43620F1C020BCD00B3CA87 /* FetchPhotoCell.h */,
+				0D4362101C020BCD00B3CA87 /* FetchPhotoCell.m */,
+				0D4362061C01C1A900B3CA87 /* FetchPhotoDetail.h */,
+				0D4362071C01C1A900B3CA87 /* FetchPhotoDetail.m */,
+				0D4362171C02F68600B3CA87 /* FetchPhotoSummary.h */,
+				0D4362181C02F68600B3CA87 /* FetchPhotoSummary.m */,
+			);
+			name = "Fetch Photo";
+			sourceTree = "<group>";
+		};
+		0D43621A1C02F6C400B3CA87 /* Home Page */ = {
+			isa = PBXGroup;
+			children = (
+				0D6F3F8B1BFDA9F500768688 /* Allarticles.h */,
+				0D6F3F8C1BFDA9F500768688 /* Allarticles.m */,
+				0D6F3F8E1BFDAE3D00768688 /* CollectionCell.h */,
+				0D6F3F8F1BFDAE3D00768688 /* CollectionCell.m */,
+			);
+			name = "Home Page";
+			sourceTree = "<group>";
+		};
+		0D43621B1C02F78800B3CA87 /* Fetch Article */ = {
+			isa = PBXGroup;
+			children = (
+				0D6F3F881BFDA8CB00768688 /* FetchArticleDetail.h */,
+				0D6F3F891BFDA8CB00768688 /* FetchArticleDetail.m */,
+				0D6F3F431BFC541F00768688 /* FetchArticleSummary.h */,
+				0D6F3F441BFC541F00768688 /* FetchArticleSummary.m */,
+			);
+			name = "Fetch Article";
+			sourceTree = "<group>";
+		};
+		0D43621C1C02F80D00B3CA87 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				0D6F3F4C1BFC7F1300768688 /* Main.storyboard */,
+				0D610AAD1BFC20E600744B6B /* Images.xcassets */,
+				0D610AAF1BFC20E600744B6B /* LaunchScreen.xib */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
 		0D610A941BFC20E500744B6B = {
 			isa = PBXGroup;
 			children = (
@@ -102,14 +144,10 @@
 		0D610A9F1BFC20E600744B6B /* Zaker */ = {
 			isa = PBXGroup;
 			children = (
-				0D6F3F841BFDA55E00768688 /* Controller */,
-				0D610AA41BFC20E600744B6B /* AppDelegate.h */,
-				0D610AA51BFC20E600744B6B /* AppDelegate.m */,
-				0D6F3F4C1BFC7F1300768688 /* Main.storyboard */,
-				0D610AA71BFC20E600744B6B /* ViewController.h */,
-				0D610AA81BFC20E600744B6B /* ViewController.m */,
-				0D610AAD1BFC20E600744B6B /* Images.xcassets */,
-				0D610AAF1BFC20E600744B6B /* LaunchScreen.xib */,
+				0D43621C1C02F80D00B3CA87 /* Sources */,
+				0D4362161C02F65B00B3CA87 /* Fetch Photo */,
+				0D43621B1C02F78800B3CA87 /* Fetch Article */,
+				0D43621A1C02F6C400B3CA87 /* Home Page */,
 				0D610AA01BFC20E600744B6B /* Supporting Files */,
 			);
 			path = Zaker;
@@ -118,6 +156,8 @@
 		0D610AA01BFC20E600744B6B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0D610AA41BFC20E600744B6B /* AppDelegate.h */,
+				0D610AA51BFC20E600744B6B /* AppDelegate.m */,
 				0D610AA11BFC20E600744B6B /* Info.plist */,
 				0D610AA21BFC20E600744B6B /* main.m */,
 			);
@@ -139,27 +179,6 @@
 				0D610ABB1BFC20E600744B6B /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		0D6F3F841BFDA55E00768688 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				0D43620F1C020BCD00B3CA87 /* FetchPhotoController.h */,
-				0D4362101C020BCD00B3CA87 /* FetchPhotoController.m */,
-				0D43620C1C02072D00B3CA87 /* TitleOfTheArticleCell.h */,
-				0D43620D1C02072D00B3CA87 /* TitleOfTheArticleCell.m */,
-				0D4362061C01C1A900B3CA87 /* FetchPhotoDetail.h */,
-				0D4362071C01C1A900B3CA87 /* FetchPhotoDetail.m */,
-				0D6F3F8E1BFDAE3D00768688 /* CollectionCell.h */,
-				0D6F3F8F1BFDAE3D00768688 /* CollectionCell.m */,
-				0D6F3F8B1BFDA9F500768688 /* Allarticles.h */,
-				0D6F3F8C1BFDA9F500768688 /* Allarticles.m */,
-				0D6F3F881BFDA8CB00768688 /* FetchArticleDetail.h */,
-				0D6F3F891BFDA8CB00768688 /* FetchArticleDetail.m */,
-				0D6F3F431BFC541F00768688 /* FetchArticleSummary.h */,
-				0D6F3F441BFC541F00768688 /* FetchArticleSummary.m */,
-			);
-			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,11 +283,10 @@
 			files = (
 				0D6F3F451BFC541F00768688 /* FetchArticleSummary.m in Sources */,
 				0D6F3F8A1BFDA8CB00768688 /* FetchArticleDetail.m in Sources */,
-				0D43620E1C02072D00B3CA87 /* TitleOfTheArticleCell.m in Sources */,
 				0D6F3F8D1BFDA9F500768688 /* Allarticles.m in Sources */,
-				0D610AA91BFC20E600744B6B /* ViewController.m in Sources */,
-				0D4362111C020BCD00B3CA87 /* FetchPhotoController.m in Sources */,
+				0D4362111C020BCD00B3CA87 /* FetchPhotoCell.m in Sources */,
 				0D4362081C01C1A900B3CA87 /* FetchPhotoDetail.m in Sources */,
+				0D4362191C02F68600B3CA87 /* FetchPhotoSummary.m in Sources */,
 				0D6F3F901BFDAE3D00768688 /* CollectionCell.m in Sources */,
 				0D610AA61BFC20E600744B6B /* AppDelegate.m in Sources */,
 				0D610AA31BFC20E600744B6B /* main.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FetchPhotoController : UICollectionViewCell
+@interface FetchPhotoCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *PhotoImageView;
 
 @end

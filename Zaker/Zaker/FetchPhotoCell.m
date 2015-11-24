@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 Mia. All rights reserved.
 //
 
-#import "FetchPhotoController.h"
+#import "FetchPhotoCell.h"
 
-@implementation FetchPhotoController
+@implementation FetchPhotoCell
 
 @end

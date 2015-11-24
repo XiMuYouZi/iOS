@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FetchPhotoDetail : UICollectionViewController
+@interface FetchPhotoDetail : UIViewController
+@property(nonatomic,strong)NSArray *UrlOfAllPhoto;
+@property(nonatomic,strong)NSString *TitleOfAllPhoto;
 
 @end
