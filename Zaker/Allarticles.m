@@ -38,7 +38,7 @@ static NSString * const reuseIdentifierOfMagazine = @"the name of magazine";
 -(NSArray *)allMagazineURL
 {
     
-                         return  @[[NSString stringWithFormat: @"http://apis.baidu.com/showapi_open_bus/pic/pic_search?type=4003&page=%d",arc4random()%10],
+                         return  @[[NSString stringWithFormat: @"http://apis.baidu.com/showapi_open_bus/pic/pic_search?type=4002&page=%d",arc4random()%20],
                                   [NSString stringWithFormat:@"http://apis.baidu.com/txapi/tiyu/tiyu?num=20&page=%d",arc4random()%10],
                                   [NSString stringWithFormat:@"http://apis.baidu.com/txapi/keji/keji?num=20&page=%d",arc4random()%10],
                                   [NSString stringWithFormat:@"http://apis.baidu.com/txapi/social/social?num=20&page=%d",arc4random()%10],
@@ -159,7 +159,7 @@ static NSString * const reuseIdentifierOfMagazine = @"the name of magazine";
     if (indexPath.row==0) {
         CollectionCell *photoCell=[collectionView dequeueReusableCellWithReuseIdentifier:@"the name of photo" forIndexPath:indexPath];
        photoCell.CellLabel.text=[NSString stringWithFormat:@"%@",[self getTheNameOfMagazine:indexPath]];
-        NSLog(@"%@",photoCell.CellLabel.text);
+//        NSLog(@"%@",photoCell.CellLabel.text);
 
        photoCell.layer.borderWidth=0.3f;
         photoCell.layer.borderColor=[UIColor grayColor].CGColor;
@@ -171,7 +171,7 @@ static NSString * const reuseIdentifierOfMagazine = @"the name of magazine";
 //        NSLog(@"%@",[self getTheNameOfMagazine:indexPath]);
 //        NSString *imageToLoad = [NSString stringWithFormat:@"%ld.png", (long)indexPath.row];
 //        cell.Cellimage.image=[UIImage imageNamed:imageToLoad];
-        NSLog(@"%@",cell.CellLabel.text);
+//        NSLog(@"%@",cell.CellLabel.text);
 
         cell.layer.borderWidth=0.3f;
         cell.layer.borderColor=[UIColor grayColor].CGColor;

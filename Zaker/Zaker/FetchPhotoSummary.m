@@ -36,6 +36,7 @@ static NSString * const reuseIdentifier = @"the photo of magazine";
     fetchPhotoDetail.UrlOfAllPhoto=photos;
 //    这句导致程序崩溃
 self.urlOfThumbnails=[[AllPhotos valueForKeyPath:ALL_PHOTOS_URL][indexpath.row] valueForKeyPath:MEDIUM_PHOTO][0];
+//    NSLog(@"%@",self.urlOfThumbnails);
 }
 
 
@@ -90,6 +91,7 @@ self.urlOfThumbnails=[[AllPhotos valueForKeyPath:ALL_PHOTOS_URL][indexpath.row] 
 {
     [super viewDidLoad];
     [self fetchPhoto];
+    self.navigationItem.title=self.thePhotosNAME;
 
 
 
@@ -100,10 +102,12 @@ self.urlOfThumbnails=[[AllPhotos valueForKeyPath:ALL_PHOTOS_URL][indexpath.row] 
 -(void) getImageFromURL:(NSString *)fileURL {
     
     NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fileURL]];
+    
+    /*使用下面这种写法，把获取图片的方法放到自己创建的一个队列里面，会出现第一个cell是空白的情况，原因不明
     dispatch_queue_t fetchQ=dispatch_queue_create("fetch photo", NULL);
     dispatch_async(fetchQ, ^{self.image = [UIImage imageWithData:data];
-    });
-    
+     }); */
+    self.image = [UIImage imageWithData:data];
     
 }
 
@@ -125,8 +129,7 @@ self.urlOfThumbnails=[[AllPhotos valueForKeyPath:ALL_PHOTOS_URL][indexpath.row] 
                                        self.allPhotos=[json  valueForKeyPath:ALL_PHOTOS];
                                        
 //                                       
-//                                       NSLog(@"articles:%@",self.allPhotos
-//                                             );
+//                                       NSLog(@"articles:%@",self.allPhotos);
                                        
                                        dispatch_async(dispatch_get_main_queue(), ^
                                                       {

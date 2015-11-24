@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>A3631FB0-F9E2-4673-B875-873324388A2F</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Zaker</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>249177E4F1C43387F99BF5AFBC42A3417AB10DB1</key>
 		<string>https://github.com/XiMuYouZi/iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Zaker/Zaker.xcodeproj</string>
+	<string>Zaker/Zaker.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>249177E4F1C43387F99BF5AFBC42A3417AB10DB1</key>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>249177E4F1C43387F99BF5AFBC42A3417AB10DB1</string>
 			<key>IDESourceControlWCCName</key>
-			<string>iOS1</string>
+			<string>iOS</string>
 		</dict>
 	</array>
 </dict>
