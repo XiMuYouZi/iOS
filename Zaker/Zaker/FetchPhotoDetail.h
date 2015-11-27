@@ -11,8 +11,11 @@
 @interface FetchPhotoDetail : UIViewController
 @property(nonatomic,strong)NSArray *UrlOfAllPhoto;
 @property(nonatomic,strong)NSString *TitleOfAllPhoto;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (strong,nonatomic)UIScrollView *scrollView;
+
+@property (strong,nonatomic)NSMutableArray *slideImages;
+@property (strong,nonatomic)UIPageControl *pageControl;
+
 
 @end

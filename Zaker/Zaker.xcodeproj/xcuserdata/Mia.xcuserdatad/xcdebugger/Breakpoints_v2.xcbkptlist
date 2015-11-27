@@ -212,11 +212,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Zaker/FetchPhotoDetail.m"
-            timestampString = "470042645.597636"
+            timestampString = "470199643.44913"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
             landmarkName = "@implementation FetchPhotoDetail"
             landmarkType = "3">
          </BreakpointContent>
@@ -228,12 +228,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Zaker/FetchPhotoDetail.m"
-            timestampString = "470042645.597636"
+            timestampString = "470199084.880159"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "-viewForZoomingInScrollView:"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
