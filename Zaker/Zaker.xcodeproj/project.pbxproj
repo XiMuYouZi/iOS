@@ -20,6 +20,11 @@
 		0D6F3F8A1BFDA8CB00768688 /* FetchArticleDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6F3F891BFDA8CB00768688 /* FetchArticleDetail.m */; };
 		0D6F3F8D1BFDA9F500768688 /* Allarticles.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6F3F8C1BFDA9F500768688 /* Allarticles.m */; };
 		0D6F3F901BFDAE3D00768688 /* CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6F3F8F1BFDAE3D00768688 /* CollectionCell.m */; };
+		0DB916C71C0E8E42002BEB41 /* showPhotoWithCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB916C61C0E8E42002BEB41 /* showPhotoWithCollectionView.m */; };
+		0DB916CA1C0EEE3F002BEB41 /* showPhotoWithModalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB916C91C0EEE3F002BEB41 /* showPhotoWithModalView.m */; };
+		0DC672481C0FE906006E5909 /* 头像-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0DC672471C0FE906006E5909 /* 头像-2.jpg */; };
+		0DC6724B1C0FEB1D006E5909 /* FetchArticleSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC6724A1C0FEB1D006E5909 /* FetchArticleSummaryCell.m */; };
+		5C361E3EF1C6DCB3263AA89E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB560A1D5F81BC29CE24548D /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +63,16 @@
 		0D6F3F8C1BFDA9F500768688 /* Allarticles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Allarticles.m; path = ../Allarticles.m; sourceTree = "<group>"; };
 		0D6F3F8E1BFDAE3D00768688 /* CollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionCell.h; sourceTree = "<group>"; };
 		0D6F3F8F1BFDAE3D00768688 /* CollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCell.m; sourceTree = "<group>"; };
+		0DB916C51C0E8E42002BEB41 /* showPhotoWithCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = showPhotoWithCollectionView.h; sourceTree = "<group>"; };
+		0DB916C61C0E8E42002BEB41 /* showPhotoWithCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = showPhotoWithCollectionView.m; sourceTree = "<group>"; };
+		0DB916C81C0EEE3F002BEB41 /* showPhotoWithModalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = showPhotoWithModalView.h; sourceTree = "<group>"; };
+		0DB916C91C0EEE3F002BEB41 /* showPhotoWithModalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = showPhotoWithModalView.m; sourceTree = "<group>"; };
+		0DC672471C0FE906006E5909 /* 头像-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "头像-2.jpg"; path = "../../../Desktop/头像-2.jpg"; sourceTree = "<group>"; };
+		0DC672491C0FEB1D006E5909 /* FetchArticleSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchArticleSummaryCell.h; sourceTree = "<group>"; };
+		0DC6724A1C0FEB1D006E5909 /* FetchArticleSummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchArticleSummaryCell.m; sourceTree = "<group>"; };
+		8B7B837549BD41576A0C5C29 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		CB560A1D5F81BC29CE24548D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5866D61A7A91F3334624FBD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C361E3EF1C6DCB3263AA89E /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +101,10 @@
 				0D4362101C020BCD00B3CA87 /* FetchPhotoCell.m */,
 				0D4362061C01C1A900B3CA87 /* FetchPhotoDetail.h */,
 				0D4362071C01C1A900B3CA87 /* FetchPhotoDetail.m */,
+				0DB916C51C0E8E42002BEB41 /* showPhotoWithCollectionView.h */,
+				0DB916C61C0E8E42002BEB41 /* showPhotoWithCollectionView.m */,
+				0DB916C81C0EEE3F002BEB41 /* showPhotoWithModalView.h */,
+				0DB916C91C0EEE3F002BEB41 /* showPhotoWithModalView.m */,
 				0D4362171C02F68600B3CA87 /* FetchPhotoSummary.h */,
 				0D4362181C02F68600B3CA87 /* FetchPhotoSummary.m */,
 			);
@@ -105,6 +125,8 @@
 		0D43621B1C02F78800B3CA87 /* Fetch Article */ = {
 			isa = PBXGroup;
 			children = (
+				0DC672491C0FEB1D006E5909 /* FetchArticleSummaryCell.h */,
+				0DC6724A1C0FEB1D006E5909 /* FetchArticleSummaryCell.m */,
 				0D6F3F881BFDA8CB00768688 /* FetchArticleDetail.h */,
 				0D6F3F891BFDA8CB00768688 /* FetchArticleDetail.m */,
 				0D6F3F431BFC541F00768688 /* FetchArticleSummary.h */,
@@ -126,9 +148,12 @@
 		0D610A941BFC20E500744B6B = {
 			isa = PBXGroup;
 			children = (
+				0DC672471C0FE906006E5909 /* 头像-2.jpg */,
 				0D610A9F1BFC20E600744B6B /* Zaker */,
 				0D610AB91BFC20E600744B6B /* ZakerTests */,
 				0D610A9E1BFC20E600744B6B /* Products */,
+				217858447C6DB33DB72F3299 /* Pods */,
+				A314EBD910E836F7BDD60647 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -181,6 +206,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		217858447C6DB33DB72F3299 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8B7B837549BD41576A0C5C29 /* Pods.debug.xcconfig */,
+				F5866D61A7A91F3334624FBD /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A314EBD910E836F7BDD60647 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CB560A1D5F81BC29CE24548D /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -188,9 +230,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D610AC01BFC20E600744B6B /* Build configuration list for PBXNativeTarget "Zaker" */;
 			buildPhases = (
+				A982B8DDA345EFCBFD1D8465 /* Check Pods Manifest.lock */,
 				0D610A991BFC20E600744B6B /* Sources */,
 				0D610A9A1BFC20E600744B6B /* Frameworks */,
 				0D610A9B1BFC20E600744B6B /* Resources */,
+				67EAC9BBCBA9EE1DA7E3A346 /* Embed Pods Frameworks */,
+				DBDBD039F6511BE8794CB820 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -262,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D6F3F4E1BFC7F1300768688 /* Main.storyboard in Resources */,
+				0DC672481C0FE906006E5909 /* 头像-2.jpg in Resources */,
 				0D610AB11BFC20E600744B6B /* LaunchScreen.xib in Resources */,
 				0D610AAE1BFC20E600744B6B /* Images.xcassets in Resources */,
 			);
@@ -276,6 +322,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		67EAC9BBCBA9EE1DA7E3A346 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A982B8DDA345EFCBFD1D8465 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DBDBD039F6511BE8794CB820 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0D610A991BFC20E600744B6B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -285,10 +379,13 @@
 				0D6F3F8A1BFDA8CB00768688 /* FetchArticleDetail.m in Sources */,
 				0D6F3F8D1BFDA9F500768688 /* Allarticles.m in Sources */,
 				0D4362111C020BCD00B3CA87 /* FetchPhotoCell.m in Sources */,
+				0DB916C71C0E8E42002BEB41 /* showPhotoWithCollectionView.m in Sources */,
 				0D4362081C01C1A900B3CA87 /* FetchPhotoDetail.m in Sources */,
 				0D4362191C02F68600B3CA87 /* FetchPhotoSummary.m in Sources */,
 				0D6F3F901BFDAE3D00768688 /* CollectionCell.m in Sources */,
+				0DC6724B1C0FEB1D006E5909 /* FetchArticleSummaryCell.m in Sources */,
 				0D610AA61BFC20E600744B6B /* AppDelegate.m in Sources */,
+				0DB916CA1C0EEE3F002BEB41 /* showPhotoWithModalView.m in Sources */,
 				0D610AA31BFC20E600744B6B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,21 +512,25 @@
 		};
 		0D610AC11BFC20E600744B6B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B7B837549BD41576A0C5C29 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Zaker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Debug;
 		};
 		0D610AC21BFC20E600744B6B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5866D61A7A91F3334624FBD /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Zaker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Release;
 		};

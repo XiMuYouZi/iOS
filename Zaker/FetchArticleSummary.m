@@ -8,6 +8,7 @@
 
 #import "FetchArticleSummary.h"
 #import "FetchArticleDetail.h"
+#import "FetchArticleSummaryCell.h"
 
 @interface FetchArticleSummary ()
 //@property(nonatomic,copy)NSArray *titles;
@@ -30,25 +31,21 @@
    
 }
 
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    //常规做法是从tableview的单元格连线segue到下一个页面，这样点击单元格就可以跳转了
+//    下面这句话的使用场景是：不是从cell连线segue到下一个页面，而是页面本身连线segue到下一个页面，也就是两个viewcontroller之间的segue，然后在需要跳转的地方(这里是被点击的单元格)指定segue的名字，这样可以实现在一个页面内点击不同的控件跳转到不同的页面
     [self performSegueWithIdentifier:@"show detailArticles" sender:self];
-
-//    [self prepareWebViewController:self.articleView toDisplayArticle:self.articles atIndexPath:indexPath];
-//    NSLog(@"tableview:%@",self.articles[indexPath.row][@"title"]);
 
 }
 
 
-
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    //sender不是UITableViewCell的类，我也搞不懂是为什么，当只有fetchArticleSummary  segue到FetchArticleDetail的时候sender是UITableViewCell的类，但是在前面加了一个AllArticle类segue到自身的时候，就出了问题。
-    if ([sender isKindOfClass:[FetchArticleSummary class]])
-    {
-        //原来使用的是[self.tableView indexpathforcell:sender]发现不行，因为sender根本不是UITableViewCell
-        NSIndexPath *indexPath=[self.tableView  indexPathForSelectedRow];
-    NSLog(@"%@",indexPath);
+    //使用了上面的didselectrowAtindexPath方法，就必须使用indexPathForSelectedRow获取点击行的indexpath，不能使用indexPathForCell:sender 获取了
+    NSIndexPath *indexPath=[self.tableView  indexPathForSelectedRow];
         if (indexPath)
         {
             if ([segue.identifier isEqualToString:@"show detailArticles"])
@@ -56,19 +53,11 @@
                 if ([segue.destinationViewController isKindOfClass:[FetchArticleDetail class]])
                 {
                     [self prepareWebViewController:segue.destinationViewController toDisplayArticle:self.articles atIndexPath:indexPath];
-                    
-//                NSLog(@"segue:%@",self.articles[indexPath.row][@"title"]);
-//                NSLog(@"segue indexpath:%@",indexPath);
 
-
-                    
-                    
                 }
             }
-//
         }
     
-    }
 }
 
 
@@ -131,7 +120,6 @@
     [self fetch];
     NSLog(@"%@",self.theMagazineURL);
     self.navigationItem.title=self.theNameOfMagazine;
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Articles"];
 
 
 }
@@ -141,15 +129,37 @@
     return  [self.articles count];
 }
 
+
+-(NSData *) getArticleImage:(NSDictionary *)Article
+{
+    
+    return [NSData dataWithContentsOfURL:[NSURL URLWithString:Article[@"picUrl"]]];
+    
+    
+}
+
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier=@"Articles";
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    FetchArticleSummaryCell *cell=[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     NSDictionary *article=self.articles[indexPath.row];
-//    NSString *sourceDate=[NSString stringWithFormat:@"%@(%@)",article[@"ctime"],article[@"description"]];
-    cell.textLabel.text=article[@"title"];
-#warning 没起作用
-    cell.detailTextLabel.text=article[@"time"];
+    cell.HeadLabel.text=article[@"title"];
+    cell.SubHeadLabel.text=article[@"description"];
+    
+    //label内部文字换行显示，3行
+    cell.SubHeadLabel.lineBreakMode=NSLineBreakByCharWrapping;
+    cell.SubHeadLabel.numberOfLines=2;
+    
+    cell.FootNoteLabel.text=article[@"time"];
+    if ([self getArticleImage:article]) {
+        cell.articleImage.image=[UIImage imageWithData:[self getArticleImage:article]];
+    }else
+    {
+        cell.articleImage.image=[UIImage imageNamed:@"头像-2.jpg"];
+
+    }
+
     
     
     return cell;

@@ -9,13 +9,18 @@
 #import "FetchPhotoSummary.h"
 #import "FetchPhotoCell.h"
 #import "FetchPhotoDetail.h"
+#import "showPhotoWithCollectionView.h"
+
+
 
 @interface FetchPhotoSummary ()
 @property(nonatomic,strong)UIImageView *imageView;
 @property(nonatomic,strong)UIImage *image;
 @property(nonatomic)FetchPhotoDetail *fetchPhotoDetail;
-
+@property(nonatomic)showPhotoWithCollectionView *showphoto;
 @end
+
+
 
 @implementation FetchPhotoSummary
 #define ALL_PHOTOS @"showapi_res_body.pagebean.contentlist"
@@ -25,27 +30,52 @@
 #define MEDIUM_PHOTO @"middle"
 
 
-
 static NSString * const reuseIdentifier = @"the photo of magazine";
 
--(void)prepareImageViewController:(FetchPhotoDetail *)fetchPhotoDetail toDisplayPhoto:(NSArray *)AllPhotos  atIndexPath:(NSIndexPath *)indexpath
+-(void)DisplaySummaryPhoto:(NSArray *)AllPhotos  atIndexPath:(NSIndexPath *)indexpath
 {
-    NSArray *photos=[[AllPhotos valueForKeyPath:ALL_PHOTOS_URL][indexpath.row] valueForKeyPath:BIG_PHOTO];
-    NSString *titles=[AllPhotos valueForKeyPath:ALL_PHOTOS_TITLE][indexpath.row];
-    fetchPhotoDetail.TitleOfAllPhoto=titles;
-    fetchPhotoDetail.UrlOfAllPhoto=photos;
-//    这句导致程序崩溃
+    
 self.urlOfThumbnails=[[AllPhotos valueForKeyPath:ALL_PHOTOS_URL][indexpath.row] valueForKeyPath:MEDIUM_PHOTO][0];
-//    NSLog(@"%@",self.urlOfThumbnails);
+
 }
+
+
+
+
+-(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if ([_delegate respondsToSelector:@selector(getAllPhotos:atIndexPath:)])
+    {
+
+        [_delegate getAllPhotos:self.allPhotos atIndexPath:indexPath];
+    }
+
+}
+
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"show detailPhoto"])
     {
+        
+#warning 一定要记得设置代理！！！！！
+        _delegate=segue.destinationViewController;
+        
         NSIndexPath *indexPath=[self.collectionView indexPathForCell:sender];
-        [self prepareImageViewController:segue.destinationViewController toDisplayPhoto:self.allPhotos atIndexPath:indexPath];
+        if ([_delegate respondsToSelector:@selector(getAllPhotos:atIndexPath:)])
+        {
+            [_delegate getAllPhotos:self.allPhotos atIndexPath:indexPath];
+        }
+
     }
 }
 
@@ -94,7 +124,6 @@ self.urlOfThumbnails=[[AllPhotos valueForKeyPath:ALL_PHOTOS_URL][indexpath.row] 
     self.navigationItem.title=self.thePhotosNAME;
 
 
-
 }
 
 
@@ -128,7 +157,7 @@ self.urlOfThumbnails=[[AllPhotos valueForKeyPath:ALL_PHOTOS_URL][indexpath.row] 
                                        NSDictionary *json=[NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
                                        self.allPhotos=[json  valueForKeyPath:ALL_PHOTOS];
                                        
-//                                       
+                                       
 //                                       NSLog(@"articles:%@",self.allPhotos);
                                        
                                        dispatch_async(dispatch_get_main_queue(), ^
@@ -165,14 +194,15 @@ self.urlOfThumbnails=[[AllPhotos valueForKeyPath:ALL_PHOTOS_URL][indexpath.row] 
 {
 
     FetchPhotoCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    [self prepareImageViewController:self.fetchPhotoDetail toDisplayPhoto:self.allPhotos atIndexPath:indexPath];
+    [self DisplaySummaryPhoto:self.allPhotos atIndexPath:indexPath];
     [self getImageFromURL:self.urlOfThumbnails];
 
     cell.PhotoImageView.image=self.image;
     cell.layer.borderWidth=0.3f;
     cell.layer.borderColor=[UIColor grayColor].CGColor;
     cell.layer.cornerRadius=8;
-                          return  cell;
+
+    return  cell;
         
     }
 

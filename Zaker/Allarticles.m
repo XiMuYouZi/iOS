@@ -50,15 +50,6 @@ static NSString * const reuseIdentifierOfMagazine = @"the name of magazine";
 
 }
 
-//-(void)viewDidLoad
-//{
-//    [self.collectionView registerClass:[CollectionCell class] forCellWithReuseIdentifier:reuseIdentifierOfMagazine];
-//    self.ArticleSummaryTableView=[[FetchArticleSummary alloc]init];
-//    self.PhotoDetailCollectionView=[[FetchPhotoDetail alloc]init];
-//    
-//    self.collectionView.delegate=self;
-//    self.collectionView.dataSource=self;
-//}
 
 -(void)prepareTableViewController:(FetchArticleSummary *)tableView atIndexPath:(NSIndexPath *)indexPath
 {
@@ -75,31 +66,29 @@ static NSString * const reuseIdentifierOfMagazine = @"the name of magazine";
 }
 
 
-//-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-//{
-//
-////    [self.navigationController pushViewController:self.PhotoDetailCollectionView animated:YES];
-//    [self prepareWTableViewController:self.ArticleSummaryTableView atIndexPath:indexPath];
-//
-//
-//}
-//
-//-(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return YES;
-//}
 
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if (indexPath.row==0) {
+        [self performSegueWithIdentifier:@"show photos" sender:self];
+
+    }else
+    {
+        [self performSegueWithIdentifier:@"show articles" sender:self];
+    }
+    
+}
 
 
-
+//如果是从cell连线segue到另外一个视图，这是sender就是点击的cell，我这里是两个视图之间的连接
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([sender isKindOfClass:[CollectionCell class]])
-    {
-        NSIndexPath *indexPath=[self.collectionView indexPathForCell:sender];
-        if (indexPath)
-        {
+//    if ([sender isKindOfClass:[CollectionCell class]])
+//    {
+    //我好机智，啊哈哈，竟然想到了indexPathForSelectedItems这个方法
+        NSIndexPath *indexPath=[self.collectionView indexPathsForSelectedItems][0];
             if ([segue.identifier isEqualToString:@"show photos"])
             {
                 if ([segue.destinationViewController isKindOfClass:[FetchPhotoSummary class]])
@@ -108,8 +97,9 @@ static NSString * const reuseIdentifierOfMagazine = @"the name of magazine";
                     [self preparePhotoDetailViewController:segue.destinationViewController atIndexPath:indexPath];
                     
                 }
-            }
             
+        }
+        
 
             if ([segue.identifier isEqualToString:@"show articles"])
             {
@@ -120,9 +110,9 @@ static NSString * const reuseIdentifierOfMagazine = @"the name of magazine";
                     
                 }
             }
-                    }
+                    
         
-    }
+//    }
 }
 
 
@@ -156,17 +146,7 @@ static NSString * const reuseIdentifierOfMagazine = @"the name of magazine";
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row==0) {
-        CollectionCell *photoCell=[collectionView dequeueReusableCellWithReuseIdentifier:@"the name of photo" forIndexPath:indexPath];
-       photoCell.CellLabel.text=[NSString stringWithFormat:@"%@",[self getTheNameOfMagazine:indexPath]];
-//        NSLog(@"%@",photoCell.CellLabel.text);
-
-       photoCell.layer.borderWidth=0.3f;
-        photoCell.layer.borderColor=[UIColor grayColor].CGColor;
-        return  photoCell;
-
-    }else
-    {    CollectionCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierOfMagazine forIndexPath:indexPath];
+       CollectionCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifierOfMagazine forIndexPath:indexPath];
         cell.CellLabel.text=[NSString stringWithFormat:@"%@",[self getTheNameOfMagazine:indexPath]];
 //        NSLog(@"%@",[self getTheNameOfMagazine:indexPath]);
 //        NSString *imageToLoad = [NSString stringWithFormat:@"%ld.png", (long)indexPath.row];
@@ -177,7 +157,7 @@ static NSString * const reuseIdentifierOfMagazine = @"the name of magazine";
         cell.layer.borderColor=[UIColor grayColor].CGColor;
         return  cell;
 
-    }
+//    }
     
 
     

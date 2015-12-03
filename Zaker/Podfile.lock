@@ -1,0 +1,10 @@
+PODS:
+  - RAMCollectionViewFlemishBondLayout (1.1.1)
+
+DEPENDENCIES:
+  - RAMCollectionViewFlemishBondLayout (~> 1.1.1)
+
+SPEC CHECKSUMS:
+  RAMCollectionViewFlemishBondLayout: 82beaeafc7c1e51f417c1273ea136480970a8be2
+
+COCOAPODS: 0.39.0

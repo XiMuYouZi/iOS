@@ -6,6 +6,11 @@
 //  Copyright (c) 2015年 Mia. All rights reserved.
 //
 
+
+/*
+ 本类使用UIscrollerview轮播显示图片，在这个项目里面不用了，目前采用的是collectionview显示图片
+ */
+
 #import "FetchPhotoDetail.h"
 
 
