@@ -81,40 +81,6 @@ self.urlOfThumbnails=[[AllPhotos valueForKeyPath:ALL_PHOTOS_URL][indexpath.row] 
 
 
 
-/*stanford 老头用的这个方法下载的图片，我这里不行
-覆盖ImageURL的getter的方法，设置image属性为通过imageURL这个URL下载下来的图片
--(void)setUrlOfThumbnails:(NSString *)urlOfThumbnails
-{
-    _urlOfThumbnails=urlOfThumbnails;
-    [self startDownloadingImage];
-}
-
-
--(void)startDownloadingImage
-{
-    self.image=nil;
-    [self.spinner startAnimating];
-    if (self.imageURL) {
-        NSURLRequest *request=[NSURLRequest requestWithURL:self.imageURL];
-        NSURLSessionConfiguration *configuration =[NSURLSessionConfiguration ephemeralSessionConfiguration];
-        NSURLSession *session=[NSURLSession sessionWithConfiguration:configuration];
-        NSURLSessionDownloadTask *task=[session downloadTaskWithRequest:request
-                                                      completionHandler:^(NSURL *loaclfile, NSURLResponse *response, NSError *error) {
-                                                          if (!error) {
-                                                              //  保证在下载过程中URL不被修改因为如果下载需要10min，等待期间用户又点击了其他链接，如果不写这一句，会导致最后下载下来的内容和刚开始第一次点击的下载链接下载的内容是不同的
-                                                              if ([request.URL isEqual:self.imageURL]) {
-                                                                  UIImage *image=[UIImage imageWithData:[NSData dataWithContentsOfURL:loaclfile]];
-                                                                  dispatch_async(dispatch_get_main_queue(), ^{self.image=image;});
-                                                              }
-                                                          }
-                                                      }];
-        [task resume];
-    }
-}
-
-*/
-
-
 
 
 -(void)viewDidLoad

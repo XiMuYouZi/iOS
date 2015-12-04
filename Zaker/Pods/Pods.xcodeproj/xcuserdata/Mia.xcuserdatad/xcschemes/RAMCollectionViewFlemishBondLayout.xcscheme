@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'CE4A470A2D98108EF5222C1C'
+               BlueprintIdentifier = '08A6BFD73B3C120C52877A11'
                BlueprintName = 'RAMCollectionViewFlemishBondLayout'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libRAMCollectionViewFlemishBondLayout.a'>

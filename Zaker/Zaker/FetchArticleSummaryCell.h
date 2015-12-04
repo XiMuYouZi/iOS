@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *HeadLabel;
 @property (weak, nonatomic) IBOutlet UILabel *SubHeadLabel;
 @property (weak, nonatomic) IBOutlet UILabel *FootNoteLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *headImage;
 
 @end

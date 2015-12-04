@@ -9,6 +9,7 @@
 #import "FetchArticleSummary.h"
 #import "FetchArticleDetail.h"
 #import "FetchArticleSummaryCell.h"
+#import "showWeiBo.h"
 
 @interface FetchArticleSummary ()
 //@property(nonatomic,copy)NSArray *titles;
@@ -22,13 +23,31 @@
 
 @implementation FetchArticleSummary
 
+
+
+# pragma mark - init
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self fetch];
+    NSLog(@"%@",self.theMagazineURL);
+    self.navigationItem.title=self.theNameOfMagazine;
+    
+    
+}
+
+
+
+
+#pragma mark -点击不同cell跳转到不同view
+
 -(void)prepareWebViewController:(FetchArticleDetail *)webview toDisplayArticle:(NSArray *)articles  atIndexPath:(NSIndexPath *)indexpath
 {
     NSDictionary *article=articles[indexpath.row];
     NSURL *url=[NSURL URLWithString:article[@"url"]];
     webview.Title=article[@"title"];
     webview.URL=url;
-   
+    
 }
 
 
@@ -37,7 +56,14 @@
     
     //常规做法是从tableview的单元格连线segue到下一个页面，这样点击单元格就可以跳转了
 //    下面这句话的使用场景是：不是从cell连线segue到下一个页面，而是页面本身连线segue到下一个页面，也就是两个viewcontroller之间的segue，然后在需要跳转的地方(这里是被点击的单元格)指定segue的名字，这样可以实现在一个页面内点击不同的控件跳转到不同的页面
-    [self performSegueWithIdentifier:@"show detailArticles" sender:self];
+    if (indexPath.row==0) {
+        [self performSegueWithIdentifier:@"showWeiBo" sender:self];
+
+    }
+    else
+    {
+        [self performSegueWithIdentifier:@"show detailArticles" sender:self];
+    }
 
 }
 
@@ -56,12 +82,25 @@
 
                 }
             }
+            if ([segue.identifier isEqualToString:@"showWeiBo"])
+            {
+                if ([segue.destinationViewController isKindOfClass:[showWeiBo class]])
+                {
+                    NSLog(@"!!");
+                    showWeiBo *weibo=segue.destinationViewController;
+                    weibo.navigationBarTitle=@"新浪微博";
+                    
+                }
+            }
         }
     
 }
 
 
 
+
+
+#pragma mark - 获取后台数据
 
 - (IBAction)fetch
 {
@@ -114,20 +153,6 @@
 
 
 
--(void)viewDidLoad
-{
-    [super viewDidLoad];
-    [self fetch];
-    NSLog(@"%@",self.theMagazineURL);
-    self.navigationItem.title=self.theNameOfMagazine;
-
-
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return  [self.articles count];
-}
 
 
 -(NSData *) getArticleImage:(NSDictionary *)Article
@@ -139,9 +164,49 @@
 }
 
 
+
+
+
+#pragma mark - tableView delegate和DataSource
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 112.f;
+}
+
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return  [self.articles count];
+}
+
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+    
+    if (indexPath.row==0)
+    {
+
+        return  self.view.bounds.size.height*1/4;
+    }
+    return  112;
+}
+
+
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier=@"Articles";
+    static NSString *HeadIdentifier=@"head";
+    
+    if (indexPath.row==0) {
+        FetchArticleSummaryCell *headcell=[tableView dequeueReusableCellWithIdentifier:HeadIdentifier forIndexPath:indexPath];
+        return headcell;
+        
+
+    }else
+    {
+
     FetchArticleSummaryCell *cell=[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     NSDictionary *article=self.articles[indexPath.row];
     cell.HeadLabel.text=article[@"title"];
@@ -149,20 +214,24 @@
     
     //label内部文字换行显示，3行
     cell.SubHeadLabel.lineBreakMode=NSLineBreakByCharWrapping;
-    cell.SubHeadLabel.numberOfLines=2;
+    cell.SubHeadLabel.numberOfLines=3;
     
     cell.FootNoteLabel.text=article[@"time"];
     if ([self getArticleImage:article]) {
         cell.articleImage.image=[UIImage imageWithData:[self getArticleImage:article]];
+//        cell.articleImage.layer.cornerRadius = 40.f;
+//       cell.articleImage.layer.masksToBounds = YES;
     }else
     {
         cell.articleImage.image=[UIImage imageNamed:@"头像-2.jpg"];
+//        cell.articleImage.layer.cornerRadius = 40.f;
+//        cell.articleImage.layer.masksToBounds = YES;
+
 
     }
-
-    
     
     return cell;
+    }
 }
 
 
