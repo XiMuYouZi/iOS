@@ -105,7 +105,7 @@
 - (IBAction)fetch
 {
     [self.refreshControl beginRefreshing];
-    NSURL *url = [NSURL URLWithString: self.theMagazineURL];
+    NSURL *url = [NSURL URLWithString: @"http://apis.baidu.com/txapi/keji/keji?num=20&page=9"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url cachePolicy: NSURLRequestUseProtocolCachePolicy timeoutInterval: 10];
     [request setHTTPMethod: @"GET"];
     [request addValue: @"fefa4eb543425fc64ab767f301d934ad" forHTTPHeaderField: @"apikey"];
@@ -113,7 +113,7 @@
                                        queue: [NSOperationQueue mainQueue]
                            completionHandler: ^(NSURLResponse *response, NSData *data, NSError *error){
                                if (error) {
-                                   NSLog(@"Httperror: %@%ld", error.localizedDescription, error.code);
+                                   NSLog(@"Httperror: %@%ld", error.localizedDescription, (long)error.code);
                                } else {
                                    
                                    NSDictionary *json=[NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
