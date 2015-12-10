@@ -10,6 +10,7 @@
 #import "FetchArticleDetail.h"
 #import "FetchArticleSummaryCell.h"
 #import "showWeiBo.h"
+#import "ArticleSummarySliderNavigation.h"
 
 @interface FetchArticleSummary ()
 //@property(nonatomic,copy)NSArray *titles;
@@ -25,6 +26,7 @@
 
 
 
+
 # pragma mark - init
 -(void)viewDidLoad
 {
@@ -34,6 +36,12 @@
     self.navigationItem.title=self.theNameOfMagazine;
     
     
+}
+
+- (instancetype)init {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    self = [sb instantiateViewControllerWithIdentifier:@"FecthAtricleSummary"];
+    return self;
 }
 
 
@@ -99,13 +107,15 @@
 
 
 
-
 #pragma mark - 获取后台数据
 
 - (IBAction)fetch
 {
     [self.refreshControl beginRefreshing];
-    NSURL *url = [NSURL URLWithString: @"http://apis.baidu.com/txapi/keji/keji?num=20&page=9"];
+//    [self fetchURL];
+    NSLog(@"%@",_theMagazineURL);
+    
+    NSURL *url = [NSURL URLWithString:_theMagazineURL];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url cachePolicy: NSURLRequestUseProtocolCachePolicy timeoutInterval: 10];
     [request setHTTPMethod: @"GET"];
     [request addValue: @"fefa4eb543425fc64ab767f301d934ad" forHTTPHeaderField: @"apikey"];
