@@ -1,0 +1,7 @@
+pod 'ShareSDK2'
+pod 'ShareSDK2/Connection/SinaWeibo'
+pod 'ShareSDK2/Connection/WeChat'
+pod 'ShareSDK2/Comment'
+pod 'ShareSDK2/Connection/TencentWeibo'
+pod 'ShareSDK2/UI/iPhoneDefault'
+pod 'ShareSDK2/UI/iPhoneSimple'

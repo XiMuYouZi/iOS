@@ -6,9 +6,21 @@
 //  Copyright (c) 2015年 Mia. All rights reserved.
 //
 
+/*新浪微博
+ App Key：4005353744
+ App Secret：1c2b76cb71dd5cf9da6ac927cb9ffb37
+ */
+
+
+
 #import "AppDelegate.h"
 #import "FetchArticleDetail.h"
 #import "FetchArticleSummary.h"
+
+
+#import <ShareSDK/ShareSDK.h>
+#import "WXApi.h"
+#import "WeiboSDK.h"
 
 @interface AppDelegate ()
 @property(nonatomic)FetchArticleDetail *articleDetail;
@@ -21,7 +33,27 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-//    self.articleSummary.webViewController=self.articleDetail;
+    [ShareSDK registerApp:@"d3b1f416ffbb"];//字符串api20为您的ShareSDK的AppKey
+    
+     //当使用新浪微博客户端分享的时候需要按照下面的方法来初始化新浪的平台
+    [ShareSDK  connectSinaWeiboWithAppKey:@"568898243"
+                                appSecret:@"a305c316a6b6c4e8157d9831f6b61f80"
+                              redirectUri:@"http://www.sharesdk.cn"
+                              weiboSDKCls:[WeiboSDK class]];
+    //微信登陆的时候需要初始化
+    [ShareSDK connectWeChatWithAppId:@"wx4868b35061f87885"
+                           appSecret:@"64020361b8ec4c99936c0e3999a9f249"
+                           wechatCls:[WXApi class]];
+    
+    //添加腾讯微博应用 注册网址 http://dev.t.qq.com
+    [ShareSDK connectTencentWeiboWithAppKey:@"801307650"
+                                  appSecret:@"ae36f4ee3946e1cbb98d6965b0b2ff5c"
+                                redirectUri:@"http://www.sharesdk.cn"];
+    
+    //初始化腾讯微博，请在腾讯微博开放平台申请,腾讯微博客户端已经不支持，现在腾讯微博只可以使用网页授权
+    [ShareSDK connectTencentWeiboWithAppKey:@"801307650" appSecret:@"ae36f4ee3946e1cbb98d6965b0b2ff5c" redirectUri:@"http://www.sharesdk.cn"];
+    
+    
     return YES;
 }
 

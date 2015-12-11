@@ -12,6 +12,7 @@
 #import "showWeiBo.h"
 #import "ArticleSummarySliderNavigation.h"
 
+
 @interface FetchArticleSummary ()
 //@property(nonatomic,copy)NSArray *titles;
 @property(nonatomic,copy)NSArray *articles;
