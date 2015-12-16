@@ -32,6 +32,9 @@
 		0DD048B41C194D250051ECF3 /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD048AC1C194D250051ECF3 /* WMScrollView.m */; };
 		0DD048B51C194D250051ECF3 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD048AF1C194D250051ECF3 /* WMPageController.m */; };
 		0DD048BA1C1951690051ECF3 /* ArticleSummarySliderNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD048B91C1951690051ECF3 /* ArticleSummarySliderNavigation.m */; };
+		0DD04A171C1ACFF20051ECF3 /* ArticleComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD04A161C1ACFF20051ECF3 /* ArticleComment.m */; };
+		0DD04A1C1C1AD0340051ECF3 /* commentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD04A1B1C1AD0340051ECF3 /* commentCell.m */; };
+		0DD04A1F1C1AD0450051ECF3 /* answerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD04A1E1C1AD0450051ECF3 /* answerCell.m */; };
 		0DEE2A341C1672D400ED8FBA /* RAMCollectionViewFlemishBondLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DEE2A311C1672D400ED8FBA /* RAMCollectionViewFlemishBondLayout.m */; };
 		0DEE2A351C1672D400ED8FBA /* RAMCollectionViewFlemishBondLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DEE2A331C1672D400ED8FBA /* RAMCollectionViewFlemishBondLayoutAttributes.m */; };
 		0DEE2A561C16731700ED8FBA /* UITableView+FDIndexPathHeightCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DEE2A4F1C16731700ED8FBA /* UITableView+FDIndexPathHeightCache.m */; };
@@ -332,6 +335,12 @@
 		0DD04A0A1C1A9B020051ECF3 /* Pods-resources.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
 		0DD04A0B1C1A9B020051ECF3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
 		0DD04A0C1C1A9B020051ECF3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		0DD04A151C1ACFF20051ECF3 /* ArticleComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleComment.h; sourceTree = "<group>"; };
+		0DD04A161C1ACFF20051ECF3 /* ArticleComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleComment.m; sourceTree = "<group>"; };
+		0DD04A1A1C1AD0340051ECF3 /* commentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commentCell.h; sourceTree = "<group>"; };
+		0DD04A1B1C1AD0340051ECF3 /* commentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commentCell.m; sourceTree = "<group>"; };
+		0DD04A1D1C1AD0450051ECF3 /* answerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = answerCell.h; sourceTree = "<group>"; };
+		0DD04A1E1C1AD0450051ECF3 /* answerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = answerCell.m; sourceTree = "<group>"; };
 		0DEE2A301C1672D400ED8FBA /* RAMCollectionViewFlemishBondLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMCollectionViewFlemishBondLayout.h; sourceTree = "<group>"; };
 		0DEE2A311C1672D400ED8FBA /* RAMCollectionViewFlemishBondLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAMCollectionViewFlemishBondLayout.m; sourceTree = "<group>"; };
 		0DEE2A321C1672D400ED8FBA /* RAMCollectionViewFlemishBondLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RAMCollectionViewFlemishBondLayoutAttributes.h; sourceTree = "<group>"; };
@@ -444,6 +453,7 @@
 		0D610A9F1BFC20E600744B6B /* Zaker */ = {
 			isa = PBXGroup;
 			children = (
+				0DD04A191C1ACFF70051ECF3 /* articleComment */,
 				0D43621C1C02F80D00B3CA87 /* Sources */,
 				0DC672511C1146A7006E5909 /* WeiBo */,
 				0D4362161C02F65B00B3CA87 /* Fetch Photo */,
@@ -952,6 +962,19 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		0DD04A191C1ACFF70051ECF3 /* articleComment */ = {
+			isa = PBXGroup;
+			children = (
+				0DD04A151C1ACFF20051ECF3 /* ArticleComment.h */,
+				0DD04A161C1ACFF20051ECF3 /* ArticleComment.m */,
+				0DD04A1A1C1AD0340051ECF3 /* commentCell.h */,
+				0DD04A1B1C1AD0340051ECF3 /* commentCell.m */,
+				0DD04A1D1C1AD0450051ECF3 /* answerCell.h */,
+				0DD04A1E1C1AD0450051ECF3 /* answerCell.m */,
+			);
+			name = articleComment;
+			sourceTree = "<group>";
+		};
 		0DD69C421C1588B900555174 /* 第三方库 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1175,11 +1198,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D4362111C020BCD00B3CA87 /* FetchPhotoCell.m in Sources */,
+				0DD04A1C1C1AD0340051ECF3 /* commentCell.m in Sources */,
 				0DEE2A571C16731700ED8FBA /* UITableView+FDKeyedHeightCache.m in Sources */,
 				0DC672541C1146D8006E5909 /* weiboCell.m in Sources */,
 				0D3C164D1C1586C8005F9386 /* FetchArticleDetail.m in Sources */,
 				0DB916C71C0E8E42002BEB41 /* showPhotoWithCollectionView.m in Sources */,
 				0DD048B11C194D250051ECF3 /* WMMenuItem.m in Sources */,
+				0DD04A171C1ACFF20051ECF3 /* ArticleComment.m in Sources */,
 				0D3C16511C1586DA005F9386 /* Allarticles.m in Sources */,
 				0DEE2A341C1672D400ED8FBA /* RAMCollectionViewFlemishBondLayout.m in Sources */,
 				0D4362081C01C1A900B3CA87 /* FetchPhotoDetail.m in Sources */,
@@ -1199,6 +1224,7 @@
 				0DEE2A561C16731700ED8FBA /* UITableView+FDIndexPathHeightCache.m in Sources */,
 				0D610AA61BFC20E600744B6B /* AppDelegate.m in Sources */,
 				0DEE2A351C1672D400ED8FBA /* RAMCollectionViewFlemishBondLayoutAttributes.m in Sources */,
+				0DD04A1F1C1AD0450051ECF3 /* answerCell.m in Sources */,
 				0DB916CA1C0EEE3F002BEB41 /* showPhotoWithModalView.m in Sources */,
 				0D610AA31BFC20E600744B6B /* main.m in Sources */,
 			);
