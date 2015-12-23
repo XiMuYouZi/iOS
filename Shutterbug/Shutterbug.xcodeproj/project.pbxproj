@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0D4362131C02E3F900B3CA87 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D4362121C02E3F900B3CA87 /* Main.storyboard */; };
+		0D856D871C24FCC000A856B3 /* FlickrAPIKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D92A6381BF2F8360066C01A /* FlickrAPIKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0D856D881C24FCC000A856B3 /* FlickrFetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D92A6391BF2F8360066C01A /* FlickrFetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0D92A6141BF2F7A00066C01A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D92A6131BF2F7A00066C01A /* main.m */; };
 		0D92A6171BF2F7A00066C01A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D92A6161BF2F7A00066C01A /* AppDelegate.m */; };
 		0D92A61A1BF2F7A00066C01A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D92A6191BF2F7A00066C01A /* ViewController.m */; };
@@ -152,6 +154,18 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		0D856D861C24FC9300A856B3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D856D871C24FCC000A856B3 /* FlickrAPIKey.h in Headers */,
+				0D856D881C24FCC000A856B3 /* FlickrFetcher.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		0D92A60D1BF2F7A00066C01A /* Shutterbug */ = {
 			isa = PBXNativeTarget;
@@ -160,6 +174,7 @@
 				0D92A60A1BF2F7A00066C01A /* Sources */,
 				0D92A60B1BF2F7A00066C01A /* Frameworks */,
 				0D92A60C1BF2F7A00066C01A /* Resources */,
+				0D856D861C24FC9300A856B3 /* Headers */,
 			);
 			buildRules = (
 			);

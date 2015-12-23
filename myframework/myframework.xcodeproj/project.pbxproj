@@ -10,6 +10,7 @@
 		0D856D991C24FE4B00A856B3 /* myframework.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D856D981C24FE4B00A856B3 /* myframework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0D856D9F1C24FE4C00A856B3 /* myframework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D856D931C24FE4B00A856B3 /* myframework.framework */; };
 		0D856DA61C24FE4C00A856B3 /* myframeworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D856DA51C24FE4C00A856B3 /* myframeworkTests.m */; };
+		0D856E281C25012200A856B3 /* framework-2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D856E271C25012200A856B3 /* framework-2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		0D856D9E1C24FE4C00A856B3 /* myframeworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myframeworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D856DA41C24FE4C00A856B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D856DA51C24FE4C00A856B3 /* myframeworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myframeworkTests.m; sourceTree = "<group>"; };
+		0D856E271C25012200A856B3 /* framework-2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "framework-2.framework"; path = "../framework-2/build/Debug-iphoneos/framework-2.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D856E281C25012200A856B3 /* framework-2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +56,7 @@
 		0D856D891C24FE4B00A856B3 = {
 			isa = PBXGroup;
 			children = (
+				0D856E271C25012200A856B3 /* framework-2.framework */,
 				0D856D951C24FE4B00A856B3 /* myframework */,
 				0D856DA21C24FE4C00A856B3 /* myframeworkTests */,
 				0D856D941C24FE4B00A856B3 /* Products */,
@@ -326,6 +330,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Chan/学习/iOS/framework-2/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = myframework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -341,6 +349,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Chan/学习/iOS/framework-2/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = myframework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

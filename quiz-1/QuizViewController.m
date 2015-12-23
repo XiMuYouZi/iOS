@@ -7,6 +7,7 @@
 //
 
 #import "QuizViewController.h"
+#import "myframework.h"
 
 @interface QuizViewController ()
 @property (nonatomic,weak) IBOutlet UILabel *questionLabel;
