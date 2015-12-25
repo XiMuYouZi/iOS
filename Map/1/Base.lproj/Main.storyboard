@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -70,13 +71,13 @@
                             <mask key="constraints">
                                 <exclude reference="D5B-tC-WbH"/>
                                 <exclude reference="olR-yA-OmH"/>
+                                <exclude reference="4JN-Oq-U0P"/>
+                                <exclude reference="JuT-hX-pbC"/>
                                 <exclude reference="6eR-4J-euv"/>
                                 <exclude reference="dnq-xV-49Z"/>
                                 <exclude reference="rJs-uX-Y7g"/>
                                 <exclude reference="swr-v0-4O3"/>
                                 <exclude reference="xDq-Rc-me3"/>
-                                <exclude reference="4JN-Oq-U0P"/>
-                                <exclude reference="JuT-hX-pbC"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -88,13 +89,13 @@
                             <mask key="constraints">
                                 <include reference="D5B-tC-WbH"/>
                                 <include reference="olR-yA-OmH"/>
+                                <include reference="4JN-Oq-U0P"/>
+                                <include reference="JuT-hX-pbC"/>
                                 <include reference="6eR-4J-euv"/>
                                 <include reference="dnq-xV-49Z"/>
                                 <include reference="rJs-uX-Y7g"/>
                                 <include reference="swr-v0-4O3"/>
                                 <include reference="xDq-Rc-me3"/>
-                                <include reference="4JN-Oq-U0P"/>
-                                <include reference="JuT-hX-pbC"/>
                             </mask>
                         </variation>
                     </view>

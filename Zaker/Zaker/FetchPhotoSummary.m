@@ -96,13 +96,14 @@ self.urlOfThumbnails=[[AllPhotos valueForKeyPath:ALL_PHOTOS_URL][indexpath.row] 
 //下载图片
 -(void) getImageFromURL:(NSString *)fileURL {
     
-    NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fileURL]];
-    
-    /*使用下面这种写法，把获取图片的方法放到自己创建的一个队列里面，会出现第一个cell是空白的情况，原因不明
-    dispatch_queue_t fetchQ=dispatch_queue_create("fetch photo", NULL);
-    dispatch_async(fetchQ, ^{self.image = [UIImage imageWithData:data];
-     }); */
-    self.image = [UIImage imageWithData:data];
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^
+//                   {
+                       NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fileURL]];
+                       
+                       self.image = [UIImage imageWithData:data];
+ 
+                   
+//                   });
     
 }
 
@@ -163,7 +164,10 @@ self.urlOfThumbnails=[[AllPhotos valueForKeyPath:ALL_PHOTOS_URL][indexpath.row] 
     [self DisplaySummaryPhoto:self.allPhotos atIndexPath:indexPath];
     [self getImageFromURL:self.urlOfThumbnails];
 
-    cell.PhotoImageView.image=self.image;
+//    dispatch_async(dispatch_get_main_queue(), ^{
+        cell.PhotoImageView.image=self.image;
+
+//    });
     cell.layer.borderWidth=0.3f;
     cell.layer.borderColor=[UIColor grayColor].CGColor;
     cell.layer.cornerRadius=8;
