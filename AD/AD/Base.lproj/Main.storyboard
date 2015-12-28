@@ -43,6 +43,33 @@
                                     <rect key="frame" x="310" y="252" width="46" height="30"/>
                                 </variation>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rTM-Qa-uL5">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="101" y="345" width="199" height="30"/>
+                                </variation>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ki-ZT-uZH">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="93" y="416" width="240" height="128"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="weU-od-uYk"/>
+                                </connections>
+                            </textView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="r4S-Zf-xLY">
+                                <rect key="frame" x="0.0" y="-2" width="150" height="2"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="101" y="115" width="150" height="2"/>
+                                </variation>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -50,6 +77,9 @@
                                 <exclude reference="wRD-eU-ugl"/>
                                 <exclude reference="9zb-iz-f9L"/>
                                 <exclude reference="3vJ-dP-atm"/>
+                                <exclude reference="rTM-Qa-uL5"/>
+                                <exclude reference="4Ki-ZT-uZH"/>
+                                <exclude reference="r4S-Zf-xLY"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -57,9 +87,16 @@
                                 <include reference="wRD-eU-ugl"/>
                                 <include reference="9zb-iz-f9L"/>
                                 <include reference="3vJ-dP-atm"/>
+                                <include reference="rTM-Qa-uL5"/>
+                                <include reference="4Ki-ZT-uZH"/>
+                                <include reference="r4S-Zf-xLY"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="textField" destination="rTM-Qa-uL5" id="D9H-3U-O4x"/>
+                        <outlet property="textView" destination="4Ki-ZT-uZH" id="H8O-D0-BY9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

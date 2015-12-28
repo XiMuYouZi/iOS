@@ -9,44 +9,37 @@
 #import "ViewController.h"
 #import <iAD/iAD.h>
 
-@interface ViewController ()<ADBannerViewDelegate>
-@property(nonatomic,strong)ADBannerView *bannerView;
+@interface ViewController ()<UITextFieldDelegate,UITextViewDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
 @implementation ViewController
 
-
 -(void)viewDidLoad
 {
-    [super viewDidLoad];
-    self.bannerView=[[ADBannerView alloc]initWithAdType:ADAdTypeBanner];
-    self.bannerView.autoresizingMask=UIViewAutoresizingFlexibleWidth;
-    self.bannerView.delegate=self;
-    [self.view addSubview:self.bannerView];
-    int i=0;
-    for (; i<10; i++) {
-        int b=i*i;
-        NSLog(@"%i",b);
-    }
-}
-
--(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
-{
-    NSLog(@"error:%@",error);
-}
-
--(void)bannerViewDidLoadAd:(ADBannerView *)banner
-{
-    NSLog(@"广告加载成功");
+    self.textField.keyboardType=UIKeyboardTypeWebSearch;
     
+    self.textField.delegate=self;
 }
 
-
-
-
--(void)bannerViewActionDidFinish:(ADBannerView *)banner
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    NSLog(@"广告关闭");
+    [textField resignFirstResponder];
+    return YES;
 }
+
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    
+    return YES;
+}
+
+
+
 @end
