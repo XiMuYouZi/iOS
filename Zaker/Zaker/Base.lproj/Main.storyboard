@@ -320,7 +320,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="head" rowHeight="269" id="b4N-V9-Hel" customClass="FetchArticleSummaryCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="head" rowHeight="258" id="b4N-V9-Hel" customClass="FetchArticleSummaryCell">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b4N-V9-Hel" id="Abj-EF-Uhe">
@@ -334,7 +334,9 @@
                                         <constraint firstItem="73R-sJ-K1C" firstAttribute="leading" secondItem="Abj-EF-Uhe" secondAttribute="leadingMargin" constant="12" id="GLf-Id-sMG">
                                             <variation key="widthClass=compact" constant="-4"/>
                                         </constraint>
-                                        <constraint firstItem="73R-sJ-K1C" firstAttribute="centerY" secondItem="Abj-EF-Uhe" secondAttribute="centerY" id="Ndu-bX-h7A"/>
+                                        <constraint firstItem="73R-sJ-K1C" firstAttribute="centerY" secondItem="Abj-EF-Uhe" secondAttribute="centerY" id="Ndu-bX-h7A">
+                                            <variation key="widthClass=compact" constant="0.0"/>
+                                        </constraint>
                                         <constraint firstItem="73R-sJ-K1C" firstAttribute="top" secondItem="Abj-EF-Uhe" secondAttribute="topMargin" constant="4" id="cCf-He-bzZ">
                                             <variation key="widthClass=compact" constant="0.0"/>
                                         </constraint>

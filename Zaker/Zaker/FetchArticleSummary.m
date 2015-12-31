@@ -11,6 +11,7 @@
 #import "FetchArticleSummaryCell.h"
 #import "showWeiBo.h"
 #import "ArticleSummarySliderNavigation.h"
+#import "articleSummaryDB.h"
 
 
 @interface FetchArticleSummary ()
@@ -19,13 +20,14 @@
 
 @property(nonatomic,copy)NSDictionary *NumnberOfArticles;
 @property(nonatomic) FetchArticleDetail *articleView;
+@property (nonatomic)articleSummaryDB *articleSummaryDB;
+
+
 
 
 @end
 
 @implementation FetchArticleSummary
-
-
 
 
 # pragma mark - init
@@ -35,6 +37,10 @@
     [self fetch];
     NSLog(@"%@",self.theMagazineURL);
     self.navigationItem.title=self.theNameOfMagazine;
+    [_articleSummaryDB createDB ];
+
+    
+    
     
     
 }
@@ -42,6 +48,7 @@
 - (instancetype)init {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     self = [sb instantiateViewControllerWithIdentifier:@"FecthAtricleSummary"];
+    _articleSummaryDB=[[articleSummaryDB alloc]init];
     return self;
 }
 
@@ -52,7 +59,7 @@
 
 -(void)prepareWebViewController:(FetchArticleDetail *)webview toDisplayArticle:(NSArray *)articles  atIndexPath:(NSIndexPath *)indexpath
 {
-    NSDictionary *article=articles[indexpath.row];
+    NSDictionary *article=_articleSummaryDB.allArticles[indexpath.row];
     NSURL *url=[NSURL URLWithString:article[@"url"]];
     webview.Title=article[@"title"];
     webview.URL=url;
@@ -136,13 +143,26 @@
                                        [jsondata removeObjectForKey:@"code"];
                                        [jsondata removeObjectForKey:@"msg"];
                                    
+                                   
                                    if ([self.theNameOfMagazine isEqualToString:@"Apple新闻"])
                                    {
                                        self.articles = [jsondata allValues][0];
+                                       
+//                                       把数据转换成json格式存入数据库，是为了保存数据的原格式NSArray，这样读取出来的格式也是NSArray
+                                    NSData *jsonData = [NSJSONSerialization  dataWithJSONObject:self.articles options:NSJSONWritingPrettyPrinted error:nil];
+                                    NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+                                       NSLog(@"json:%@",jsonStr);
+//                                       [_articleSummaryDB inserts:jsonStr];
+               
 
                                       
                                    }else{
                                        self.articles = [jsondata allValues];
+                                       NSData *jsonData = [NSJSONSerialization  dataWithJSONObject:self.articles options:NSJSONWritingPrettyPrinted error:nil];
+                                       NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+
+//                                       [_articleSummaryDB inserts:jsonStr];
+                                       
 
                                         };
 //                                   NSLog(@"articles:%@",self.articles);
@@ -209,7 +229,8 @@
 {
     static NSString *CellIdentifier=@"Articles";
     static NSString *HeadIdentifier=@"head";
-    
+    [_articleSummaryDB query];
+    NSLog(@"%@",_articleSummaryDB.allArticles[0]);
     if (indexPath.row==0) {
         FetchArticleSummaryCell *headcell=[tableView dequeueReusableCellWithIdentifier:HeadIdentifier forIndexPath:indexPath];
         return headcell;
@@ -219,7 +240,9 @@
     {
 
     FetchArticleSummaryCell *cell=[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    NSDictionary *article=self.articles[indexPath.row];
+        
+//        从数据库获取数据
+    NSDictionary *article=_articleSummaryDB.allArticles[indexPath.row];
     cell.HeadLabel.text=article[@"title"];
     cell.SubHeadLabel.text=article[@"description"];
     
@@ -237,7 +260,6 @@
         cell.articleImage.image=[UIImage imageNamed:@"头像-2.jpg"];
 //        cell.articleImage.layer.cornerRadius = 40.f;
 //        cell.articleImage.layer.masksToBounds = YES;
-
 
     }
     

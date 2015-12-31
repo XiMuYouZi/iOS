@@ -1,4 +1,9 @@
 PODS:
+  - FMDB (2.5):
+    - FMDB/standard (= 2.5)
+  - FMDB/common (2.5)
+  - FMDB/standard (2.5):
+    - FMDB/common
   - ShareSDK2 (2.12.1):
     - ShareSDK2/Core (= 2.12.1)
   - ShareSDK2/Comment (2.12.1)
@@ -14,6 +19,7 @@ PODS:
   - ShareSDK2/UI/iPhoneSimple (2.12.1)
 
 DEPENDENCIES:
+  - FMDB (~> 2.5)
   - ShareSDK2
   - ShareSDK2/Comment
   - ShareSDK2/Connection/SinaWeibo
@@ -23,6 +29,7 @@ DEPENDENCIES:
   - ShareSDK2/UI/iPhoneSimple
 
 SPEC CHECKSUMS:
+  FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   ShareSDK2: 4f0e2c280f95e98151c74deaa52085cde640952f
 
 COCOAPODS: 0.39.0

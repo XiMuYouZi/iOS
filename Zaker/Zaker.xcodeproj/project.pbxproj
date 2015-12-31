@@ -20,6 +20,9 @@
 		0D610ABD1BFC20E600744B6B /* ZakerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D610ABC1BFC20E600744B6B /* ZakerTests.m */; };
 		0D6F3F4E1BFC7F1300768688 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D6F3F4C1BFC7F1300768688 /* Main.storyboard */; };
 		0D6F3F901BFDAE3D00768688 /* CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6F3F8F1BFDAE3D00768688 /* CollectionCell.m */; };
+		0D856F361C337A3C00A856B3 /* Zaker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0D856F341C337A3C00A856B3 /* Zaker.xcdatamodeld */; };
+		0D856F3C1C338C2200A856B3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D856F381C338BDA00A856B3 /* libsqlite3.dylib */; };
+		0D856F571C33BE0D00A856B3 /* articleSummaryDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D856F561C33BE0D00A856B3 /* articleSummaryDB.m */; };
 		0DB916C71C0E8E42002BEB41 /* showPhotoWithCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB916C61C0E8E42002BEB41 /* showPhotoWithCollectionView.m */; };
 		0DB916CA1C0EEE3F002BEB41 /* showPhotoWithModalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB916C91C0EEE3F002BEB41 /* showPhotoWithModalView.m */; };
 		0DC6724B1C0FEB1D006E5909 /* FetchArticleSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC6724A1C0FEB1D006E5909 /* FetchArticleSummaryCell.m */; };
@@ -51,6 +54,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 0D610A9C1BFC20E600744B6B;
 			remoteInfo = Zaker;
+		};
+		0D856F441C33A2BA00A856B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0DD049D71C1A9B020051ECF3 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3FF6CC2D423559E28AE3F55AFFA4CA33;
+			remoteInfo = FMDB;
 		};
 		0DD04A0E1C1A9B020051ECF3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -87,6 +97,11 @@
 		0D6F3F4D1BFC7F1300768688 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0D6F3F8E1BFDAE3D00768688 /* CollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionCell.h; sourceTree = "<group>"; };
 		0D6F3F8F1BFDAE3D00768688 /* CollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCell.m; sourceTree = "<group>"; };
+		0D856F351C337A3C00A856B3 /* Zaker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Zaker.xcdatamodel; sourceTree = "<group>"; };
+		0D856F381C338BDA00A856B3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		0D856F3A1C338BEF00A856B3 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		0D856F551C33BE0D00A856B3 /* articleSummaryDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = articleSummaryDB.h; sourceTree = "<group>"; };
+		0D856F561C33BE0D00A856B3 /* articleSummaryDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = articleSummaryDB.m; sourceTree = "<group>"; };
 		0DB916C51C0E8E42002BEB41 /* showPhotoWithCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = showPhotoWithCollectionView.h; sourceTree = "<group>"; };
 		0DB916C61C0E8E42002BEB41 /* showPhotoWithCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = showPhotoWithCollectionView.m; sourceTree = "<group>"; };
 		0DB916C81C0EEE3F002BEB41 /* showPhotoWithModalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = showPhotoWithModalView.h; sourceTree = "<group>"; };
@@ -363,6 +378,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D856F3C1C338C2200A856B3 /* libsqlite3.dylib in Frameworks */,
 				CFF8B405FFBE3577377FEBA3 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,6 +424,7 @@
 		0D43621B1C02F78800B3CA87 /* Fetch Article */ = {
 			isa = PBXGroup;
 			children = (
+				0D856F401C33908A00A856B3 /* DB */,
 				0DC672491C0FEB1D006E5909 /* FetchArticleSummaryCell.h */,
 				0DC6724A1C0FEB1D006E5909 /* FetchArticleSummaryCell.m */,
 				0D3C16491C1586C8005F9386 /* FetchArticleDetail.h */,
@@ -423,6 +440,7 @@
 		0D43621C1C02F80D00B3CA87 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				0D856F341C337A3C00A856B3 /* Zaker.xcdatamodeld */,
 				0D6F3F4C1BFC7F1300768688 /* Main.storyboard */,
 				0D610AAD1BFC20E600744B6B /* Images.xcassets */,
 				0D610AAF1BFC20E600744B6B /* LaunchScreen.xib */,
@@ -491,6 +509,15 @@
 				0D610ABB1BFC20E600744B6B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0D856F401C33908A00A856B3 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				0D856F551C33BE0D00A856B3 /* articleSummaryDB.h */,
+				0D856F561C33BE0D00A856B3 /* articleSummaryDB.m */,
+			);
+			name = DB;
 			sourceTree = "<group>";
 		};
 		0DC672511C1146A7006E5909 /* WeiBo */ = {
@@ -832,6 +859,7 @@
 		0DD049D81C1A9B020051ECF3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				0D856F451C33A2BA00A856B3 /* libFMDB.a */,
 				0DD04A0F1C1A9B020051ECF3 /* libPods.a */,
 			);
 			name = Products;
@@ -1023,6 +1051,8 @@
 		A314EBD910E836F7BDD60647 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0D856F3A1C338BEF00A856B3 /* libsqlite3.0.dylib */,
+				0D856F381C338BDA00A856B3 /* libsqlite3.dylib */,
 				0DD049121C1A9B020051ECF3 /* Pods */,
 				B90A8C28E19565D0B362BA02 /* libPods.a */,
 			);
@@ -1115,6 +1145,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		0D856F451C33A2BA00A856B3 /* libFMDB.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libFMDB.a;
+			remoteRef = 0D856F441C33A2BA00A856B3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		0DD04A0F1C1A9B020051ECF3 /* libPods.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1220,10 +1257,12 @@
 				0DEE2A591C16731700ED8FBA /* UITableView+FDTemplateLayoutCellDebug.m in Sources */,
 				0DD048BA1C1951690051ECF3 /* ArticleSummarySliderNavigation.m in Sources */,
 				0DD048B01C194D250051ECF3 /* WMFooldView.m in Sources */,
+				0D856F361C337A3C00A856B3 /* Zaker.xcdatamodeld in Sources */,
 				0DD048B41C194D250051ECF3 /* WMScrollView.m in Sources */,
 				0DEE2A561C16731700ED8FBA /* UITableView+FDIndexPathHeightCache.m in Sources */,
 				0D610AA61BFC20E600744B6B /* AppDelegate.m in Sources */,
 				0DEE2A351C1672D400ED8FBA /* RAMCollectionViewFlemishBondLayoutAttributes.m in Sources */,
+				0D856F571C33BE0D00A856B3 /* articleSummaryDB.m in Sources */,
 				0DD04A1F1C1AD0450051ECF3 /* answerCell.m in Sources */,
 				0DB916CA1C0EEE3F002BEB41 /* showPhotoWithModalView.m in Sources */,
 				0D610AA31BFC20E600744B6B /* main.m in Sources */,
@@ -1449,6 +1488,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0D856F341C337A3C00A856B3 /* Zaker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0D856F351C337A3C00A856B3 /* Zaker.xcdatamodel */,
+			);
+			currentVersion = 0D856F351C337A3C00A856B3 /* Zaker.xcdatamodel */;
+			path = Zaker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0D610A951BFC20E500744B6B /* Project object */;
 }
