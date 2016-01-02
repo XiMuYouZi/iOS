@@ -11,31 +11,31 @@
 @implementation FetchPhotoCell
 
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self.backgroundColor=[UIColor whiteColor];
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self setup];
-    }
-    return self;
-}
-
-#pragma mark - Setup
-- (void)setup
-{
-    [self setupImage];
-}
-
-
-- (void)setupImage
-{
-    self.PhotoImageView = [[UIImageView alloc]initWithFrame:self.contentView.bounds];
-//    self.PhotoImageView.contentMode=UIViewContentModeScaleAspectFill;
-    
-    [self addSubview:self.PhotoImageView];
-                           
-}
+//- (id)initWithFrame:(CGRect)frame
+//{
+//    self.backgroundColor=[UIColor whiteColor];
+//    self = [super initWithFrame:frame];
+//    if (self) {
+//        [self setup];
+//    }
+//    return self;
+//}
+//
+//#pragma mark - Setup
+//- (void)setup
+//{
+//    [self setupImage];
+//}
+//
+//
+//- (void)setupImage
+//{
+//    self.PhotoImageView = [[UIImageView alloc]initWithFrame:self.contentView.bounds];
+////    self.PhotoImageView.contentMode=UIViewContentModeScaleAspectFill;
+//    
+//    [self addSubview:self.PhotoImageView];
+//                           
+//}
 
 
 

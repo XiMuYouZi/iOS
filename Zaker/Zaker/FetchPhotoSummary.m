@@ -88,23 +88,28 @@ self.urlOfThumbnails=[[AllPhotos valueForKeyPath:ALL_PHOTOS_URL][indexpath.row] 
     [super viewDidLoad];
     [self fetchPhoto];
     self.navigationItem.title=self.thePhotosNAME;
+    dispatch_semaphore_wait(<#dispatch_semaphore_t dsema#>, <#dispatch_time_t timeout#>)
 
 
 }
 
 
 //下载图片
--(void) getImageFromURL:(NSString *)fileURL {
+-(void) getImageFromURL:(NSString *)fileURL cells:(FetchPhotoCell *)cell {
     
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^
-//                   {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^
+                   {
+//                       在global线程中下载图片
                        NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fileURL]];
-                       
                        self.image = [UIImage imageWithData:data];
- 
+                       
+//                       在main线程中更新cell的imageview图像
+                       dispatch_async(dispatch_get_main_queue(), ^{
+                           cell.PhotoImageView.image=self.image;
+                       });
                    
-//                   });
-    
+                   });
+
 }
 
 //获取json数据
@@ -162,10 +167,10 @@ self.urlOfThumbnails=[[AllPhotos valueForKeyPath:ALL_PHOTOS_URL][indexpath.row] 
 
          FetchPhotoCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     [self DisplaySummaryPhoto:self.allPhotos atIndexPath:indexPath];
-    [self getImageFromURL:self.urlOfThumbnails];
+    [self getImageFromURL:self.urlOfThumbnails cells:cell];
 
 //    dispatch_async(dispatch_get_main_queue(), ^{
-        cell.PhotoImageView.image=self.image;
+//        cell.PhotoImageView.image=self.image;
 
 //    });
     cell.layer.borderWidth=0.3f;
