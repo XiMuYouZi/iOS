@@ -18,6 +18,7 @@
 @property(nonatomic,strong)UIImage *image;
 @property(nonatomic)FetchPhotoDetail *fetchPhotoDetail;
 @property(nonatomic)showPhotoWithCollectionView *showphoto;
+@property(nonatomic,strong)NSString *data;
 @end
 
 
@@ -86,11 +87,21 @@ self.urlOfThumbnails=[[AllPhotos valueForKeyPath:ALL_PHOTOS_URL][indexpath.row] 
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+   NSLog(@"viewdidload:%@",self.allPhotos);
     [self fetchPhoto];
+
     self.navigationItem.title=self.thePhotosNAME;
-    dispatch_semaphore_wait(<#dispatch_semaphore_t dsema#>, <#dispatch_time_t timeout#>)
 
 
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+
+    NSLog(@"viewWilldisappear:%@",self.allPhotos);
+
+    
 }
 
 
@@ -115,11 +126,13 @@ self.urlOfThumbnails=[[AllPhotos valueForKeyPath:ALL_PHOTOS_URL][indexpath.row] 
 //获取json数据
 -(void)fetchPhoto
 {
+    NSLog(@"block之前");
         NSURL *url = [NSURL URLWithString: self.thePhotosURL];
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url cachePolicy: NSURLRequestUseProtocolCachePolicy timeoutInterval: 10];
         [request setHTTPMethod: @"GET"];
         [request addValue: @"fefa4eb543425fc64ab767f301d934ad" forHTTPHeaderField: @"apikey"];
-        [NSURLConnection sendAsynchronousRequest: request
+    
+    [NSURLConnection sendAsynchronousRequest: request
                                            queue: [NSOperationQueue mainQueue]
                                completionHandler: ^(NSURLResponse *response, NSData *data, NSError *error){
                                    if (error) {
@@ -127,25 +140,23 @@ self.urlOfThumbnails=[[AllPhotos valueForKeyPath:ALL_PHOTOS_URL][indexpath.row] 
                                    } else {
                                        
                                        NSDictionary *json=[NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
+                                       self.allPhotos=[NSArray new];
                                        self.allPhotos=[json  valueForKeyPath:ALL_PHOTOS];
                                        
-                                       
-//                                       NSLog(@"articles:%@",self.allPhotos);
-                                       
+                                       NSLog(@"block中");
+
                                        dispatch_async(dispatch_get_main_queue(), ^
                                                       {
                                                           [self.collectionView reloadData];
                                                           
                                                       });
-
-                                       
-                                       
-                                       
                                        
                                        
                                    }
                                }];
     
+    NSLog(@"block之后");
+
     }
     
 
@@ -166,13 +177,14 @@ self.urlOfThumbnails=[[AllPhotos valueForKeyPath:ALL_PHOTOS_URL][indexpath.row] 
 {
 
          FetchPhotoCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+//    NSLog(@"cellforintem:%@",self.allPhotos);
     [self DisplaySummaryPhoto:self.allPhotos atIndexPath:indexPath];
     [self getImageFromURL:self.urlOfThumbnails cells:cell];
 
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        cell.PhotoImageView.image=self.image;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        cell.PhotoImageView.image=self.image;
 
-//    });
+    });
     cell.layer.borderWidth=0.3f;
     cell.layer.borderColor=[UIColor grayColor].CGColor;
     cell.layer.cornerRadius=8;

@@ -1,0 +1,535 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0D111A8F1C49EB2000A0FD0C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D111A8E1C49EB2000A0FD0C /* main.m */; };
+		0D111A921C49EB2000A0FD0C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D111A911C49EB2000A0FD0C /* AppDelegate.m */; };
+		0D111A9D1C49EB2000A0FD0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D111A9B1C49EB2000A0FD0C /* LaunchScreen.storyboard */; };
+		0D6343411C4A6C1700BE6378 /* HomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6343401C4A6C1700BE6378 /* HomePageController.m */; };
+		0D63434B1C4B4B4900BE6378 /* BannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D63434A1C4B4B4900BE6378 /* BannerView.m */; };
+		0D9B6EDA1C4C8C3A0090A428 /* bannerCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9B6ED91C4C8C3A0090A428 /* bannerCellModel.m */; };
+		0D9B6EDD1C4C9FCE0090A428 /* bannerCellModel+FetchPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9B6EDC1C4C9FCE0090A428 /* bannerCellModel+FetchPhoto.m */; };
+		0D9B6EDF1C4CA7600090A428 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D9B6EDE1C4CA7600090A428 /* Assets.xcassets */; };
+		0DCDD7C71C4D05E900F2CC41 /* fetchPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCDD7C61C4D05E900F2CC41 /* fetchPhotos.m */; };
+		0DCDD7CA1C4D0B5C00F2CC41 /* fetchHomePageJsonData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCDD7C91C4D0B5C00F2CC41 /* fetchHomePageJsonData.m */; };
+		0F5AC12D16880150236622B7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C1E5767503DBFB356D54407 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0D111A8A1C49EB2000A0FD0C /* Tecent-cartoon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tecent-cartoon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D111A8E1C49EB2000A0FD0C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0D111A901C49EB2000A0FD0C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0D111A911C49EB2000A0FD0C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0D111A9C1C49EB2000A0FD0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0D111A9E1C49EB2000A0FD0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D63433F1C4A6C1700BE6378 /* HomePageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomePageController.h; path = ../HomePageController.h; sourceTree = "<group>"; };
+		0D6343401C4A6C1700BE6378 /* HomePageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomePageController.m; path = ../HomePageController.m; sourceTree = "<group>"; };
+		0D6343491C4B4B4900BE6378 /* BannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerView.h; sourceTree = "<group>"; };
+		0D63434A1C4B4B4900BE6378 /* BannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerView.m; sourceTree = "<group>"; };
+		0D9B6ED81C4C8C3A0090A428 /* bannerCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bannerCellModel.h; sourceTree = "<group>"; };
+		0D9B6ED91C4C8C3A0090A428 /* bannerCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bannerCellModel.m; sourceTree = "<group>"; };
+		0D9B6EDB1C4C9FCE0090A428 /* bannerCellModel+FetchPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "bannerCellModel+FetchPhoto.h"; sourceTree = "<group>"; };
+		0D9B6EDC1C4C9FCE0090A428 /* bannerCellModel+FetchPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "bannerCellModel+FetchPhoto.m"; sourceTree = "<group>"; };
+		0D9B6EDE1C4CA7600090A428 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0D9B6EEA1C4D01CB0090A428 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		0D9B6EEB1C4D01CB0090A428 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		0DCDD7C51C4D05E900F2CC41 /* fetchPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fetchPhotos.h; sourceTree = "<group>"; };
+		0DCDD7C61C4D05E900F2CC41 /* fetchPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fetchPhotos.m; sourceTree = "<group>"; };
+		0DCDD7C81C4D0B5C00F2CC41 /* fetchHomePageJsonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fetchHomePageJsonData.h; sourceTree = "<group>"; };
+		0DCDD7C91C4D0B5C00F2CC41 /* fetchHomePageJsonData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fetchHomePageJsonData.m; sourceTree = "<group>"; };
+		6FDF7E38C52FD5F43F6A74BB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		7C1E5767503DBFB356D54407 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E738F6AD495E3FB3398EE8EF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0D111A871C49EB2000A0FD0C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F5AC12D16880150236622B7 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0D111A811C49EB2000A0FD0C = {
+			isa = PBXGroup;
+			children = (
+				0D111A8C1C49EB2000A0FD0C /* Tecent-cartoon */,
+			);
+			sourceTree = "<group>";
+		};
+		0D111A8B1C49EB2000A0FD0C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0D111A8A1C49EB2000A0FD0C /* Tecent-cartoon.app */,
+			);
+			name = Products;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		0D111A8C1C49EB2000A0FD0C /* Tecent-cartoon */ = {
+			isa = PBXGroup;
+			children = (
+				0D9B6EE91C4D01BF0090A428 /* Vender */,
+				0D6343431C4B382800BE6378 /* Source */,
+				0D6343441C4B387500BE6378 /* Application */,
+				0D9B6EE61C4CF16C0090A428 /* DataBase */,
+				0D9B6ED21C4C85860090A428 /* Base */,
+				0D9B6EE71C4CF23E0090A428 /* Categories */,
+				0D9B6EE51C4CF1300090A428 /* Network */,
+				0D6343451C4B390000BE6378 /* Controller */,
+				0D6343481C4B4A4D00BE6378 /* Model */,
+				0D6343461C4B392700BE6378 /* View */,
+			);
+			path = "Tecent-cartoon";
+			sourceTree = "<group>";
+		};
+		0D111A8D1C49EB2000A0FD0C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0D111A8E1C49EB2000A0FD0C /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0D6343431C4B382800BE6378 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				0D9B6EDE1C4CA7600090A428 /* Assets.xcassets */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		0D6343441C4B387500BE6378 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				0D111A8D1C49EB2000A0FD0C /* Supporting Files */,
+				B3A608BCC6A576BEC0F62571 /* Frameworks */,
+				36AFDF7F9A4D96DE5C5E3FFC /* Pods */,
+				0D111A8B1C49EB2000A0FD0C /* Products */,
+				0D111A9E1C49EB2000A0FD0C /* Info.plist */,
+				0D111A9B1C49EB2000A0FD0C /* LaunchScreen.storyboard */,
+				0D111A901C49EB2000A0FD0C /* AppDelegate.h */,
+				0D111A911C49EB2000A0FD0C /* AppDelegate.m */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		0D6343451C4B390000BE6378 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0D63433F1C4A6C1700BE6378 /* HomePageController.h */,
+				0D6343401C4A6C1700BE6378 /* HomePageController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		0D6343461C4B392700BE6378 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0D9B6EE21C4CF0EA0090A428 /* banner */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		0D6343481C4B4A4D00BE6378 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0D9B6EE41C4CF1100090A428 /* banner */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0D9B6ED21C4C85860090A428 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0DCDD7CB1C4D0DFA00F2CC41 /* network */,
+				0DCDD7C81C4D0B5C00F2CC41 /* fetchHomePageJsonData.h */,
+				0DCDD7C91C4D0B5C00F2CC41 /* fetchHomePageJsonData.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		0D9B6EE21C4CF0EA0090A428 /* banner */ = {
+			isa = PBXGroup;
+			children = (
+				0D6343491C4B4B4900BE6378 /* BannerView.h */,
+				0D63434A1C4B4B4900BE6378 /* BannerView.m */,
+			);
+			name = banner;
+			sourceTree = "<group>";
+		};
+		0D9B6EE41C4CF1100090A428 /* banner */ = {
+			isa = PBXGroup;
+			children = (
+				0D9B6ED81C4C8C3A0090A428 /* bannerCellModel.h */,
+				0D9B6ED91C4C8C3A0090A428 /* bannerCellModel.m */,
+			);
+			name = banner;
+			sourceTree = "<group>";
+		};
+		0D9B6EE51C4CF1300090A428 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				0DCDD7C41C4D05C200F2CC41 /* banner */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		0D9B6EE61C4CF16C0090A428 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DataBase;
+			sourceTree = "<group>";
+		};
+		0D9B6EE71C4CF23E0090A428 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				0D9B6EE81C4CF2590090A428 /* banner */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		0D9B6EE81C4CF2590090A428 /* banner */ = {
+			isa = PBXGroup;
+			children = (
+				0D9B6EDB1C4C9FCE0090A428 /* bannerCellModel+FetchPhoto.h */,
+				0D9B6EDC1C4C9FCE0090A428 /* bannerCellModel+FetchPhoto.m */,
+			);
+			name = banner;
+			sourceTree = "<group>";
+		};
+		0D9B6EE91C4D01BF0090A428 /* Vender */ = {
+			isa = PBXGroup;
+			children = (
+				0D9B6EEA1C4D01CB0090A428 /* JSONKit.h */,
+				0D9B6EEB1C4D01CB0090A428 /* JSONKit.m */,
+			);
+			name = Vender;
+			sourceTree = "<group>";
+		};
+		0DCDD7C41C4D05C200F2CC41 /* banner */ = {
+			isa = PBXGroup;
+			children = (
+				0DCDD7C51C4D05E900F2CC41 /* fetchPhotos.h */,
+				0DCDD7C61C4D05E900F2CC41 /* fetchPhotos.m */,
+			);
+			name = banner;
+			sourceTree = "<group>";
+		};
+		0DCDD7CB1C4D0DFA00F2CC41 /* network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = network;
+			sourceTree = "<group>";
+		};
+		36AFDF7F9A4D96DE5C5E3FFC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6FDF7E38C52FD5F43F6A74BB /* Pods.debug.xcconfig */,
+				E738F6AD495E3FB3398EE8EF /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		B3A608BCC6A576BEC0F62571 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C1E5767503DBFB356D54407 /* libPods.a */,
+			);
+			name = Frameworks;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0D111A891C49EB2000A0FD0C /* Tecent-cartoon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D111AA11C49EB2000A0FD0C /* Build configuration list for PBXNativeTarget "Tecent-cartoon" */;
+			buildPhases = (
+				9F05D6C9D17BCC59151C8CBB /* Check Pods Manifest.lock */,
+				0D111A861C49EB2000A0FD0C /* Sources */,
+				0D111A871C49EB2000A0FD0C /* Frameworks */,
+				0D111A881C49EB2000A0FD0C /* Resources */,
+				B21EBC354311084AAF3A7E89 /* Embed Pods Frameworks */,
+				70D792CE8C6692C97E9F5AAD /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Tecent-cartoon";
+			productName = "Tecent-cartoon";
+			productReference = 0D111A8A1C49EB2000A0FD0C /* Tecent-cartoon.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0D111A821C49EB2000A0FD0C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Mia;
+				TargetAttributes = {
+					0D111A891C49EB2000A0FD0C = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = L654V3J485;
+					};
+				};
+			};
+			buildConfigurationList = 0D111A851C49EB2000A0FD0C /* Build configuration list for PBXProject "Tecent-cartoon" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0D111A811C49EB2000A0FD0C;
+			productRefGroup = 0D111A8B1C49EB2000A0FD0C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0D111A891C49EB2000A0FD0C /* Tecent-cartoon */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0D111A881C49EB2000A0FD0C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D9B6EDF1C4CA7600090A428 /* Assets.xcassets in Resources */,
+				0D111A9D1C49EB2000A0FD0C /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		70D792CE8C6692C97E9F5AAD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F05D6C9D17BCC59151C8CBB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B21EBC354311084AAF3A7E89 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0D111A861C49EB2000A0FD0C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D63434B1C4B4B4900BE6378 /* BannerView.m in Sources */,
+				0D9B6EDD1C4C9FCE0090A428 /* bannerCellModel+FetchPhoto.m in Sources */,
+				0D111A921C49EB2000A0FD0C /* AppDelegate.m in Sources */,
+				0DCDD7C71C4D05E900F2CC41 /* fetchPhotos.m in Sources */,
+				0D9B6EDA1C4C8C3A0090A428 /* bannerCellModel.m in Sources */,
+				0D6343411C4A6C1700BE6378 /* HomePageController.m in Sources */,
+				0DCDD7CA1C4D0B5C00F2CC41 /* fetchHomePageJsonData.m in Sources */,
+				0D111A8F1C49EB2000A0FD0C /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0D111A9B1C49EB2000A0FD0C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0D111A9C1C49EB2000A0FD0C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0D111A9F1C49EB2000A0FD0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0D111AA01C49EB2000A0FD0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0D111AA21C49EB2000A0FD0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FDF7E38C52FD5F43F6A74BB /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Tecent-cartoon/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ws.Tecent-cartoon";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
+			};
+			name = Debug;
+		};
+		0D111AA31C49EB2000A0FD0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E738F6AD495E3FB3398EE8EF /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Tecent-cartoon/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ws.Tecent-cartoon";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0D111A851C49EB2000A0FD0C /* Build configuration list for PBXProject "Tecent-cartoon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D111A9F1C49EB2000A0FD0C /* Debug */,
+				0D111AA01C49EB2000A0FD0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0D111AA11C49EB2000A0FD0C /* Build configuration list for PBXNativeTarget "Tecent-cartoon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D111AA21C49EB2000A0FD0C /* Debug */,
+				0D111AA31C49EB2000A0FD0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0D111A821C49EB2000A0FD0C /* Project object */;
+}

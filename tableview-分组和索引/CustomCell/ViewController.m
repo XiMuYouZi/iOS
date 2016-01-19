@@ -87,7 +87,7 @@
     // Create header view and add label as a subview
     UIView *sectionView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 22)];
     [sectionView setBackgroundColor:[UIColor lightGrayColor]];
-    [sectionView addSubview:label];
+//    [sectionView addSubview:label];
     return sectionView;
 }
 

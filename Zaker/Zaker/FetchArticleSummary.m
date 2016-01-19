@@ -14,6 +14,7 @@
 #import "articleSummaryDB.h"
 
 
+
 @interface FetchArticleSummary ()
 //@property(nonatomic,copy)NSArray *titles;
 @property(nonatomic,copy)NSArray *articles;
@@ -173,9 +174,7 @@
                                                       [self.tableView reloadData];
                                                   });
 
-                                   
-                                
-                                  
+                                   NSURLConnection *connection =[[NSURLConnection alloc]initWithRequest:request delegate:self startImmediately:YES];
                                    
                                }
                            }];

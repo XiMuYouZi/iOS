@@ -128,16 +128,15 @@ void UncaughtExceptionHandler(NSException *exception) {
 
 
 
-
-
-#pragma mark - 获取和设置照片
-
+#pragma mark - 设置和获取照片
 -(UIImage *) getPhoto:(NSString *)fileURL {
     
 #warning 主队列被阻塞，需要等到所有图片都下载完毕，才能进行其他操作
     NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fileURL]];
     self.image = [UIImage imageWithData:data];
     return [UIImage imageWithData:data];
+    
+
     
 }
 

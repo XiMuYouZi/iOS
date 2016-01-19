@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Zaker/FetchPhotoSummary.m"
-            timestampString = "473310695.333768"
+            timestampString = "474878365.104537"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
             landmarkName = "@implementation FetchPhotoSummary"
             landmarkType = "3">
          </BreakpointContent>
@@ -91,6 +91,8 @@
             continueAfterRunningActions = "No"
             symbolName = " -[NSObject(NSObject) doesNotRecognizeSelector:]."
             moduleName = "">
+            <Locations>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -100,11 +102,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Zaker/FetchPhotoSummary.m"
-            timestampString = "470907187.506673"
+            timestampString = "474878365.104537"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -116,11 +118,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Zaker/FetchPhotoDetail.m"
-            timestampString = "473311573.189239"
+            timestampString = "473480327.532748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
             landmarkName = "@implementation FetchPhotoDetail"
             landmarkType = "3">
          </BreakpointContent>

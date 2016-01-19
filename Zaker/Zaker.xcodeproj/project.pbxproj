@@ -335,9 +335,6 @@
 		0DD049F71C1A9B020051ECF3 /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
 		0DD049F81C1A9B020051ECF3 /* WeiboSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
 		0DD049F91C1A9B020051ECF3 /* WeiboUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
-		0DD049FB1C1A9B020051ECF3 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
-		0DD049FC1C1A9B020051ECF3 /* WXApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
-		0DD049FD1C1A9B020051ECF3 /* WXApiObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		0DD049FE1C1A9B020051ECF3 /* ShareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDK.framework; sourceTree = "<group>"; };
 		0DD04A001C1A9B020051ECF3 /* ShareSDKiPadSimpleShareViewUI.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDKiPadSimpleShareViewUI.bundle; sourceTree = "<group>"; };
 		0DD04A011C1A9B020051ECF3 /* ShareSDKiPadSimpleShareViewUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKiPadSimpleShareViewUI.framework; sourceTree = "<group>"; };
@@ -922,7 +919,6 @@
 			isa = PBXGroup;
 			children = (
 				0DD049EC1C1A9B020051ECF3 /* SinaWeiboSDK */,
-				0DD049FA1C1A9B020051ECF3 /* WeChatSDK */,
 			);
 			path = Extend;
 			sourceTree = "<group>";
@@ -945,16 +941,6 @@
 				0DD049F91C1A9B020051ECF3 /* WeiboUser.h */,
 			);
 			path = SinaWeiboSDK;
-			sourceTree = "<group>";
-		};
-		0DD049FA1C1A9B020051ECF3 /* WeChatSDK */ = {
-			isa = PBXGroup;
-			children = (
-				0DD049FB1C1A9B020051ECF3 /* libWeChatSDK.a */,
-				0DD049FC1C1A9B020051ECF3 /* WXApi.h */,
-				0DD049FD1C1A9B020051ECF3 /* WXApiObject.h */,
-			);
-			path = WeChatSDK;
 			sourceTree = "<group>";
 		};
 		0DD049FF1C1A9B020051ECF3 /* UI */ = {
@@ -1111,6 +1097,7 @@
 				TargetAttributes = {
 					0D610A9C1BFC20E600744B6B = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = L654V3J485;
 					};
 					0D610AB51BFC20E600744B6B = {
 						CreatedOnToolsVersion = 6.4;
@@ -1402,10 +1389,13 @@
 			baseConfigurationReference = C30C86E83368927CBE4D4140 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Zaker/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Debug;
@@ -1415,10 +1405,13 @@
 			baseConfigurationReference = 35E60A0C2C87E0F328A4AF57 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Zaker/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 			};
 			name = Release;
