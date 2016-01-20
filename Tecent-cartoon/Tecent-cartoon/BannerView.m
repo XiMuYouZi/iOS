@@ -39,8 +39,8 @@
     _scrollview =[[UIScrollView alloc]init];
     [self.contentView addSubview:_scrollview];
     [_scrollview mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.and.top.and.bottom.equalTo(self.contentView);
-        make.size.mas_equalTo(CGSizeMake(750, 400));
+        make.top.and.bottom.equalTo(self.contentView);
+        make.size.mas_equalTo(CGSizeMake(750, 436));
 
     }];
     
@@ -48,10 +48,11 @@
     
 //    布局_bannerImageView
     _bannerImageView=[[UIImageView alloc]init];
-//    _bannerImageView.contentMode=UIViewContentModeScaleTo;
-    [self.scrollview addSubview:_bannerImageView];
+//    _bannerImageView.contentMode=UIViewContentModeScaleAspectFit;
+    [self.contentView addSubview:_bannerImageView];
     [_bannerImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.and.right.and.top.and.bottom.equalTo(self.scrollview);
+        make.left.and.top.and.bottom.and.right.equalTo(self.scrollview);
+
 
     }];
     
@@ -67,7 +68,7 @@
     }];
     
     
-
+    [_bannerImageView setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
 }
 
 @end

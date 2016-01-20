@@ -1,19 +1,27 @@
 PODS:
+  - JSONModel (1.2.0)
   - Masonry (0.6.4)
   - MKNetworkKit (0.87):
     - Reachability (~> 3.1.0)
   - Reachability (3.1.1)
+  - SDWebImage (3.7.4):
+    - SDWebImage/Core (= 3.7.4)
+  - SDWebImage/Core (3.7.4)
   - UITableView+FDTemplateLayoutCell (1.4)
 
 DEPENDENCIES:
+  - JSONModel
   - Masonry
   - MKNetworkKit
+  - SDWebImage
   - UITableView+FDTemplateLayoutCell
 
 SPEC CHECKSUMS:
+  JSONModel: 12523685c4b623553ccf844bbbf7007624317b2c
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   MKNetworkKit: 60ad3c83b62183e40ba75ce772c9427c25b520de
   Reachability: dd9aa4fb6667b9f787690a74f53cb7634ce99893
+  SDWebImage: 247edd7dd80dd6124197b0d6a17846fe9d1df968
   UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
 
 COCOAPODS: 0.39.0

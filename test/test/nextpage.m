@@ -26,12 +26,8 @@ static id _instance;
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    
-   
-    
-    
     [self getBannerPhotoURL];
-    NSLog(@"bannerURL:%@",self.resultData);
+    NSLog(@"viewdidlog:%@",self.resultData);
 
 }
 
@@ -45,44 +41,52 @@ static id _instance;
 #pragma  mark - 获取数据
 -(void)fetchJsonData
 {
-//    NSLog(@"block之前");
-//    MKNetworkEngine *engine = [[MKNetworkEngine alloc] initWithHostName:host  customHeaderFields:nil];
-//    MKNetworkOperation *operation = [engine operationWithPath:path];
-////    dispatch_queue_t queue = dispatch_queue_create("queue", DISPATCH_QUEUE_SERIAL);
-//
-//    dispatch_async (dispatch_get_main_queue(), ^{
-//[operation addCompletionHandler:^(MKNetworkOperation *completedOperation) {
-//        NSLog(@"请求完成");
-//        
-//        // 获得返回的数据（json形式）
-//        _resultData = [completedOperation responseJSON];
-//        
-//        
-//    } errorHandler:^(MKNetworkOperation *completedOperation, NSError *error) {
-//        NSLog(@"请求出错");
-//        
-//    }];
-//    });
-//    
-//    // 发起网络请求
-//    [engine enqueueOperation:operation];
+    NSLog(@"block之前");
+    MKNetworkEngine *engine = [[MKNetworkEngine alloc] initWithHostName:host  customHeaderFields:nil];
+    MKNetworkOperation *operation = [engine operationWithPath:path];
+
+[operation addCompletionHandler:^(MKNetworkOperation *completedOperation) {
+        NSLog(@"请求完成");
     
-    NSURL *url = [NSURL URLWithString:@"http://mobilev3.ac.qq.com/Home/homePageDetailForIosV3/uin/476301176/local_version/3.6.1/channel/1001/guest_id/5A056C3E-76B2-4168-A693-7B41A08D17B5"];
-    //第二步，通过URL创建网络请求
-    NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                             timeoutInterval:10];
-    //第三步，连接服务器,发送同步请求
-    NSData *received = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    _resultData=[NSJSONSerialization JSONObjectWithData:received options:NSUTF8StringEncoding error:nil];
+    NSDictionary * resultDatas = [completedOperation responseJSON];
+
+        // 获得返回的数据（json形式）
+    if (self.passdata) {
+        self.passdata(resultDatas);
+    }
+    
+    
+    
+        
+    } errorHandler:^(MKNetworkOperation *completedOperation, NSError *error) {
+        NSLog(@"请求出错");
+        
+    }];
+    
+    // 发起网络请求
+    [engine enqueueOperation:operation];
+    
     
 }
 
 #pragma mark - 获取banner_url
 -(void)getBannerPhotoURL
 {
+    __block NSDictionary *data=[[NSDictionary alloc]init];
     
-[self fetchJsonData];
+    [self fetchJsonData];
+    self.passdata=^(NSDictionary *dic){
+        _resultData =dic;
+    };
+    NSLog(@"gethou%@",data);
     
     
 }
+
+//-(void)fetch
+//{
+//    [self getBannerPhotoURL:^(NSDictionary *data) {
+//        _resultData=data ;
+//    }];
+//}
 @end

@@ -15,6 +15,8 @@ typedef void(^FetchPhotoBlock)(NSArray *cellContent);
 
 @interface bannerCellModel (FetchPhoto)
 
+//@property(nonatomic,copy) void(^FetchPhotoBlock)(NSArray *cellContent);
+
 //暴露一个block接口给homepagecontroller,把数据传递给他
 +(void)fetchBannerPhotos:(FetchPhotoBlock)completionBlock;
 @end

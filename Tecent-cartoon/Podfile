@@ -1,3 +1,6 @@
 pod 'Masonry'
 pod 'UITableView+FDTemplateLayoutCell'
 pod 'MKNetworkKit'
+pod 'SDWebImage'
+pod 'JSONModel'
+

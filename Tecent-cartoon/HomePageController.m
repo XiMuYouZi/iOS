@@ -51,18 +51,23 @@ static NSString *reuseIdentifier=@"BannerView";
     }];
     
     
+    NSLog(@"viewdidload:%@",_cellModel);
 }
+
 
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"%d",self.cellModel.count);
-    return self.cellModel.count;
+    NSLog(@"row:%@",_cellModel);
+
+    return _cellModel.count;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    NSLog(@"section:%@",_cellModel);
+
     return 1;
 }
 
@@ -90,22 +95,19 @@ static NSString *reuseIdentifier=@"BannerView";
     
 }
 
--(void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    NSLog(@"%@",_cellModel);
-
-}
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+{    NSLog(@"cell:%@",_cellModel);
+
+
     BannerView *cell=[tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
     if (cell==nil) {
         cell=[[BannerView alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
     }
+    
         [cell configCell:_cellModel[indexPath.row]];
-        
+    
     return cell;
 }
 
