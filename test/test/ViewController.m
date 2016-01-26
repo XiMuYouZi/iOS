@@ -2,69 +2,71 @@
 //  ViewController.m
 //  test
 //
-//  Created by Mia on 16/1/19.
+//  Created by Mia on 16/1/22.
 //  Copyright © 2016年 Mia. All rights reserved.
 //
 
 #import "ViewController.h"
-#import "MKNetworkKit.h"
+#import "buttonView.h"
+#import "nextViewController.h"
+
+
+#define Dlog(...) (NSLog(__VA_ARGS__))
+#define DLog(fmt, ...) {NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);}
 
 @interface ViewController ()
+@property(nonatomic,strong)NSString *firstName;
 
 @end
 
-
-#define banner_url @"data.banner.data"
-
-#define host @"mobilev3.ac.qq.com"
-#define path  @"Home/homePageDetailForIosV3/uin/476301176/local_version/3.6.1/channel/1001/guest_id/5A056C3E-76B2-4168-A693-7B41A08D17B5"
-
-
 @implementation ViewController
 
-static id _instance;
+- (void)viewDidLoad {
 
-//-(void)viewDidLoad
-//{
-//    [super viewDidLoad];
-//    [self getBannerPhotoURL];
-//}
+    [super viewDidLoad];
+//    buttonView *Button=[[buttonView alloc]init];
+//    [self.view addSubview:Button];
+//    [Button.button addTarget:self action:@selector(log) forControlEvents:UIControlEventTouchUpInside];
+   
+    _firstName=@"zhang";
+//    [self  setValue:@"wang" forKey:@"firstName"];
+    NSLog(@"%@",[self valueForKey:@"firstName"]);
+    
 
 
-//-(void)viewWillDisappear:(BOOL)animated
-//{
-//    [super viewWillDisappear:animated];
-//    NSLog(@"bannerURLsss:%@",self.resultData);
-//}
-//
-//#pragma  mark - 获取数据
-//-(void)fetchJsonData
-//{
-//    MKNetworkEngine *engine = [[MKNetworkEngine alloc] initWithHostName:host  customHeaderFields:nil];
-//    MKNetworkOperation *operation = [engine operationWithPath:path];
-//    [operation addCompletionHandler:^(MKNetworkOperation *completedOperation) {
-//        NSLog(@"请求完成");
-//        
-//        // 获得返回的数据（json形式）
-//        _resultData = [completedOperation responseJSON];
-//        
-//        
-//    } errorHandler:^(MKNetworkOperation *completedOperation, NSError *error) {
-//        NSLog(@"请求出错");
-//        
-//    }];
-//    
-//    // 发起网络请求
-//    [engine enqueueOperation:operation];
-//    
-//}
-//
-//#pragma mark - 获取banner_url
-//-(void)getBannerPhotoURL
-//{
-//    [self fetchJsonData];
-//    sleep(5);
-//    NSLog(@"bannerURL:%@",self.resultData);
-//    
-//}
+}
+
+
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
+{
+    if (context==@"传递到viewcontroller") {
+        NSLog(@"%@---%@--%@--%@",object, keyPath,change[NSKeyValueChangeNewKey],context);
+
+    }
+}
+
+- (void)dealloc
+{
+    // 移除观察者
+    [self removeObserver:self forKeyPath:@"musicName"];
+    
+}
+
+-(void)log
+
+{
+    NSLog(@"ds");
+    
+    nextViewController *next=[[nextViewController alloc]init];
+
+    [self.navigationController pushViewController:next animated:YES ];
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+        // Dispose of any resources that can be recreated.
+}
+
 @end

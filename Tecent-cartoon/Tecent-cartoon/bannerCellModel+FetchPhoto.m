@@ -8,61 +8,36 @@
 
 #import "bannerCellModel+FetchPhoto.h"
 #import "MKNetworkKit.h"
+#import "HomePageController.h"
+
+
 
 #define HomePageURL @"http://mobilev3.ac.qq.com/Home/homePageDetailForIosV3/uin/476301176/local_version/3.6.1/channel/1001/guest_id/5A056C3E-76B2-4168-A693-7B41A08D17B5"
 #define banner_url @"data.banner.data"
 
+
+
 @interface bannerCellModel ()
 @property (nonatomic,strong)MKNetworkEngine *engine;
+@property(nonatomic,strong)HomePageController *observer;
+@property(nonatomic,strong)NSArray *cellModelDatas;
 @end
+
+
 
 @implementation bannerCellModel (FetchPhoto)
 
--(id)init
+
+-(instancetype)init
 {
     self=[super init];
     if (self) {
+        self.observer=[HomePageController new];
+          [self addObserver:self.observer forKeyPath:@"cellModelDatas" options:NSKeyValueObservingOptionNew context:@"传递cellModelData"];
     }
-    
     return self;
+    
 }
-
-
-//获取所有的json数据
--(void)fetchJsonData:(FetchPhotoBlock)completionBlock
-{        MKNetworkEngine *engine=[[MKNetworkEngine alloc]init];
-
-        MKNetworkOperation *operation = [engine operationWithURLString:HomePageURL];
-        [operation addCompletionHandler:^(MKNetworkOperation *completedOperation) {
-            NSLog(@"请求完成");
-            NSDictionary *resultData=[[NSDictionary alloc]init];
-            
-            // 获得返回的数据（json形式）
-             if ([completedOperation isCachedResponse])
-             {
-               resultData = [[completedOperation responseJSON] valueForKey:@"data"];
-             }
-            
-#warning 这里非常重要，因为是请求是异步操作，所以必须在block内部返回值，可以使用bloc，notification，delegate
-//            如果有人调用了这个block，就给它传递值
-            if (completionBlock) {
-                completionBlock([resultData copy]);
-            }
-    
-    
-        } errorHandler:^(MKNetworkOperation *completedOperation, NSError *error) {
-            NSLog(@"请求出错");
-    
-        }];
-    
-        // 发起网络请求
-    [self.engine useCache];
-
-        [self.engine enqueueOperation:operation];
-}
-
-
-
 //下载图片
 -(void)fetchPhoto:(NSURL *)imageURL imageIndex:(NSInteger)index
 {
@@ -87,7 +62,7 @@
 
 
 //暴露一个block接口给homepagecontroller,把banner的photo传递给它
-+(void)fetchBannerPhotos:(FetchPhotoBlock)completionBlock
+-(void)fetchBannerPhotos
 {
 
     MKNetworkEngine *engine=[[MKNetworkEngine alloc]init];
@@ -96,12 +71,11 @@
     [operation addCompletionHandler:^(MKNetworkOperation *completedOperation)
      {
         
+         
             NSDictionary *resultData=[[NSDictionary alloc]init];
             NSMutableArray *cellModelData=[[NSMutableArray alloc]init];
-        
             resultData = [[completedOperation responseJSON] valueForKeyPath:banner_url];
    
-            
             for (NSDictionary *bannerURLS in resultData)
             {
                 bannerCellModel *cellmodel=[[bannerCellModel alloc]init];
@@ -109,15 +83,29 @@
                 NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:bannerUrl]];
                 cellmodel.Image= [UIImage imageWithData:data];
                 [cellModelData addObject:cellmodel];
+                self.cellModelDatas=cellModelData;
+
                 
             }
-        
-        if (completionBlock)
-        {
-            NSLog(@"block:%@",cellModelData);
-            completionBlock([cellModelData copy]);
-        }
-            
+
+         
+//         使用notification传值
+         
+//        [[NSNotificationCenter defaultCenter]postNotificationName:@"dataLoaded" object:self userInfo:[NSDictionary dictionaryWithObject:cellModelData forKey:@"json"]];
+         
+         
+/*      使用KVO传值
+         observer：观察者，需要响应属性变化的对象。该对象必须实现 observeValueForKeyPath:ofObject:change:context: 方法。
+         keyPath：要观察的属性名称。要和属性声明的名称一致。
+         options：对KVO机制进行配置，修改KVO通知的时机以及通知的内容，在后面详解。
+         context：接收一个C指针，指向希望监听的属性。如：&self->_testData
+ */
+         
+         
+
+         
+         
+         
        }
      
         errorHandler:^(MKNetworkOperation *completedOperation, NSError *error)
@@ -130,6 +118,7 @@
         
         [engine useCache];
         [engine enqueueOperation:operation];
+    
 
        
     

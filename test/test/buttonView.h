@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  buttonView.h
 //  test
 //
 //  Created by Mia on 16/1/22.
@@ -8,11 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-{
-    NSString *ss;
-}
+@interface buttonView : UIView
+
+@property (nonatomic,strong)UIButton *button;
 
 
 @end
-

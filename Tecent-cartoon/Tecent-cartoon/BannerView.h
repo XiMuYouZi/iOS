@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "bannerCellModel.h"
 
-@interface BannerView :UITableViewCell
+@interface BannerView :UITableViewCell<UIScrollViewDelegate>
 @property(strong ,nonatomic)UIImageView *bannerImageView;
-@property(strong,nonatomic)UIScrollView *scrollview;
-@property(strong,nonatomic)UIPageControl *pagecontrol;
+@property(strong,nonatomic)UIScrollView *scrollView;
+@property(strong,nonatomic)UIPageControl *pageControl;
 
 -(void)configCell:(bannerCellModel *)cellmodel;
 

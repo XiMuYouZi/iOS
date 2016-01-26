@@ -10,12 +10,12 @@
 		0D111A8F1C49EB2000A0FD0C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D111A8E1C49EB2000A0FD0C /* main.m */; };
 		0D111A921C49EB2000A0FD0C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D111A911C49EB2000A0FD0C /* AppDelegate.m */; };
 		0D111A9D1C49EB2000A0FD0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D111A9B1C49EB2000A0FD0C /* LaunchScreen.storyboard */; };
+		0D20176D1C50A37F00F93133 /* sectionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D20176C1C50A37F00F93133 /* sectionHeadView.m */; };
 		0D6343411C4A6C1700BE6378 /* HomePageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6343401C4A6C1700BE6378 /* HomePageController.m */; };
 		0D63434B1C4B4B4900BE6378 /* BannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D63434A1C4B4B4900BE6378 /* BannerView.m */; };
 		0D9B6EDA1C4C8C3A0090A428 /* bannerCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9B6ED91C4C8C3A0090A428 /* bannerCellModel.m */; };
 		0D9B6EDD1C4C9FCE0090A428 /* bannerCellModel+FetchPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9B6EDC1C4C9FCE0090A428 /* bannerCellModel+FetchPhoto.m */; };
 		0D9B6EDF1C4CA7600090A428 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D9B6EDE1C4CA7600090A428 /* Assets.xcassets */; };
-		0DCDD7CA1C4D0B5C00F2CC41 /* fetchHomePageJsonData.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCDD7C91C4D0B5C00F2CC41 /* fetchHomePageJsonData.m */; };
 		0F5AC12D16880150236622B7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C1E5767503DBFB356D54407 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +26,8 @@
 		0D111A911C49EB2000A0FD0C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0D111A9C1C49EB2000A0FD0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D111A9E1C49EB2000A0FD0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D20176B1C50A37F00F93133 /* sectionHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sectionHeadView.h; sourceTree = "<group>"; };
+		0D20176C1C50A37F00F93133 /* sectionHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sectionHeadView.m; sourceTree = "<group>"; };
 		0D63433F1C4A6C1700BE6378 /* HomePageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomePageController.h; path = ../HomePageController.h; sourceTree = "<group>"; };
 		0D6343401C4A6C1700BE6378 /* HomePageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomePageController.m; path = ../HomePageController.m; sourceTree = "<group>"; };
 		0D6343491C4B4B4900BE6378 /* BannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerView.h; sourceTree = "<group>"; };
@@ -37,8 +39,6 @@
 		0D9B6EDE1C4CA7600090A428 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D9B6EEA1C4D01CB0090A428 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		0D9B6EEB1C4D01CB0090A428 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
-		0DCDD7C81C4D0B5C00F2CC41 /* fetchHomePageJsonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fetchHomePageJsonData.h; sourceTree = "<group>"; };
-		0DCDD7C91C4D0B5C00F2CC41 /* fetchHomePageJsonData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fetchHomePageJsonData.m; sourceTree = "<group>"; };
 		6FDF7E38C52FD5F43F6A74BB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7C1E5767503DBFB356D54407 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		858E37215AC7A1DAED4B0697 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +97,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0D20176A1C50A35800F93133 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0D20176B1C50A37F00F93133 /* sectionHeadView.h */,
+				0D20176C1C50A37F00F93133 /* sectionHeadView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		0D6343431C4B382800BE6378 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,7 +143,6 @@
 			children = (
 				0D6343491C4B4B4900BE6378 /* BannerView.h */,
 				0D63434A1C4B4B4900BE6378 /* BannerView.m */,
-				0D9B6EE21C4CF0EA0090A428 /* banner */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -152,17 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				0DCDD7CB1C4D0DFA00F2CC41 /* network */,
-				0DCDD7C81C4D0B5C00F2CC41 /* fetchHomePageJsonData.h */,
-				0DCDD7C91C4D0B5C00F2CC41 /* fetchHomePageJsonData.m */,
 			);
 			name = Base;
-			sourceTree = "<group>";
-		};
-		0D9B6EE21C4CF0EA0090A428 /* banner */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = banner;
 			sourceTree = "<group>";
 		};
 		0D9B6EE61C4CF16C0090A428 /* DataBase */ = {
@@ -200,8 +199,9 @@
 		0DCDD8121C4F2FD500F2CC41 /* Homepage */ = {
 			isa = PBXGroup;
 			children = (
-				0DCDD8131C4F303D00F2CC41 /* firstCell */,
 				0D6343451C4B390000BE6378 /* Controller */,
+				0D20176A1C50A35800F93133 /* View */,
+				0DCDD8131C4F303D00F2CC41 /* firstCell */,
 			);
 			name = Homepage;
 			sourceTree = "<group>";
@@ -377,7 +377,7 @@
 				0D111A921C49EB2000A0FD0C /* AppDelegate.m in Sources */,
 				0D9B6EDA1C4C8C3A0090A428 /* bannerCellModel.m in Sources */,
 				0D6343411C4A6C1700BE6378 /* HomePageController.m in Sources */,
-				0DCDD7CA1C4D0B5C00F2CC41 /* fetchHomePageJsonData.m in Sources */,
+				0D20176D1C50A37F00F93133 /* sectionHeadView.m in Sources */,
 				0D111A8F1C49EB2000A0FD0C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

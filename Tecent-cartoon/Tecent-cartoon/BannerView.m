@@ -16,14 +16,13 @@
 {
     self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        [self initLayout];
+        [self configLayout];
     }
 
     return self;
 }
 
 
-//暴露了一个接口给homepagecontroller来实现配置bannerView的数据显示
 -(void)configCell:(bannerCellModel *)cellmodel
 {
     self.bannerImageView.image=cellmodel.Image;
@@ -31,14 +30,40 @@
 
 
 
-//配置cell内部的各个控件的autolayout
--(void)initLayout
+-(UIScrollView *)scrollView
+{
+    
+    [_scrollView setPagingEnabled:YES];
+    [_scrollView setShowsHorizontalScrollIndicator:NO];
+    [_scrollView setShowsVerticalScrollIndicator:NO];
+    [_scrollView setScrollsToTop:NO];
+    [_scrollView setDelegate:self];
+    _scrollView.bounces = YES;
+    
+    return _scrollView;
+}
+
+-(UIPageControl*)pageControl
+{
+    _pageControl.currentPage=0;
+    _pageControl.numberOfPages=5;
+    [_pageControl setCurrentPageIndicatorTintColor:[UIColor redColor]];
+    [_pageControl setPageIndicatorTintColor:[UIColor blackColor]];
+    
+    return _pageControl;
+}
+
+
+
+
+
+-(void)configLayout
 {
         
 //布局scrollerview
-    _scrollview =[[UIScrollView alloc]init];
-    [self.contentView addSubview:_scrollview];
-    [_scrollview mas_makeConstraints:^(MASConstraintMaker *make) {
+    _scrollView =[[UIScrollView alloc]init];
+    [self.contentView addSubview:_scrollView];
+    [_scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.and.bottom.equalTo(self.contentView);
         make.size.mas_equalTo(CGSizeMake(750, 436));
 
@@ -51,16 +76,16 @@
 //    _bannerImageView.contentMode=UIViewContentModeScaleAspectFit;
     [self.contentView addSubview:_bannerImageView];
     [_bannerImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.and.top.and.bottom.and.right.equalTo(self.scrollview);
+        make.left.and.top.and.bottom.and.right.equalTo(self.scrollView);
 
 
     }];
     
     
 //    布局UIPageControl
-    _pagecontrol=[[UIPageControl alloc]init];
-    [self.bannerImageView addSubview:_pagecontrol];
-    [_pagecontrol mas_makeConstraints:^(MASConstraintMaker *make) {
+    _pageControl=[[UIPageControl alloc]init];
+    [self.bannerImageView addSubview:_pageControl];
+    [_pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.contentView).with.offset(-10);
         make.bottom.equalTo(self.contentView).with.offset(-10);
         make.size.mas_equalTo(CGSizeMake(100, 20));
