@@ -23,16 +23,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    self.observer=[[ViewController alloc]init];
-    [self addObserver:self.observer forKeyPath:@"appStatus" options:NSKeyValueObservingOptionNew context:@"传递到viewcontroller"];
-    
-    
-    self.observer2=[[nextViewController alloc]init];
-    [self addObserver:self.observer forKeyPath:@"appStatus" options:NSKeyValueObservingOptionNew context:@"传递到buttonview"];
-    
-
-//    .运算符也会使用KVC设置值
-    self.appStatus=@[@1,@2,@"233"];
+//    self.observer=[[ViewController alloc]init];
+//    [self addObserver:self.observer forKeyPath:@"appStatus" options:NSKeyValueObservingOptionNew context:@"传递到viewcontroller"];
+//    
+//    
+//    self.observer2=[[nextViewController alloc]init];
+//    [self addObserver:self.observer forKeyPath:@"appStatus" options:NSKeyValueObservingOptionNew context:@"传递到buttonview"];
+//    
+//
+////    .运算符也会使用KVC设置值
+//    self.appStatus=@[@1,@2,@"233"];
     
     
     

@@ -31,6 +31,7 @@
                         <viewControllerLayoutGuide type="bottom" id="XAh-Xh-jC0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gFJ-rJ-YwN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOZ-SF-fYq">
@@ -40,7 +41,7 @@
                                     <rect key="frame" x="177" y="249" width="46" height="30"/>
                                 </variation>
                                 <connections>
-                                    <segue destination="Hru-no-ZiX" kind="show" id="sHl-96-CqM"/>
+                                    <segue destination="Omf-PY-JPF" kind="push" id="bog-tK-HUL"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -62,6 +63,24 @@
             </objects>
             <point key="canvasLocation" x="1777.5" y="912"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="hiL-xC-5at">
+            <objects>
+                <viewController id="Omf-PY-JPF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yVZ-Jz-z5f"/>
+                        <viewControllerLayoutGuide type="bottom" id="gmk-cB-fcF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qk0-TH-VnU">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rbn-Cr-LTv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oRf-bS-S2i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2617.5" y="746"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="b9g-u4-zVO">
             <objects>
@@ -79,24 +98,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JA5-p4-B42" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="996" y="775"/>
-        </scene>
-        <!--Next View Controller-->
-        <scene sceneID="RAl-Ko-gcI">
-            <objects>
-                <viewController id="Hru-no-ZiX" customClass="nextViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Zb4-FB-jAJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="8UD-Q6-n63"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="nj3-hH-IcH">
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="8Bb-z7-yBX"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4BX-xo-On3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2377.5" y="842"/>
         </scene>
     </scenes>
 </document>

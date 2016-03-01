@@ -24,27 +24,96 @@
 - (void)viewDidLoad {
 
     [super viewDidLoad];
-//    buttonView *Button=[[buttonView alloc]init];
-//    [self.view addSubview:Button];
-//    [Button.button addTarget:self action:@selector(log) forControlEvents:UIControlEventTouchUpInside];
-   
-    _firstName=@"zhang";
-//    [self  setValue:@"wang" forKey:@"firstName"];
-    NSLog(@"%@",[self valueForKey:@"firstName"]);
+    dispatch_queue_t queue1= dispatch_queue_create("并行队列", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_queue_t queue2= dispatch_queue_create("串行队列", DISPATCH_QUEUE_SERIAL);
     
+//    大任务1
+    NSLog(@"1---%@",[NSThread currentThread]);
+    
+//    大任务2
+    dispatch_sync(queue2, ^{
+//        小任务2
+        NSLog(@"2---%@",[NSThread currentThread]);
+        
+    
+//        小任务3
+        dispatch_sync(queue2, ^{
+//            小小任务33
+            static int num = 0;
+            for (int i = 0; i < 10; i++) {
+                num+=i;
+                NSLog(@"小小任务33：%d---%@", num,[NSThread currentThread]);
+            }
+            
 
-
-}
-
-
-
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
-{
-    if (context==@"传递到viewcontroller") {
-        NSLog(@"%@---%@--%@--%@",object, keyPath,change[NSKeyValueChangeNewKey],context);
-
+        });
+        
+//        小任务4
+        static int num = 0;
+        for (int i = 0; i < 10; i++) {
+            num+=i;
+            NSLog(@"小任务4：%d---%@", num,[NSThread currentThread]);
+            
+        }
+    });
+    
+//     大任务3
+    static int num = 0;
+    for (int i = 0; i < 10; i++) {
+        num+=i;
+        NSLog(@"大任务3：%d---%@", num,[NSThread currentThread]);
+        
     }
+
+
+
+    
+    
+    
+    
+//    任务一
+    dispatch_async(queue2, ^{
+            NSLog(@"%@---%d",[NSThread currentThread],1);
+            NSLog(@"%@---%d",[NSThread currentThread],2);
+            NSLog(@"%@---%d",[NSThread currentThread],3);
+        });
+
+    
+//    任务三
+    dispatch_async(queue2, ^{
+        NSLog(@"%@---%d",[NSThread currentThread],5);
+        NSLog(@"%@---%d",[NSThread currentThread],6);
+        NSLog(@"%@---%d",[NSThread currentThread],7);
+
+    });
+    
+    //    任务二
+    dispatch_async(queue2, ^{
+        NSLog(@"%@---%d",[NSThread currentThread],8);
+        NSLog(@"%@---%d",[NSThread currentThread],9);
+        
+    });
+
+
+//
+
+    
 }
+
+
+
+-(void)printlog
+{
+    NSLog(@"dsd");
+}
+-(void)printName:(NSString *)name
+{
+    NSAssert(name==nil, @"name is not allowed null");
+    NSLog(@"%@",name);
+}
+
+
+
 
 - (void)dealloc
 {
@@ -60,7 +129,9 @@
     
     nextViewController *next=[[nextViewController alloc]init];
 
-    [self.navigationController pushViewController:next animated:YES ];
+}
+
+- (void)getseil:(NSInteger)num {
 }
 
 

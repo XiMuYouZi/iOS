@@ -67,6 +67,8 @@
 
     MKNetworkEngine *engine=[[MKNetworkEngine alloc]init];
     MKNetworkOperation *operation = [engine operationWithURLString:HomePageURL];
+    [engine enqueueOperation:operation];
+
     
     [operation addCompletionHandler:^(MKNetworkOperation *completedOperation)
      {
@@ -117,7 +119,6 @@
         
         
         [engine useCache];
-        [engine enqueueOperation:operation];
     
 
        

@@ -23,6 +23,7 @@
 
 static NSString *reuseIdentifier=@"BannerView";
 
+
 - (void)viewDidLoad {
     
 
@@ -68,12 +69,14 @@ static NSString *reuseIdentifier=@"BannerView";
     return _cellModel.count;
 }
 
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     NSLog(@"section:%@",_cellModel);
 
     return 1;
 }
+
 
 //设置section Header
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section

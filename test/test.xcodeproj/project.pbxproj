@@ -15,6 +15,7 @@
 		0D5169641C5220B600D8694C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D5169621C5220B600D8694C /* LaunchScreen.storyboard */; };
 		0D51696D1C5221A200D8694C /* buttonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D51696C1C5221A200D8694C /* buttonView.m */; };
 		0D5169701C57355800D8694C /* nextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D51696F1C57355800D8694C /* nextViewController.m */; };
+		0D9347F41C58B06300EFB98B /* baseViewControllere.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9347F31C58B06300EFB98B /* baseViewControllere.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		0D51696C1C5221A200D8694C /* buttonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = buttonView.m; sourceTree = "<group>"; };
 		0D51696E1C57355800D8694C /* nextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nextViewController.h; sourceTree = "<group>"; };
 		0D51696F1C57355800D8694C /* nextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nextViewController.m; sourceTree = "<group>"; };
+		0D9347F21C58B06300EFB98B /* baseViewControllere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = baseViewControllere.h; sourceTree = "<group>"; };
+		0D9347F31C58B06300EFB98B /* baseViewControllere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = baseViewControllere.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,8 @@
 				0D5169581C5220B600D8694C /* AppDelegate.m */,
 				0D51695A1C5220B600D8694C /* ViewController.h */,
 				0D51695B1C5220B600D8694C /* ViewController.m */,
+				0D9347F21C58B06300EFB98B /* baseViewControllere.h */,
+				0D9347F31C58B06300EFB98B /* baseViewControllere.m */,
 				0D51696B1C5221A200D8694C /* buttonView.h */,
 				0D51696C1C5221A200D8694C /* buttonView.m */,
 				0D51695D1C5220B600D8694C /* Main.storyboard */,
@@ -163,6 +168,7 @@
 				0D51695C1C5220B600D8694C /* ViewController.m in Sources */,
 				0D5169591C5220B600D8694C /* AppDelegate.m in Sources */,
 				0D51696D1C5221A200D8694C /* buttonView.m in Sources */,
+				0D9347F41C58B06300EFB98B /* baseViewControllere.m in Sources */,
 				0D5169561C5220B500D8694C /* main.m in Sources */,
 				0D5169701C57355800D8694C /* nextViewController.m in Sources */,
 			);
@@ -313,6 +319,7 @@
 				0D51696A1C5220B600D8694C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

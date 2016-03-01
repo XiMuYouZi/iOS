@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "baseViewControllere.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : baseViewControllere
 {
     NSString *ss;
 }

@@ -135,8 +135,8 @@
                                    NSLog(@"Httperror: %@%ld", error.localizedDescription, (long)error.code);
                                } else {
                                    
-                                   NSDictionary *json=[NSJSONSerialization JSONObjectWithData:data options:NSUTF8StringEncoding error:nil];
-                                   
+                                   NSDictionary *json=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+                                   NSLog(@"%@",json);
                                    // 把获取的字典转换为可变字典，然后去掉键值为code和msg的值，因为这两个值无用
                                    NSMutableDictionary *jsondata=[[NSMutableDictionary alloc]init];
                                    [jsondata addEntriesFromDictionary:json];
@@ -150,7 +150,7 @@
                                        self.articles = [jsondata allValues][0];
                                        
 //                                       把数据转换成json格式存入数据库，是为了保存数据的原格式NSArray，这样读取出来的格式也是NSArray
-                                    NSData *jsonData = [NSJSONSerialization  dataWithJSONObject:self.articles options:NSJSONWritingPrettyPrinted error:nil];
+                                    NSData *jsonData = [NSJSONSerialization  dataWithJSONObject:self.articles options:0 error:nil];
                                     NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
                                        NSLog(@"json:%@",jsonStr);
 //                                       [_articleSummaryDB inserts:jsonStr];
@@ -161,6 +161,7 @@
                                        self.articles = [jsondata allValues];
                                        NSData *jsonData = [NSJSONSerialization  dataWithJSONObject:self.articles options:NSJSONWritingPrettyPrinted error:nil];
                                        NSString *jsonStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+                                       NSLog(@"json:%@",jsonStr);
 
 //                                       [_articleSummaryDB inserts:jsonStr];
                                        
@@ -174,7 +175,7 @@
                                                       [self.tableView reloadData];
                                                   });
 
-                                   NSURLConnection *connection =[[NSURLConnection alloc]initWithRequest:request delegate:self startImmediately:YES];
+//                                   NSURLConnection *connection =[[NSURLConnection alloc]initWithRequest:request delegate:self startImmediately:YES];
                                    
                                }
                            }];
